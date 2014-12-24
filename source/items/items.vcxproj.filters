@@ -12,5 +12,16 @@
     <ClInclude Include="h\item.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="h\weapon.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="h\ItemType.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\weapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
