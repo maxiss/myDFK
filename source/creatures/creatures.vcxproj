@@ -10,6 +10,14 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="h\creature.h" />
+    <ClInclude Include="h\creatureTypes.h" />
+    <ClInclude Include="h\dwarf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\dwarf.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC5BE5DA-66E0-4CD7-A6B9-282A9F5C79EE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -45,6 +53,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>h</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
