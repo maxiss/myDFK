@@ -1,10 +1,11 @@
 #pragma once
 
+#include "map\h\object.h"
 #include "ItemType.h"
 
 namespace items
 {
-   class CItem
+   class CItem : public map::CObject
    {
    public:
       virtual TItemType getItemType() = 0;

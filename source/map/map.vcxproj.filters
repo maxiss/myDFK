@@ -8,4 +8,9 @@
       <UniqueIdentifier>{86b61431-d714-48bf-a36a-d76b64ec38c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="h\object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
