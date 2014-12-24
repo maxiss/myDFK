@@ -11,7 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="h\map.h" />
     <ClInclude Include="h\object.h" />
+    <ClInclude Include="h\point.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7D5519E-4193-4286-8DB6-E7A17B9A6355}</ProjectGuid>

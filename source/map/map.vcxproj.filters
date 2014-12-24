@@ -12,5 +12,11 @@
     <ClInclude Include="h\object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="h\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="h\point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
