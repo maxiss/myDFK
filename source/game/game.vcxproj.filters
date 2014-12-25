@@ -14,9 +14,15 @@
     <ClCompile Include="source\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="h\interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

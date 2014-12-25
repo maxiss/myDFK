@@ -13,4 +13,9 @@
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\task.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

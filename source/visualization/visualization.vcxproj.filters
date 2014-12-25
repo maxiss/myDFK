@@ -11,7 +11,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\visualisator.h">
+    <ClCompile Include="source\visualizator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="h\visualizator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,10 +1,11 @@
 #include <iostream>
+#include "game\h\interface.h"
 
 using namespace std;
 
 void main()
 {
-   cout << "test" << endl;
+   startGame();
 
    system( "pause" );
 }

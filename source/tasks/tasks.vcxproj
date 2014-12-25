@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClInclude Include="h\task.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\task.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0F91FB90-FAB7-44BD-BBFA-0E5F173181C7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

@@ -1,6 +1,7 @@
 #pragma once
 
-#include "visualization\h\visualisator.h"
+#include "visualization\h\visualizator.h"
+#include "map\h\map.h"
 
 namespace game
 {
@@ -12,7 +13,9 @@ namespace game
       void stop();
 
    private:
-      visualisation::CVisualisator visual;
+      visualization::CVisualizator visual;
+      map::CMap map;
+
    };
 
 }
