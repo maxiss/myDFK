@@ -11,6 +11,8 @@ namespace game
       CGame();
       void start();
       void stop();
+      bool loop;
+      int step();
 
    private:
       visualization::CVisualizator visual;

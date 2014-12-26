@@ -12,7 +12,9 @@ namespace map
    {
    private:
       TMap content;
-
+      
+   public:
+      int loop();
    };
 
 }
