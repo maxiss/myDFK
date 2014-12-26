@@ -1,44 +1,32 @@
 #pragma once
 
-#include "threads.h"
-#include <process.h>
 #include <Windows.h>
+#include <process.h>
 
 namespace threads
 {
-   typedef unsigned int (__stdcall * TFoo)(void*);
-
    template <class TData>
    class CThread
    {
    public:
-      typedef void (*TThreadFunc)(TData*);
-      CThread(TThreadFunc func, TData* data);
+      typedef void (TData::*TFoo)();
+      CThread(TData& data_, TFoo func_) : data(data_), func(func_) {}
+      void run()
+      {
+         process = (HANDLE) _beginthread(_callback, 0, this);
+      }
 
    private:
-      TThreadFunc func;
-      TData* data;
+      TData& data;
+      TFoo func;
       HANDLE process;
-      static unsigned __stdcall _callback( void* data );
+
+      static void __cdecl _callback( void* data )
+      {
+         CThread& thread = *(CThread*) data;
+         ((thread.data).*(thread.func))();
+      }
 
    };
 
-   template <class TData>
-   CThread<TData>::CThread( TThreadFunc func_, TData* data_ )
-    : func(func_), data(data_)
-   {
-      process = (HANDLE) _beginthreadex( NULL, 0, (TFoo)(_callback), this, 0, 0 );
-   }
-
-   template <class TData>
-   static unsigned __stdcall CThread<TData>::_callback( void* data )
-   {
-      CThread<TData>& thread = *(CThread<TData>*) data;
-      (thread.func)(thread.data);
-      return 0;
-   }
-
 }
-
-
-

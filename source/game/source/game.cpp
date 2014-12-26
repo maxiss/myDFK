@@ -10,13 +10,11 @@ CGame::CGame()
 {
 }
 
-static void gameStep( CGame* data )
+void CGame::gameLoop()
 {
-   CGame& game = *(CGame*) data;
-
-   while (game.loop)
+   while (loop)
    {
-      game.step();
+      step();
       Sleep(300);
    }
 }
@@ -25,7 +23,9 @@ void CGame::start()
 {
    loop = true;
    int ch = 0;
-   CThread<CGame> gameLoop( gameStep, this );
+
+   CThread<CGame> gameLoop( *this, &CGame::gameLoop );
+   gameLoop.run();
    do
    {
       ch = _getch();

@@ -11,12 +11,16 @@ namespace game
       CGame();
       void start();
       void stop();
-      bool loop;
-      int step();
+
+   protected:
+      void gameLoop();
 
    private:
       visualization::CVisualizator visual;
       map::CMap map;
+
+      bool loop;
+      int step();
 
    };
 
