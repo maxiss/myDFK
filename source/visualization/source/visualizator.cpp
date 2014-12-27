@@ -1,4 +1,5 @@
 #include "visualizator.h"
+#include <Windows.h>
 
 using namespace visualization;
 using namespace gamemap;
@@ -6,6 +7,16 @@ using namespace gamemap;
 CVisualizator::CVisualizator( const gamemap::CMap& map_ )
    : map(map_)
 {
+   initConsole();
+}
+
+void CVisualizator::loop()
+{
+   while (true)
+   {
+      frame();
+      Sleep( 100 );
+   }
 }
 
 void CVisualizator::frame()

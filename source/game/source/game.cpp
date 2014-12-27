@@ -35,6 +35,10 @@ void CGame::start()
 
    CThread<CGame> gameLoop( *this, &CGame::gameLoop );
    gameLoop.run();
+
+   CThread<visualization::CVisualizator> visualLoop( visual, &visualization::CVisualizator::loop );
+   visualLoop.run();
+
    do
    {
       ch = _getch();
@@ -44,5 +48,4 @@ void CGame::start()
 
 void CGame::step()
 {
-   visual.frame();
 }
