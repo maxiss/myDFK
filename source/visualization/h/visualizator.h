@@ -8,10 +8,16 @@ namespace visualization
    {
    public:
       CVisualizator( const gamemap::CMap& );
-      void loop();
+      void frame();
 
    private:
       const gamemap::CMap& map;
+      //virtual void draw( const gamemap::TPosition& pos ) = 0;
+      // TODO: bear out to child class
+      void draw( const gamemap::TPosition& pos );
+      void initConsole();
+      void draw( const gamemap::TObjectType& objType );
+
    };
 
 }

@@ -7,5 +7,6 @@ void main()
 {
    startGame();
 
+   system( "cls" );
    system( "pause" );
 }

@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\visualizator.cpp" />
+    <ClCompile Include="source\visualizator_console.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C3709ACB-5C78-4F90-B15C-DA6CE272B2DB}</ProjectGuid>

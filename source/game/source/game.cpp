@@ -9,7 +9,7 @@ using namespace threads;
 // TODO: move to ini-file
 #define MINX 0
 #define MINY 0
-#define MAXX 10
+#define MAXX 20
 #define MAXY 10
 #define SLEEP_TIME 300
 
@@ -44,5 +44,5 @@ void CGame::start()
 
 void CGame::step()
 {
-   visual.loop();
+   visual.frame();
 }
