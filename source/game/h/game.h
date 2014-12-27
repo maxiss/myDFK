@@ -1,6 +1,6 @@
 #pragma once
 
-#include "visualization\h\visualizator.h"
+#include "visualization\h\visualizator_console.h"
 #include "map\h\map.h"
 
 namespace game
@@ -15,7 +15,7 @@ namespace game
       void gameLoop();
 
    private:
-      visualization::CVisualizator visual;
+      visualization::CVisualizator_console visual;
       gamemap::CMap map;
 
       bool loop;

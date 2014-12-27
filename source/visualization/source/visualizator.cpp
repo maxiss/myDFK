@@ -5,10 +5,11 @@
 using namespace visualization;
 using namespace gamemap;
 
+#define SLEEP_TIME 100
+
 CVisualizator::CVisualizator( const gamemap::CMap& map_ )
    : map(map_)
 {
-   initConsole();
 }
 
 void CVisualizator::start()
@@ -21,7 +22,7 @@ void CVisualizator::loop()
    while (true)
    {
       frame();
-      Sleep( 100 );
+      Sleep( SLEEP_TIME );
    }
 }
 

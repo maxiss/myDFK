@@ -7,7 +7,7 @@ namespace visualization
    class CVisualizator
    {
    public:
-      CVisualizator( const gamemap::CMap& );
+      CVisualizator( const gamemap::CMap& gamemap );
       void start();
 
    protected:
@@ -16,11 +16,7 @@ namespace visualization
    private:
       const gamemap::CMap& map;
       void frame();
-      //virtual void draw( const gamemap::TPosition& pos ) = 0;
-      // TODO: bear out to child class
-      void draw( const gamemap::TPosition& pos );
-      void initConsole();
-      void draw( const gamemap::TObjectType& objType );
+      virtual void draw( const gamemap::TPosition& pos ) = 0;
 
    };
 

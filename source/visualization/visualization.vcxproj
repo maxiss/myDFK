@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\visualizator.h" />
+    <ClInclude Include="h\visualizator_console.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\visualizator.cpp" />
