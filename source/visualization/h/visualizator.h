@@ -1,17 +1,17 @@
 #pragma once
 
+#include "map\h\map.h"
+
 namespace visualization
 {
    class CVisualizator
    {
    public:
-      CVisualizator();
-      void start();
+      CVisualizator( const gamemap::CMap& );
+      void loop();
 
-   //private:
-      int loop();
    private:
-      int test;
+      const gamemap::CMap& map;
    };
 
 }

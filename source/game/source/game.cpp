@@ -6,7 +6,16 @@
 using namespace game;
 using namespace threads;
 
+// TODO: move to ini-file
+#define MINX 0
+#define MINY 0
+#define MAXX 10
+#define MAXY 10
+#define SLEEP_TIME 300
+
 CGame::CGame()
+   : map( MINX, MINY, MAXX, MAXY )
+   , visual( map )
 {
 }
 
@@ -15,7 +24,7 @@ void CGame::gameLoop()
    while (loop)
    {
       step();
-      Sleep(300);
+      Sleep( SLEEP_TIME );
    }
 }
 
@@ -33,9 +42,7 @@ void CGame::start()
    loop = false;
 }
 
-int CGame::step()
+void CGame::step()
 {
-   map.loop();
    visual.loop();
-   return 0;
 }

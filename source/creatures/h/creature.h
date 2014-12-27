@@ -5,7 +5,7 @@
 
 namespace creatures
 {
-   class CCreature : public map::CObject
+   class CCreature : public gamemap::CObject
    {
    public:
       virtual TCreatureType getCreatureType() = 0;

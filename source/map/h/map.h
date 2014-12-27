@@ -1,20 +1,33 @@
 #pragma once
 
 #include <map>
+#include <list>
 #include "point.h"
 #include "object.h"
 
-namespace map
+namespace gamemap
 {
-   typedef std::multimap< TPoint, CObject > TMap;
+   typedef std::multimap< TPoint, CObject*, TPointComparer > TMap;
+
+   struct TPosition
+   {
+      TPoint position;
+      TObjectType objectType;
+   };
+
+   typedef std::list< TPosition > TPositionList;
 
    class CMap
    {
-   private:
-      TMap content;
-      
    public:
-      int loop();
+      CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ );
+      TPositionList getMapPositionList() const;
+
+   private:
+      const coord minX, minY, maxX, maxY;
+      TMap content;
+      bool checkBorders( TPoint point ) const;
+
    };
 
 }

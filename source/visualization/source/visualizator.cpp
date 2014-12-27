@@ -3,20 +3,24 @@
 
 using namespace visualization;
 using namespace std;
+using namespace gamemap;
 
-CVisualizator::CVisualizator()
- : test( 0 )
+CVisualizator::CVisualizator( const gamemap::CMap& map_ )
+   : map(map_)
 {
 }
 
-
-void CVisualizator::start()
+void CVisualizator::loop()
 {
-   cout << "Hello, world!" << endl;
-}
+   const TPositionList posList = map.getMapPositionList();
+   //for ( TPositionList::const_iterator pos = posList.begin(); pos != posList.end(); ++pos )
+   //{
+   //}
 
-int CVisualizator::loop()
-{
-   cout << "test" << test++ << endl;
-   return 0;
+   // !!!
+   TPositionList::const_iterator pos = posList.begin();
+   if (pos->objectType == OBJ_TYPE_EMPTY)
+      cout << "." << endl;
+   else
+      cout << "?" << endl;
 }

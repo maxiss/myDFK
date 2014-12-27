@@ -4,7 +4,7 @@
 
 namespace creatures
 {
-   class CBuilding : public map::CObject
+   class CBuilding : public gamemap::CObject
    {
    };
 

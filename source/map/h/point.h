@@ -1,12 +1,27 @@
 #pragma once
 
-namespace map
+namespace gamemap
 {
-   class TPoint
+   typedef int coord;
+
+   struct TPoint
+   {
+      coord x;
+      coord y;
+   };
+
+   class TPointComparer
    {
    public:
-      int x;
-      int y;
+      bool operator() (const TPoint& left, const TPoint& right )
+      {
+         bool retVal;
+         if (left.y == right.y)
+            retVal = (left.x < right.x);
+         else
+            retVal =  (left.y < right.y);
+         return retVal;
+      }
 
    };
 

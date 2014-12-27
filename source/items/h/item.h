@@ -5,7 +5,7 @@
 
 namespace items
 {
-   class CItem : public map::CObject
+   class CItem : public gamemap::CObject
    {
    public:
       virtual TItemType getItemType() = 0;
