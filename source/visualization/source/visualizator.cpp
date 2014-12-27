@@ -1,4 +1,5 @@
 #include "visualizator.h"
+#include "game/h/threads.h"
 #include <Windows.h>
 
 using namespace visualization;
@@ -8,6 +9,11 @@ CVisualizator::CVisualizator( const gamemap::CMap& map_ )
    : map(map_)
 {
    initConsole();
+}
+
+void CVisualizator::start()
+{
+   threads::CThread <CVisualizator> visualLoop( *this, &visualization::CVisualizator::loop );
 }
 
 void CVisualizator::loop()

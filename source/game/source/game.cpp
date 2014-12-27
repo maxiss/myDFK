@@ -34,11 +34,7 @@ void CGame::start()
    int ch = 0;
 
    CThread<CGame> gameLoop( *this, &CGame::gameLoop );
-   gameLoop.run();
-
-   CThread<visualization::CVisualizator> visualLoop( visual, &visualization::CVisualizator::loop );
-   visualLoop.run();
-
+   visual.start();
    do
    {
       ch = _getch();

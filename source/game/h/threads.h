@@ -10,8 +10,7 @@ namespace threads
    {
    public:
       typedef void (TData::*TFoo)();
-      CThread(TData& data_, TFoo func_) : data(data_), func(func_) {}
-      void run()
+      CThread(TData& data_, TFoo func_) : data(data_), func(func_)
       {
          process = (HANDLE) _beginthread(_callback, 0, this);
       }

@@ -8,6 +8,9 @@ namespace visualization
    {
    public:
       CVisualizator( const gamemap::CMap& );
+      void start();
+
+   protected:
       void loop();
 
    private:
