@@ -17,12 +17,18 @@
     <ClCompile Include="source\visualizator_console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\objectTypeVisualizator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\visualizator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="h\visualizator_console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="h\objectTypeVisualizator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -33,12 +33,13 @@ void CGame::start()
    loop = true;
    int ch = 0;
 
-   CThread<CGame> gameLoop( *this, &CGame::gameLoop );
-   visual.start();
+   CThread<CGame> gameLoop( this, &CGame::gameLoop );
+   CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
    do
    {
       ch = _getch();
    } while ( ch != 27 );
+   visual.stop();
    loop = false;
 }
 

@@ -34,19 +34,5 @@ void CVisualizator_console::draw( const gamemap::TPosition& pos )
 
 void CVisualizator_console::draw( const gamemap::TObjectType& objType )
 {
-   switch (objType)
-   {
-      case OBJ_TYPE_EMPTY :
-         printf( "." );
-      break;
-
-      case OBJ_TYPE_ITEM :
-         printf( "i" );
-      break;
-
-      case OBJ_TYPE_CREATURE :
-         printf( "@" );
-      break;
-
-   }
+   printf( objTypeChars.getTypeObjectChar( objType ) );
 }

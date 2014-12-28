@@ -13,7 +13,7 @@ namespace gamemap
    class TPointComparer
    {
    public:
-      bool operator() (const TPoint& left, const TPoint& right )
+      bool operator() (const TPoint& left, const TPoint& right ) const
       {
          bool retVal;
          if (left.y == right.y)

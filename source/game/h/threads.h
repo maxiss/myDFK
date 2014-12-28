@@ -10,20 +10,27 @@ namespace threads
    {
    public:
       typedef void (TData::*TFoo)();
-      CThread(TData& data_, TFoo func_) : data(data_), func(func_)
+      CThread(TData* data_, TFoo func_) : data(data_), func(func_)
       {
-         process = (HANDLE) _beginthread(_callback, 0, this);
+         threadId = (HANDLE) _beginthreadex(0, 0, _callback, this, 0, 0);
+      }
+      ~CThread()
+      {
+         WaitForSingleObject( threadId, INFINITE );
+         CloseHandle( threadId );
       }
 
    private:
-      TData& data;
+      TData* data;
       TFoo func;
-      HANDLE process;
+      HANDLE threadId;
 
-      static void __cdecl _callback( void* data )
+      static unsigned int __stdcall _callback( void* data )
       {
          CThread& thread = *(CThread*) data;
-         ((thread.data).*(thread.func))();
+         ((thread.data)->*(thread.func))();
+         _endthreadex(0);
+         return 0;
       }
 
    };

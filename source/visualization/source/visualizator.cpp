@@ -12,18 +12,19 @@ CVisualizator::CVisualizator( const gamemap::CMap& map_ )
 {
 }
 
-void CVisualizator::start()
+void CVisualizator::gameLoop()
 {
-   threads::CThread <CVisualizator> visualLoop( *this, &visualization::CVisualizator::loop );
-}
-
-void CVisualizator::loop()
-{
-   while (true)
+   loop = true;
+   while (loop)
    {
       frame();
       Sleep( SLEEP_TIME );
    }
+}
+
+void CVisualizator::stop()
+{
+   loop = false;
 }
 
 void CVisualizator::frame()
