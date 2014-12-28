@@ -17,9 +17,6 @@
     <ClCompile Include="source\interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\threads.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\game.h">

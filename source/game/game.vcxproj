@@ -82,7 +82,6 @@
   <ItemGroup>
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\interface.cpp" />
-    <ClCompile Include="source\threads.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\game.h" />
