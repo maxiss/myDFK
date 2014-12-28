@@ -19,6 +19,22 @@ CGame::CGame()
 {
 }
 
+void CGame::start()
+{
+   loop = true;
+   int key = 0;
+
+   CThread<CGame> gameLoop( this, &CGame::gameLoop );
+   CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
+   do
+   {
+      key = _getch();
+      key = eventHandler( key );
+   } while ( key >= 0 );
+   visual.stop();
+   loop = false;
+}
+
 void CGame::gameLoop()
 {
    while (loop)
@@ -28,21 +44,19 @@ void CGame::gameLoop()
    }
 }
 
-void CGame::start()
-{
-   loop = true;
-   int ch = 0;
-
-   CThread<CGame> gameLoop( this, &CGame::gameLoop );
-   CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
-   do
-   {
-      ch = _getch();
-   } while ( ch != 27 );
-   visual.stop();
-   loop = false;
-}
-
 void CGame::step()
 {
+}
+
+// TODO: bare out key mapping to other class
+int CGame::eventHandler( int key )
+{
+   switch (key)
+   {
+      case 27 :
+         key = -key;
+      break;
+
+   }
+   return key;
 }

@@ -13,6 +13,7 @@ namespace game
 
    protected:
       void gameLoop();
+      int eventHandler( int key );
 
    private:
       visualization::CVisualizator_console visual;
