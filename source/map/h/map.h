@@ -21,6 +21,7 @@ namespace gamemap
    {
    public:
       CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ );
+      void addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos );
       TPositionList getMapPositionList() const;
 
    private:

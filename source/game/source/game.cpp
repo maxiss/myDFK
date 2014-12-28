@@ -57,6 +57,15 @@ int CGame::eventHandler( int key )
          key = -key;
       break;
 
+      case 32 :
+         addObject( gamemap::OBJ_TYPE_ITEM, gamemap::TPoint( 5, 5 ) ); 
+      break;
+
    }
    return key;
+}
+
+void CGame::addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos )
+{
+   map.addObject( objType, pos );
 }

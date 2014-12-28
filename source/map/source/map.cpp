@@ -1,4 +1,5 @@
 #include "map.h"
+#include "items\h\weapon.h"
 
 using namespace gamemap;
 
@@ -13,6 +14,12 @@ bool CMap::checkBorders( TPoint point ) const
    retVal = (minX <= point.x) && (point.x <= maxX);
    retVal = retVal && (minY <= point.y) && (point.y <= maxY);
    return retVal;
+}
+
+void CMap::addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos )
+{
+   items::CWeapon* weapon = new items::CWeapon; // weapon for test
+   content.insert( std::make_pair( pos, weapon ) );
 }
 
 TPositionList CMap::getMapPositionList() const

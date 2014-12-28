@@ -14,6 +14,7 @@ namespace game
    protected:
       void gameLoop();
       int eventHandler( int key );
+      void addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos );
 
    private:
       visualization::CVisualizator_console visual;

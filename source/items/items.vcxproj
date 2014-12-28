@@ -76,6 +76,7 @@
     <ClInclude Include="h\weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\item.cpp" />
     <ClCompile Include="source\weapon.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,6 +8,7 @@ namespace items
    class CItem : public gamemap::CObject
    {
    public:
+      virtual gamemap::TObjectType getObjectType() const;
       virtual TItemType getItemType() = 0;
 
    private:
