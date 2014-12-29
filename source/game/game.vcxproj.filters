@@ -17,6 +17,9 @@
     <ClCompile Include="source\interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\gameDFK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\game.h">
@@ -26,6 +29,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="h\threads.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="h\gameDFK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

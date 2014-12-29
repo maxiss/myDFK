@@ -3,8 +3,6 @@
 #include <conio.h>
 #include "threads.h"
 
-#include "map\h\objects.h"
-
 using namespace game;
 using namespace threads;
 
@@ -51,39 +49,4 @@ void CGame::gameLoop()
       step();
       Sleep( SLEEP_TIME );
    }
-}
-
-void CGame::step()
-{
-}
-
-void CGame::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
-{
-   map.addObject( obj, pos );
-}
-
-
-// TODO: move to another file
-
-
-void CGameDFK::initData()
-{
-
-}
-
-// TODO: bare out key mapping to other class
-int CGameDFK::eventHandler( int key )
-{
-   switch (key)
-   {
-      case 32 :
-         addObject( new items::CWeapon, gamemap::TPoint( 5, 5 ) ); 
-      break;
-
-      case 113 :
-         addObject( new creatures::CDwarf, gamemap::TPoint( 1, 1 ) ); 
-      break;
-
-   }
-   return key;
 }
