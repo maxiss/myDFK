@@ -1,5 +1,4 @@
 #include "map.h"
-#include "items\h\weapon.h"
 
 using namespace gamemap;
 
@@ -16,10 +15,12 @@ bool CMap::checkBorders( TPoint point ) const
    return retVal;
 }
 
-void CMap::addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos )
+void CMap::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
 {
-   items::CWeapon* weapon = new items::CWeapon; // weapon for test
-   content.insert( std::make_pair( pos, weapon ) );
+   if ( checkBorders( pos ) )
+   {
+      content.insert( std::make_pair( pos, obj ) );
+   }
 }
 
 TPositionList CMap::getMapPositionList() const

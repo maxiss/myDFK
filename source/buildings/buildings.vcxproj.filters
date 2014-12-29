@@ -17,5 +17,8 @@
     <ClInclude Include="h\building.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="h\buildings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

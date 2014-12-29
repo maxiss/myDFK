@@ -10,4 +10,5 @@ namespace items
       virtual TItemType getItemType();
 
    };
+
 }

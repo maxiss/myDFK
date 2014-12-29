@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\building.h" />
+    <ClInclude Include="h\buildings.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B330A83-1D6F-44F8-9812-653D4D25A1E0}</ProjectGuid>

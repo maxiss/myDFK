@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\creature.h" />
+    <ClInclude Include="h\creatures.h" />
     <ClInclude Include="h\creatureTypes.h" />
     <ClInclude Include="h\dwarf.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\creature.cpp" />
     <ClCompile Include="source\dwarf.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

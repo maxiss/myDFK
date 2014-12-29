@@ -18,9 +18,15 @@
     <ClInclude Include="h\dwarf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="h\creatures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\dwarf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -72,6 +72,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="h\item.h" />
+    <ClInclude Include="h\items.h" />
     <ClInclude Include="h\ItemType.h" />
     <ClInclude Include="h\weapon.h" />
   </ItemGroup>

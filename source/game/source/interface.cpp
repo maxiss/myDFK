@@ -5,6 +5,6 @@ using namespace game;
 
 void startGame()
 {
-   CGame game;
+   CGameDFK game;
    game.start();
 }

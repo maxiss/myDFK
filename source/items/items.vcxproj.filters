@@ -18,6 +18,9 @@
     <ClInclude Include="h\ItemType.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="h\items.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\weapon.cpp">

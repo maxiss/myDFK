@@ -12,17 +12,26 @@ namespace game
       void start();
 
    protected:
-      void gameLoop();
-      int eventHandler( int key );
-      void addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos );
+      virtual int eventHandler( int key ) = 0;
+      virtual void initData() = 0;
+      void addObject( gamemap::CObject* obj, const gamemap::TPoint& pos );
 
    private:
       visualization::CVisualizator_console visual;
       gamemap::CMap map;
 
       bool loop;
+      void gameLoop();
       void step();
+      void _eventHandler();
+
 
    };
 
+   class CGameDFK : public CGame
+   {
+   protected:
+      virtual int eventHandler( int key );
+      virtual void initData();
+   };
 }

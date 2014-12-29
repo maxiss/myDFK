@@ -3,6 +3,8 @@
 #include <conio.h>
 #include "threads.h"
 
+#include "map\h\objects.h"
+
 using namespace game;
 using namespace threads;
 
@@ -21,18 +23,25 @@ CGame::CGame()
 
 void CGame::start()
 {
+   initData();
    loop = true;
-   int key = 0;
-
    CThread<CGame> gameLoop( this, &CGame::gameLoop );
    CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
-   do
-   {
-      key = _getch();
-      key = eventHandler( key );
-   } while ( key >= 0 );
+   _eventHandler();
    visual.stop();
    loop = false;
+}
+
+void CGame::_eventHandler()
+{
+   int key = 0;
+   do
+   {
+      key = _getch(); // TODO: process 0-key
+      key = eventHandler( key );
+
+      key = (key == 27) ? -key : key;
+   } while ( key >= 0 );
 }
 
 void CGame::gameLoop()
@@ -48,24 +57,33 @@ void CGame::step()
 {
 }
 
+void CGame::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
+{
+   map.addObject( obj, pos );
+}
+
+
+// TODO: move to another file
+
+
+void CGameDFK::initData()
+{
+
+}
+
 // TODO: bare out key mapping to other class
-int CGame::eventHandler( int key )
+int CGameDFK::eventHandler( int key )
 {
    switch (key)
    {
-      case 27 :
-         key = -key;
+      case 32 :
+         addObject( new items::CWeapon, gamemap::TPoint( 5, 5 ) ); 
       break;
 
-      case 32 :
-         addObject( gamemap::OBJ_TYPE_ITEM, gamemap::TPoint( 5, 5 ) ); 
+      case 113 :
+         addObject( new creatures::CDwarf, gamemap::TPoint( 1, 1 ) ); 
       break;
 
    }
    return key;
-}
-
-void CGame::addObject( const gamemap::TObjectType& objType, const gamemap::TPoint& pos )
-{
-   map.addObject( objType, pos );
 }
