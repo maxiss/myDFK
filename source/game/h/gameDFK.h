@@ -1,5 +1,6 @@
 #pragma once
 #include "game.h"
+#include <list>
 
 namespace game
 {
@@ -10,6 +11,11 @@ namespace game
       virtual void initData();
       virtual void step();
 
+   private:
+      std::list< gamemap::CObject* > objects;
+
+      gamemap::CObject* addObject( gamemap::CObject* object );
+      gamemap::CObject* addObject( gamemap::CObject* object, gamemap::TPoint point );
    };
 
 }
