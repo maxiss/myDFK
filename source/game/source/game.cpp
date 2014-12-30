@@ -5,6 +5,7 @@
 
 using namespace game;
 using namespace threads;
+using namespace gamemap;
 
 // TODO: move to ini-file
 #define MINX 0
@@ -49,4 +50,22 @@ void CGame::gameLoop()
       step();
       Sleep( SLEEP_TIME );
    }
+}
+
+CObject* CGame::addObject( CObject* object )
+{
+   objects.push_back( object );
+   return object;
+}
+
+CObject* CGame::addObject( CObject* object, const coord& x, const coord& y )
+{
+   addObject( object );
+   map.addObject( object, TPoint( x, y ) );
+   return object;
+}
+
+void CGame::moveObject( CObject* object, const coord& x, const coord& y )
+{
+   map.moveObject( object, TPoint( x, y ) );
 }

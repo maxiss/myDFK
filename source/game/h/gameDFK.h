@@ -1,6 +1,6 @@
 #pragma once
 #include "game.h"
-#include <list>
+#include "creatures\h\dwarf.h"
 
 namespace game
 {
@@ -12,10 +12,8 @@ namespace game
       virtual void step();
 
    private:
-      std::list< gamemap::CObject* > objects;
+      creatures::CDwarf* player;
 
-      gamemap::CObject* addObject( gamemap::CObject* object );
-      gamemap::CObject* addObject( gamemap::CObject* object, gamemap::TPoint point );
    };
 
 }

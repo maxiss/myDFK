@@ -5,12 +5,17 @@ using namespace game;
 using namespace gamemap;
 
 #define K_SPACE 32
+#define K_h 104
+#define K_j 106
+#define K_k 107
+#define K_l 108
 
 void CGameDFK::initData()
 {
-   addObject( new creatures::CDwarf, TPoint( 1, 1 ) );
-   addObject( new items::CWeapon, TPoint( 4, 2 ) );
-   addObject( new items::CWeapon, TPoint( 5, 7 ) );
+   player = new creatures::CDwarf;
+   addObject( player, 1, 1 );
+   addObject( new items::CWeapon, 4, 2 );
+   addObject( new items::CWeapon, 5, 7 );
 }
 
 // TODO: bare out key mapping to other class
@@ -18,27 +23,25 @@ int CGameDFK::eventHandler( int key )
 {
    switch (key)
    {
-      case K_SPACE :
-         map.addObject( new items::CWeapon, gamemap::TPoint( 5, 5 ) ); 
+      case K_h :
+         moveObject( player, player->getx() - 1, player->gety() );
       break;
 
+      case K_j :
+         moveObject( player, player->getx(), player->gety() + 1 );
+      break;
+
+      case K_k :
+         moveObject( player, player->getx(), player->gety() - 1 );
+      break;
+
+      case K_l :
+         moveObject( player, player->getx() + 1, player->gety() );
+      break;
    }
    return key;
 }
 
 void CGameDFK::step()
 {
-}
-
-CObject* CGameDFK::addObject( CObject* object )
-{
-   objects.push_back( object );
-   return object;
-}
-
-CObject* CGameDFK::addObject( CObject* object, TPoint point )
-{
-   addObject( object );
-   map.addObject( object, point );
-   return object;
 }
