@@ -4,18 +4,20 @@
 
 namespace visualization
 {
+   using namespace gamemap;
+
    class CVisualizator
    {
    public:
-      CVisualizator( const gamemap::CMap& gamemap );
+      CVisualizator( const CMap& gamemap );
       void gameLoop();
       void stop();
 
    private:
       bool loop;
-      const gamemap::CMap& map;
+      const CMap& map;
       void frame();
-      virtual void draw( const gamemap::TPosition& pos ) = 0;
+      virtual void draw( const TPosition& pos ) = 0;
 
    };
 

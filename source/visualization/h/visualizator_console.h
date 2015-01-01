@@ -5,16 +5,18 @@
 
 namespace visualization
 {
+   using namespace gamemap;
+
    class CVisualizator_console : public CVisualizator
    {
    public:
-      CVisualizator_console( const gamemap::CMap& gamemap );
+      CVisualizator_console( const CMap& gamemap );
 
    private:
       CTypeObjectVisualizator objTypeChars;
-      virtual void draw( const gamemap::TPosition& pos );
+      virtual void draw( const TPosition& pos );
       void initConsole();
-      void draw( const gamemap::TObjectType& objType );
+      void draw( const TObjectType& objType );
 
    };
 

@@ -15,11 +15,26 @@ bool CMap::checkBorders( TPoint point ) const
    return retVal;
 }
 
-void CMap::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
+void CMap::addObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) )
+      obj->mapIterator = content.insert( std::make_pair( pos, obj ) );
+}
+
+void CMap::moveObject( CObject* obj, const TPoint& pos )
+{
+   if ( checkBorders( pos ) && ( obj->mapIterator != content.end() ) )
    {
-      content.insert( std::make_pair( pos, obj ) );
+      content.erase( obj->mapIterator );
+      addObject( obj, pos );
+   }
+}
+
+void CMap::removeObject( CObject* obj )
+{
+   if ( obj->mapIterator != content.end() )
+   {
+      content.erase( obj->mapIterator );
    }
 }
 
@@ -48,5 +63,26 @@ TPositionList CMap::getMapPositionList() const
       }
    }
 
+   return retVal;
+}
+
+CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
+{
+   CObject* retVal = nullptr;
+   TMap::iterator it = content.find( pos );
+   if ( it != content.end() )
+   {
+      while ( it->first == pos )
+      {
+         if ( it->second->getObjectType() == objType )
+         {
+            retVal = it->second;
+            break;
+         }
+
+         if ( ++it == content.end() )
+            break;
+      }
+   }
    return retVal;
 }

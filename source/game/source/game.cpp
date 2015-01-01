@@ -5,6 +5,8 @@
 
 using namespace game;
 using namespace threads;
+using namespace gamemap;
+using namespace visualization;
 
 // TODO: move to ini-file
 #define MINX 0
@@ -24,7 +26,7 @@ void CGame::start()
    initData();
    loop = true;
    CThread<CGame> gameLoop( this, &CGame::gameLoop );
-   CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
+   CThread<CVisualizator> visualLoop( &this->visual, &CVisualizator::gameLoop );
    _eventHandler();
    visual.stop();
    loop = false;
@@ -48,5 +50,57 @@ void CGame::gameLoop()
    {
       step();
       Sleep( SLEEP_TIME );
+   }
+}
+
+void CGame::addObject( CObject* object )
+{
+   objects.add( object );
+}
+
+CObject* CGame::addObject( CObject* object, const coord& x, const coord& y )
+{
+   addObject( object );
+   map.addObject( object, TPoint( x, y ) );
+   return object;
+}
+
+void CGame::moveObject( CObject* object, const coord& x, const coord& y )
+{
+   map.moveObject( object, TPoint( x, y ) );
+}
+
+void CGame::addObjectToMap( CObject* object, const coord& x, const coord& y )
+{
+   map.addObject( object, TPoint( x, y ) );
+}
+
+void CGame::removeObjectFromMap( CObject* object )
+{
+   map.removeObject( object );
+}
+
+CObject* CGame::getObject( const TObjectType& objType, const coord& x, const coord& y )
+{
+   return map.getObject( objType, TPoint( x, y ) );
+}
+
+void CGame::creatureCarryItem( CCreature* creature )
+{
+   CObject* obj = getObject( OBJ_TYPE_ITEM, creature->getx(), creature->gety() );
+   if ( obj != nullptr )
+   {
+      removeObjectFromMap( obj );
+      creature->carryItem( reinterpret_cast <CItem*>(obj) );
+   }
+}
+
+void CGame::creatureDropItem( CCreature* creature )
+{
+   CItem* item = creature->getItem();
+   if ( item != nullptr )
+   {
+      creature->dropItem( item );
+      addObjectToMap( item, creature->getx(), creature->gety() );
    }
 }

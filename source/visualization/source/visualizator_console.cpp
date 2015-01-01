@@ -11,7 +11,7 @@ static void gotoXY( const int& xpos, const int& ypos )
    SetConsoleCursorPosition( hOuput, scrn );
 }
 
-CVisualizator_console::CVisualizator_console( const gamemap::CMap& gamemap )
+CVisualizator_console::CVisualizator_console( const CMap& gamemap )
    : CVisualizator( gamemap )
 {
    initConsole();
@@ -26,13 +26,13 @@ void CVisualizator_console::initConsole()
    SetConsoleCursorInfo( hOuput, &cInfo );
 }
 
-void CVisualizator_console::draw( const gamemap::TPosition& pos )
+void CVisualizator_console::draw( const TPosition& pos )
 {
    gotoXY( pos.position.x, pos.position.y );
    draw( pos.objectType );
 }
 
-void CVisualizator_console::draw( const gamemap::TObjectType& objType )
+void CVisualizator_console::draw( const TObjectType& objType )
 {
    printf( objTypeChars.getTypeObjectChar( objType ) );
 }

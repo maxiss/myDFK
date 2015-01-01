@@ -4,7 +4,6 @@ namespace tasks
 {
    class CTask
    {
-      int taskId;
    };
 
 }

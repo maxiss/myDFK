@@ -1,7 +1,15 @@
 #pragma once
 
+#include "point.h"
+#include <map>
+
 namespace gamemap
 {
+   class CObject;
+   typedef std::multimap< TPoint, CObject* > TMap;
+   typedef TMap::iterator TMapIterator;
+   class CMap;
+
    enum TObjectType
    {
       OBJ_TYPE_EMPTY = 1
@@ -16,6 +24,12 @@ namespace gamemap
    {
    public:
       virtual TObjectType getObjectType() const = 0;
+      coord getx() const { return mapIterator->first.x; }
+      coord gety() const { return mapIterator->first.y; }
+
+   private:
+      friend CMap;
+      TMap::iterator mapIterator;
    };
 
 }

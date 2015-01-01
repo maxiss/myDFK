@@ -5,14 +5,13 @@
 
 namespace items
 {
-   class CItem : public gamemap::CObject
+   using namespace gamemap;
+
+   class CItem : public CObject
    {
    public:
-      virtual gamemap::TObjectType getObjectType() const;
+      virtual TObjectType getObjectType() const;
       virtual TItemType getItemType() = 0;
-
-   private:
-      int itemId;
 
    };
 
