@@ -8,7 +8,17 @@ TObjectType CCreature::getObjectType() const
    return OBJ_TYPE_CREATURE;
 }
 
+CItem* CCreature::getItem()
+{
+   return items.get();
+}
+
 void CCreature::carryItem( CItem* item )
 {
-   this->items.add( item );
+   items.add( item );
+}
+
+void CCreature::dropItem( CItem* item )
+{
+   items.remove( item );
 }

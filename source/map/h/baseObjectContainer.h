@@ -10,6 +10,7 @@ namespace gamemap
    class CBaseObjectContainer
    {
    protected:
+      CObject* getObject();
       void addObject( CObject* object );
       void removeObject( CObject* object );
 

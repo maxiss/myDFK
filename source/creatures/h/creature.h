@@ -14,8 +14,9 @@ namespace creatures
       virtual TObjectType getObjectType() const;
       virtual TCreatureType getCreatureType() = 0;
 
+      CItem* getItem();
       void carryItem( CItem* item );
-      void dropAllItems();
+      void dropItem( CItem* item );
 
    private:
       CItemContainer items;

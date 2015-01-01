@@ -3,6 +3,11 @@
 using namespace gamemap;
 using namespace items;
 
+CItem* CItemContainer::get()
+{
+   return reinterpret_cast <CItem*> ( getObject() );
+}
+
 void CItemContainer::add( CItem* item )
 {
    addObject( item );

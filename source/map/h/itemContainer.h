@@ -10,6 +10,7 @@ namespace gamemap
    class CItemContainer : public CBaseObjectContainer
    {
    public:
+      CItem* get();
       void add( CItem* item );
       void remove( CItem* item );
 
