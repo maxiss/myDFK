@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="h\baseObjectContainer.h" />
     <ClInclude Include="h\map.h" />
     <ClInclude Include="h\object.h" />
     <ClInclude Include="h\objects.h" />
     <ClInclude Include="h\point.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\baseObjectContainer.cpp" />
     <ClCompile Include="source\map.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
