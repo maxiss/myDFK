@@ -30,6 +30,14 @@ void CMap::moveObject( CObject* obj, const TPoint& pos )
    }
 }
 
+void CMap::removeObject( CObject* obj )
+{
+   if ( obj->mapIterator != content.end() )
+   {
+      content.erase( obj->mapIterator );
+   }
+}
+
 TPositionList CMap::getMapPositionList() const
 {
    TPositionList retVal;
@@ -55,5 +63,26 @@ TPositionList CMap::getMapPositionList() const
       }
    }
 
+   return retVal;
+}
+
+CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
+{
+   CObject* retVal = nullptr;
+   TMap::iterator it = content.find( pos );
+   if ( it != content.end() )
+   {
+      while ( it->first == pos )
+      {
+         if ( it->second->getObjectType() == objType )
+         {
+            retVal = it->second;
+            break;
+         }
+
+         if ( ++it == content.end() )
+            break;
+      }
+   }
    return retVal;
 }

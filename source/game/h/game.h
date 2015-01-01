@@ -22,6 +22,8 @@ namespace game
 
       CObject* addObject( CObject* object, const coord& x, const coord& y );
       void moveObject( CObject* object, const coord& x, const coord& y );
+      void removeObjectFromMap( CObject* object );
+      CObject* getObject( const TObjectType& objType,  const coord& x, const coord& y );
 
    private:
       CObjectContainer objects;

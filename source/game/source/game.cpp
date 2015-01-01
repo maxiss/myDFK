@@ -69,3 +69,13 @@ void CGame::moveObject( CObject* object, const coord& x, const coord& y )
 {
    map.moveObject( object, TPoint( x, y ) );
 }
+
+void CGame::removeObjectFromMap( CObject* object )
+{
+   map.removeObject( object );
+}
+
+CObject* CGame::getObject( const TObjectType& objType, const coord& x, const coord& y )
+{
+   return map.getObject( objType, TPoint( x, y ) );
+}

@@ -7,7 +7,7 @@
 
 namespace gamemap
 {
-   typedef std::multimap< TPoint, CObject*, TPointComparer > TMap;
+   typedef std::multimap< TPoint, CObject* > TMap;
    typedef TMap::iterator TMapIterator;
 
    struct TPosition // will remove
@@ -24,6 +24,8 @@ namespace gamemap
 
       void addObject( CObject* obj, const TPoint& pos );
       void moveObject( CObject* obj, const TPoint& pos );
+      void removeObject( CObject* obj );
+      CObject* getObject( const TObjectType& objType,  const TPoint& pos );
 
       TPositionList getMapPositionList() const;
 

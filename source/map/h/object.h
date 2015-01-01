@@ -6,7 +6,7 @@
 namespace gamemap
 {
    class CObject;
-   typedef std::multimap< TPoint, CObject*, TPointComparer > TMap;
+   typedef std::multimap< TPoint, CObject* > TMap;
    typedef TMap::iterator TMapIterator;
    class CMap;
 

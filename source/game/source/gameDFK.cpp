@@ -7,6 +7,7 @@ using namespace creatures;
 using namespace items;
 
 #define K_SPACE 32
+#define K_g 103
 #define K_h 104
 #define K_j 106
 #define K_k 107
@@ -25,6 +26,17 @@ int CGameDFK::eventHandler( int key )
 {
    switch (key)
    {
+      case K_g :
+      {
+         CObject* obj = getObject( OBJ_TYPE_ITEM, player->getx(), player->gety() );
+         if ( obj != nullptr )
+         {
+            removeObjectFromMap( obj );
+            player->carryItem( reinterpret_cast <CItem*>(obj) );
+         }
+      }
+      break;
+
       case K_h :
          moveObject( player, player->getx() - 1, player->gety() );
       break;
