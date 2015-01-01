@@ -2,6 +2,7 @@
 
 #include "visualization\h\visualizator_console.h"
 #include "map\h\map.h"
+#include "map\h\objectContainer.h"
 
 namespace game
 {
@@ -20,7 +21,7 @@ namespace game
       void moveObject( gamemap::CObject* object, const gamemap::coord& x, const gamemap::coord& y );
 
    private:
-      std::list< gamemap::CObject* > objects;
+      gamemap::CObjectContainer objects;
       visualization::CVisualizator_console visual;
       gamemap::CMap map;
 

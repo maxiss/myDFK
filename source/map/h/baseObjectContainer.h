@@ -5,7 +5,7 @@
 
 namespace gamemap
 {
-   typedef std::list< CObject* > TObjectContainer;
+   typedef std::list< CObject* > TObjectList;
 
    class CBaseObjectContainer
    {
@@ -14,7 +14,7 @@ namespace gamemap
       void removeObject( CObject* object );
 
    private:
-      TObjectContainer content;
+      TObjectList content;
 
    };
 

@@ -54,7 +54,7 @@ void CGame::gameLoop()
 
 CObject* CGame::addObject( CObject* object )
 {
-   objects.push_back( object );
+   objects.add( object );
    return object;
 }
 
