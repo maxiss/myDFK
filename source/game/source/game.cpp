@@ -6,6 +6,7 @@
 using namespace game;
 using namespace threads;
 using namespace gamemap;
+using namespace visualization;
 
 // TODO: move to ini-file
 #define MINX 0
@@ -25,7 +26,7 @@ void CGame::start()
    initData();
    loop = true;
    CThread<CGame> gameLoop( this, &CGame::gameLoop );
-   CThread<visualization::CVisualizator> visualLoop( &this->visual, &visualization::CVisualizator::gameLoop );
+   CThread<CVisualizator> visualLoop( &this->visual, &CVisualizator::gameLoop );
    _eventHandler();
    visual.stop();
    loop = false;
@@ -52,10 +53,9 @@ void CGame::gameLoop()
    }
 }
 
-CObject* CGame::addObject( CObject* object )
+void CGame::addObject( CObject* object )
 {
    objects.add( object );
-   return object;
 }
 
 CObject* CGame::addObject( CObject* object, const coord& x, const coord& y )

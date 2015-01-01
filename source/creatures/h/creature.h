@@ -5,10 +5,12 @@
 
 namespace creatures
 {
-   class CCreature : public gamemap::CObject
+   using namespace gamemap;
+
+   class CCreature : public CObject
    {
    public:
-      virtual gamemap::TObjectType getObjectType() const;
+      virtual TObjectType getObjectType() const;
       virtual TCreatureType getCreatureType() = 0;
 
    };

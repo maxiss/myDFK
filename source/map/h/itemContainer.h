@@ -5,11 +5,13 @@
 
 namespace gamemap
 {
+   using namespace items;
+
    class CItemContainer : public CBaseObjectContainer
    {
    public:
-      void add( items::CItem* item );
-      void remove( items::CItem* item );
+      void add( CItem* item );
+      void remove( CItem* item );
 
    };
 

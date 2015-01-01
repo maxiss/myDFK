@@ -15,13 +15,13 @@ bool CMap::checkBorders( TPoint point ) const
    return retVal;
 }
 
-void CMap::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
+void CMap::addObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) )
       obj->mapIterator = content.insert( std::make_pair( pos, obj ) );
 }
 
-void CMap::moveObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
+void CMap::moveObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) && ( obj->mapIterator != content.end() ) )
    {

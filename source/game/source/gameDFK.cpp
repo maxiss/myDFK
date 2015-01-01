@@ -3,6 +3,8 @@
 
 using namespace game;
 using namespace gamemap;
+using namespace creatures;
+using namespace items;
 
 #define K_SPACE 32
 #define K_h 104
@@ -12,10 +14,10 @@ using namespace gamemap;
 
 void CGameDFK::initData()
 {
-   player = new creatures::CDwarf;
+   player = new CDwarf;
    addObject( player, 1, 1 );
-   addObject( new items::CWeapon, 4, 2 );
-   addObject( new items::CWeapon, 5, 7 );
+   addObject( new CWeapon, 4, 2 );
+   addObject( new CWeapon, 5, 7 );
 }
 
 // TODO: bare out key mapping to other class

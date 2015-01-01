@@ -22,8 +22,8 @@ namespace gamemap
    public:
       CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ );
 
-      void addObject( gamemap::CObject* obj, const gamemap::TPoint& pos );
-      void moveObject( gamemap::CObject* obj, const gamemap::TPoint& pos );
+      void addObject( CObject* obj, const TPoint& pos );
+      void moveObject( CObject* obj, const TPoint& pos );
 
       TPositionList getMapPositionList() const;
 

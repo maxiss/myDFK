@@ -5,7 +5,7 @@ using namespace gamemap;
 
 struct TObjTypeChar
 {
-   const gamemap::TObjectType objType;
+   const TObjectType objType;
    const char* ch;
 };
 
@@ -26,7 +26,7 @@ CTypeObjectVisualizator::CTypeObjectVisualizator()
    }
 }
 
-const char* CTypeObjectVisualizator::getTypeObjectChar( const gamemap::TObjectType& objType ) const
+const char* CTypeObjectVisualizator::getTypeObjectChar( const TObjectType& objType ) const
 {
    const char* retVal = "";
    TTypeObjectList::const_iterator it = typeObjectList.find( objType );

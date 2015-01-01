@@ -4,6 +4,8 @@
 
 namespace game
 {
+   using namespace creatures;
+
    class CGameDFK : public CGame
    {
    protected:
@@ -12,7 +14,7 @@ namespace game
       virtual void step();
 
    private:
-      creatures::CDwarf* player;
+      CDwarf* player;
 
    };
 

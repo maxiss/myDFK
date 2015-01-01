@@ -7,7 +7,7 @@ using namespace gamemap;
 
 #define SLEEP_TIME 100
 
-CVisualizator::CVisualizator( const gamemap::CMap& map_ )
+CVisualizator::CVisualizator( const CMap& map_ )
    : map(map_)
 {
 }

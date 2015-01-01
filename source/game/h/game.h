@@ -6,6 +6,9 @@
 
 namespace game
 {
+   using namespace gamemap;
+   using namespace visualization;
+
    class CGame
    {
    public:
@@ -17,18 +20,19 @@ namespace game
       virtual void initData() = 0;
       virtual void step() = 0;
 
-      gamemap::CObject* addObject( gamemap::CObject* object, const gamemap::coord& x, const gamemap::coord& y );
-      void moveObject( gamemap::CObject* object, const gamemap::coord& x, const gamemap::coord& y );
+      CObject* addObject( CObject* object, const coord& x, const coord& y );
+      void moveObject( CObject* object, const coord& x, const coord& y );
 
    private:
-      gamemap::CObjectContainer objects;
-      visualization::CVisualizator_console visual;
-      gamemap::CMap map;
+      CObjectContainer objects;
+      CVisualizator_console visual;
+      CMap map;
 
       bool loop;
       void gameLoop();
       void _eventHandler();
-      gamemap::CObject* addObject( gamemap::CObject* object );
+
+      void addObject( CObject* object );
 
    };
 
