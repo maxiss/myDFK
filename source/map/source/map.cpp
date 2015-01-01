@@ -18,9 +18,7 @@ bool CMap::checkBorders( TPoint point ) const
 void CMap::addObject( gamemap::CObject* obj, const gamemap::TPoint& pos )
 {
    if ( checkBorders( pos ) )
-   {
       obj->mapIterator = content.insert( std::make_pair( pos, obj ) );
-   }
 }
 
 void CMap::moveObject( gamemap::CObject* obj, const gamemap::TPoint& pos )

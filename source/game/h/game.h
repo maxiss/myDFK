@@ -16,7 +16,6 @@ namespace game
       virtual void initData() = 0;
       virtual void step() = 0;
 
-      gamemap::CObject* addObject( gamemap::CObject* object );
       gamemap::CObject* addObject( gamemap::CObject* object, const gamemap::coord& x, const gamemap::coord& y );
       void moveObject( gamemap::CObject* object, const gamemap::coord& x, const gamemap::coord& y );
 
@@ -28,6 +27,7 @@ namespace game
       bool loop;
       void gameLoop();
       void _eventHandler();
+      gamemap::CObject* addObject( gamemap::CObject* object );
 
    };
 

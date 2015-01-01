@@ -10,7 +10,7 @@ namespace gamemap
    typedef std::multimap< TPoint, CObject*, TPointComparer > TMap;
    typedef TMap::iterator TMapIterator;
 
-   struct TPosition
+   struct TPosition // will remove
    {
       TPoint position;
       TObjectType objectType;
