@@ -10,7 +10,10 @@ namespace gamemap
    class CBaseObjectContainer
    {
    protected:
+      bool isEmpty() const;
       CObject* getObject();
+      CObject* getObject() const;
+      CObject* getObject( const TObjectType& objType );
       void addObject( CObject* object );
       void removeObject( CObject* object );
 

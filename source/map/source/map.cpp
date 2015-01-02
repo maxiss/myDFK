@@ -19,7 +19,8 @@ void CMap::addObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) )
    {
-      obj->mapIterator = content.insert( std::make_pair( pos, obj ) );
+      content[ pos ].add( obj );
+      obj->point = pos;
 
       addChange( pos );
    }
@@ -27,12 +28,13 @@ void CMap::addObject( CObject* obj, const TPoint& pos )
 
 void CMap::moveObject( CObject* obj, const TPoint& pos )
 {
-   if ( checkBorders( pos ) && ( obj->mapIterator != content.end() ) )
+   if ( checkBorders( pos ) )
    {
-      addChange( obj->mapIterator->first );
+      addChange( obj->point );
 
-      content.erase( obj->mapIterator );
-      addObject( obj, pos );
+      content[ obj->point ].remove( obj );
+      content[ pos ].add( obj );
+      obj->point = pos;
 
       addChange( pos );
    }
@@ -40,12 +42,9 @@ void CMap::moveObject( CObject* obj, const TPoint& pos )
 
 void CMap::removeObject( CObject* obj )
 {
-   if ( obj->mapIterator != content.end() )
-   {
-      addChange( obj->mapIterator->first );
+   addChange( obj->point );
 
-      content.erase( obj->mapIterator );
-   }
+   content[ obj->point ].remove( obj );
 }
 
 TPositionList CMap::getMapPositionList() const
@@ -67,7 +66,7 @@ TPositionList CMap::getMapPositionList() const
          }
          else
          {
-            position.objectType = pos->second->getObjectType();
+            position.objectType = pos->second.get()->getObjectType();
          }
          retVal.push_back( position );
       }
@@ -89,13 +88,13 @@ TPositionList CMap::getMapChanges() const
       position.position = *it;
 
       mapIt = content.find( position.position );
-      if ( mapIt == content.end() )
+      if ( ( mapIt == content.end() ) || ( mapIt->second.isEmpty() ) )
       {
          position.objectType = OBJ_TYPE_EMPTY;
       }
       else
       {
-         position.objectType = mapIt->second->getObjectType();
+         position.objectType = mapIt->second.get()->getObjectType();
       }
       retVal.push_back( position );
 
@@ -107,21 +106,13 @@ TPositionList CMap::getMapChanges() const
 CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
 {
    CObject* retVal = nullptr;
+
    TMap::iterator it = content.find( pos );
    if ( it != content.end() )
    {
-      while ( it->first == pos )
-      {
-         if ( it->second->getObjectType() == objType )
-         {
-            retVal = it->second;
-            break;
-         }
-
-         if ( ++it == content.end() )
-            break;
-      }
+      retVal = it->second.get( objType );
    }
+
    return retVal;
 }
 

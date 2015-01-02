@@ -5,9 +5,6 @@
 
 namespace gamemap
 {
-   class CObject;
-   typedef std::multimap< TPoint, CObject* > TMap;
-   typedef TMap::iterator TMapIterator;
    class CMap;
 
    enum TObjectType
@@ -24,12 +21,12 @@ namespace gamemap
    {
    public:
       virtual TObjectType getObjectType() const = 0;
-      coord getx() const { return mapIterator->first.x; }
-      coord gety() const { return mapIterator->first.y; }
+      coord getx() const { return point.x; }
+      coord gety() const { return point.y; }
 
    private:
       friend CMap;
-      TMap::iterator mapIterator;
+      TPoint point;
    };
 
 }

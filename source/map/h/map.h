@@ -5,10 +5,15 @@
 #include <set>
 #include "point.h"
 #include "object.h"
+#include "objectContainer.h"
 
 namespace gamemap
 {
-   typedef std::multimap< TPoint, CObject* > TMap;
+   class CMapPoint : public CObjectContainer
+   {
+   };
+
+   typedef std::map< TPoint, CMapPoint > TMap;
    typedef TMap::iterator TMapIterator;
    typedef std::set< TPoint > TPointSet;
 
