@@ -13,7 +13,7 @@ CTypeObjectVisualizator::CTypeObjectVisualizator()
 {
    // TODO bear out to ini-file
    TObjTypeChar listChars[] = {
-      { OBJ_TYPE_EMPTY,    "." }
+      { OBJ_TYPE_EMPTY,    " " }
     , { OBJ_TYPE_ITEM,     "i" }
     , { OBJ_TYPE_BUILDING, "b" }
     , { OBJ_TYPE_CREATURE, "@" }

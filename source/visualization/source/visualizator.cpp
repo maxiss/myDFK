@@ -29,7 +29,8 @@ void CVisualizator::stop()
 
 void CVisualizator::frame()
 {
-   const TPositionList posList = map.getMapPositionList();
+   const TPositionList posList = map.getMapChanges();
+   map.clearChanges();
    for ( TPositionList::const_iterator pos = posList.begin(); pos != posList.end(); ++pos )
    {
       draw( *pos );

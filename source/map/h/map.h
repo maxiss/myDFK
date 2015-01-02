@@ -2,6 +2,7 @@
 
 #include <map>
 #include <list>
+#include <set>
 #include "point.h"
 #include "object.h"
 
@@ -9,6 +10,7 @@ namespace gamemap
 {
    typedef std::multimap< TPoint, CObject* > TMap;
    typedef TMap::iterator TMapIterator;
+   typedef std::set< TPoint > TPointSet;
 
    struct TPosition // will remove
    {
@@ -28,11 +30,15 @@ namespace gamemap
       CObject* getObject( const TObjectType& objType,  const TPoint& pos );
 
       TPositionList getMapPositionList() const;
+      TPositionList getMapChanges() const;
+      void clearChanges() const;
 
    private:
       const coord minX, minY, maxX, maxY;
       TMap content;
+      mutable TPointSet changes;
       bool checkBorders( TPoint point ) const;
+      void addChange( const TPoint& point ) const;
 
    };
 

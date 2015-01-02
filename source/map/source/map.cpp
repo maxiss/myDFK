@@ -18,15 +18,23 @@ bool CMap::checkBorders( TPoint point ) const
 void CMap::addObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) )
+   {
       obj->mapIterator = content.insert( std::make_pair( pos, obj ) );
+
+      addChange( pos );
+   }
 }
 
 void CMap::moveObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) && ( obj->mapIterator != content.end() ) )
    {
+      addChange( obj->mapIterator->first );
+
       content.erase( obj->mapIterator );
       addObject( obj, pos );
+
+      addChange( pos );
    }
 }
 
@@ -34,6 +42,8 @@ void CMap::removeObject( CObject* obj )
 {
    if ( obj->mapIterator != content.end() )
    {
+      addChange( obj->mapIterator->first );
+
       content.erase( obj->mapIterator );
    }
 }
@@ -66,6 +76,34 @@ TPositionList CMap::getMapPositionList() const
    return retVal;
 }
 
+TPositionList CMap::getMapChanges() const
+{
+   TPositionList retVal;
+
+   TPosition position;
+   TMap::const_iterator mapIt;
+
+   TPointSet::const_iterator it = changes.begin();
+   while ( it != changes.end() )
+   {
+      position.position = *it;
+
+      mapIt = content.find( position.position );
+      if ( mapIt == content.end() )
+      {
+         position.objectType = OBJ_TYPE_EMPTY;
+      }
+      else
+      {
+         position.objectType = mapIt->second->getObjectType();
+      }
+      retVal.push_back( position );
+
+      ++it;
+   }
+   return retVal;
+}
+
 CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
 {
    CObject* retVal = nullptr;
@@ -85,4 +123,14 @@ CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
       }
    }
    return retVal;
+}
+
+void CMap::addChange( const TPoint& point ) const
+{
+   changes.insert( point );
+}
+
+void CMap::clearChanges() const
+{
+   changes.clear();
 }
