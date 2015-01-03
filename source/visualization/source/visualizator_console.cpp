@@ -26,13 +26,20 @@ void CVisualizator_console::initConsole()
    SetConsoleCursorInfo( hOuput, &cInfo );
 }
 
-void CVisualizator_console::draw( const TPosition& pos )
+void CVisualizator_console::draw( const TMapPoint& mapPoint )
 {
-   gotoXY( pos.position.x, pos.position.y );
-   draw( pos.objectType );
+   gotoXY( mapPoint.point.x, mapPoint.point.y );
+   draw( mapPoint.mapPoint );
 }
 
-void CVisualizator_console::draw( const TObjectType& objType )
+void CVisualizator_console::draw( const CMapPoint& mapPoint )
 {
-   printf( objTypeChars.getTypeObjectChar( objType ) );
+   if ( mapPoint.isEmpty() )
+   {
+      printf( " " );
+   }
+   else
+   {
+      printf( objTypeChars.getTypeObjectChar( mapPoint.get()->getObjectType() ) );
+   }
 }

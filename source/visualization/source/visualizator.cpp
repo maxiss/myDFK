@@ -29,10 +29,10 @@ void CVisualizator::stop()
 
 void CVisualizator::frame()
 {
-   const TPositionList posList = map.getMapChanges();
+   const TMapPointList changes = map.getMapChanges();
    map.clearChanges();
-   for ( TPositionList::const_iterator pos = posList.begin(); pos != posList.end(); ++pos )
+   for ( TMapPointList::const_iterator it = changes.begin(); it != changes.end(); ++it )
    {
-      draw( *pos );
+      draw( *it );
    }
 }

@@ -55,57 +55,33 @@ void CMap::removeObject( CObject* obj )
    content( obj->point ).remove( obj );
 }
 
-TPositionList CMap::getMapPositionList() const
+TMapPointList CMap::getMapPositionList() const
 {
-   TPositionList retVal;
+   TMapPointList retVal;
 
-   TPoint point;
-   TPosition position;
    for (coord y = minY; y <= maxY; y++)
    {
       for (coord x = minX; x <= maxX; x++)
       {
-         point = TPoint( x, y );
-         position.position = point;
-         const CMapPoint& mapPoint = content( point );
-         if ( mapPoint.isEmpty() )
-         {
-            position.objectType = OBJ_TYPE_EMPTY;
-         }
-         else
-         {
-            position.objectType = mapPoint.get()->getObjectType();
-         }
-         retVal.push_back( position );
+         retVal.push_back( TMapPoint( TPoint( x, y ), content( x, y ) ) );
       }
    }
 
    return retVal;
 }
 
-TPositionList CMap::getMapChanges() const
+TMapPointList CMap::getMapChanges() const
 {
-   TPositionList retVal;
+   TMapPointList retVal;
 
-   TPosition position;
    TPointSet::const_iterator it = changes.begin();
    while ( it != changes.end() )
    {
-      position.position = *it;
-
-      const CMapPoint& mapPoint = content( *it );
-      if ( mapPoint.isEmpty() )
-      {
-         position.objectType = OBJ_TYPE_EMPTY;
-      }
-      else
-      {
-         position.objectType = mapPoint.get()->getObjectType();
-      }
-      retVal.push_back( position );
+      retVal.push_back( TMapPoint( *it, content( *it ) ) );
 
       ++it;
    }
+
    return retVal;
 }
 

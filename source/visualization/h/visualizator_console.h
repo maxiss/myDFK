@@ -14,9 +14,9 @@ namespace visualization
 
    private:
       CTypeObjectVisualizator objTypeChars;
-      virtual void draw( const TPosition& pos );
+      virtual void draw( const TMapPoint& mapPoint );
       void initConsole();
-      void draw( const TObjectType& objType );
+      void draw( const CMapPoint& mapPoint );
 
    };
 

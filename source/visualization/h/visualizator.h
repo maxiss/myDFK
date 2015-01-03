@@ -17,7 +17,7 @@ namespace visualization
       bool loop;
       const CMap& map;
       void frame();
-      virtual void draw( const TPosition& pos ) = 0;
+      virtual void draw( const TMapPoint& mapPoint ) = 0;
 
    };
 

@@ -8,12 +8,15 @@ namespace gamemap
 {
    typedef std::set< TPoint > TPointSet;
 
-   struct TPosition // will remove
+   struct TMapPoint
    {
-      TPoint position;
-      TObjectType objectType;
+      TPoint point;
+      const CMapPoint& mapPoint;
+
+      TMapPoint( const TPoint& point_, const CMapPoint& mapPoint_ )
+         : point( point_) , mapPoint( mapPoint_ ) {}
    };
-   typedef std::list< TPosition > TPositionList;
+   typedef std::list< TMapPoint > TMapPointList;
 
    class CMap
    {
@@ -25,8 +28,8 @@ namespace gamemap
       void removeObject( CObject* obj );
       CObject* getObject( const TObjectType& objType,  const TPoint& pos );
 
-      TPositionList getMapPositionList() const;
-      TPositionList getMapChanges() const;
+      TMapPointList getMapPositionList() const;
+      TMapPointList getMapChanges() const;
       void clearChanges() const;
 
    private:
