@@ -15,9 +15,11 @@ namespace visualization
 
    private:
       bool loop;
+      bool redraw;
       const CMap& map;
       void frame();
       virtual void draw( const TMapPoint& mapPoint ) = 0;
+      const TMapPointList getChanges();
 
    };
 
