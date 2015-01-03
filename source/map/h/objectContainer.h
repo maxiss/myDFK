@@ -1,10 +1,11 @@
 #pragma once
 
-#include "baseObjectContainer.h"
+#include <list>
+#include "object.h"
 
 namespace gamemap
 {
-   class CObjectContainer : protected CBaseObjectContainer
+   class CObjectContainer
    {
    public:
       bool isEmpty() const;
@@ -13,6 +14,10 @@ namespace gamemap
       CObject* get( const TObjectType& objType );
       void add( CObject* object );
       void remove( CObject* object );
+
+   private:
+      typedef std::list< CObject* > TObjectList;
+      TObjectList content;
 
    };
 

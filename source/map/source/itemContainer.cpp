@@ -5,15 +5,15 @@ using namespace items;
 
 CItem* CItemContainer::get()
 {
-   return reinterpret_cast <CItem*> ( getObject() );
+   return reinterpret_cast <CItem*> ( CObjectContainer::get() );
 }
 
 void CItemContainer::add( CItem* item )
 {
-   addObject( item );
+   CObjectContainer::add( item );
 }
 
 void CItemContainer::remove( CItem* item )
 {
-   removeObject( item );
+   CObjectContainer::remove( item );
 }
