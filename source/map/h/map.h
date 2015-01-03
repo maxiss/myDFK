@@ -1,6 +1,6 @@
 #pragma once
 
-#include <map>
+#include <vector>
 #include <list>
 #include <set>
 #include "point.h"
@@ -13,8 +13,7 @@ namespace gamemap
    {
    };
 
-   typedef std::map< TPoint, CMapPoint > TMap;
-   typedef TMap::iterator TMapIterator;
+   typedef std::vector< CMapPoint > TMap;
    typedef std::set< TPoint > TPointSet;
 
    struct TPosition // will remove
@@ -40,7 +39,10 @@ namespace gamemap
 
    private:
       const coord minX, minY, maxX, maxY;
-      TMap content;
+      TMap content_;
+      CMapPoint& content( const TPoint& point );
+      const CMapPoint& content( const TPoint& point ) const;
+
       mutable TPointSet changes;
       bool checkBorders( TPoint point ) const;
       void addChange( const TPoint& point ) const;

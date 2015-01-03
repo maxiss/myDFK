@@ -4,6 +4,7 @@ using namespace gamemap;
 
 CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ )
    : minX(minX_), minY(minY_), maxX(maxX_), maxY(maxY_)
+   , content_( ( maxX - minX + 1 ) * ( maxY - minY + 1 ) )
 {
 }
 
@@ -15,11 +16,23 @@ bool CMap::checkBorders( TPoint point ) const
    return retVal;
 }
 
+CMapPoint& CMap::content( const TPoint& point )
+{
+   int num = ( point.y - minY ) * ( maxY - minY + 1 ) + ( point.x - minX );
+   return content_[ num ];
+}
+
+const CMapPoint& CMap::content( const TPoint& point ) const
+{
+   int num = ( point.y - minY ) * ( maxY - minY + 1 ) + ( point.x - minX );
+   return content_[ num ];
+}
+
 void CMap::addObject( CObject* obj, const TPoint& pos )
 {
    if ( checkBorders( pos ) )
    {
-      content[ pos ].add( obj );
+      content( pos ).add( obj );
       obj->point = pos;
 
       addChange( pos );
@@ -32,8 +45,8 @@ void CMap::moveObject( CObject* obj, const TPoint& pos )
    {
       addChange( obj->point );
 
-      content[ obj->point ].remove( obj );
-      content[ pos ].add( obj );
+      content( obj->point ).remove( obj );
+      content( pos ).add( obj );
       obj->point = pos;
 
       addChange( pos );
@@ -44,7 +57,7 @@ void CMap::removeObject( CObject* obj )
 {
    addChange( obj->point );
 
-   content[ obj->point ].remove( obj );
+   content( obj->point ).remove( obj );
 }
 
 TPositionList CMap::getMapPositionList() const
@@ -57,16 +70,16 @@ TPositionList CMap::getMapPositionList() const
    {
       for (coord x = minX; x <= maxX; x++)
       {
-         point.x = x; point.y = y;
+         point = TPoint( x, y );
          position.position = point;
-         TMap::const_iterator pos = content.find( point );
-         if ( pos == content.end() )
+         const CMapPoint& mapPoint = content( point );
+         if ( mapPoint.isEmpty() )
          {
             position.objectType = OBJ_TYPE_EMPTY;
          }
          else
          {
-            position.objectType = pos->second.get()->getObjectType();
+            position.objectType = mapPoint.get()->getObjectType();
          }
          retVal.push_back( position );
       }
@@ -80,21 +93,19 @@ TPositionList CMap::getMapChanges() const
    TPositionList retVal;
 
    TPosition position;
-   TMap::const_iterator mapIt;
-
    TPointSet::const_iterator it = changes.begin();
    while ( it != changes.end() )
    {
       position.position = *it;
 
-      mapIt = content.find( position.position );
-      if ( ( mapIt == content.end() ) || ( mapIt->second.isEmpty() ) )
+      const CMapPoint& mapPoint = content( *it );
+      if ( mapPoint.isEmpty() )
       {
          position.objectType = OBJ_TYPE_EMPTY;
       }
       else
       {
-         position.objectType = mapIt->second.get()->getObjectType();
+         position.objectType = mapPoint.get()->getObjectType();
       }
       retVal.push_back( position );
 
@@ -107,10 +118,11 @@ CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
 {
    CObject* retVal = nullptr;
 
-   TMap::iterator it = content.find( pos );
-   if ( it != content.end() )
+   CMapPoint& mapPoint = content( pos );
+
+   if ( !mapPoint.isEmpty() )
    {
-      retVal = it->second.get( objType );
+      retVal = mapPoint.get( objType );
    }
 
    return retVal;
