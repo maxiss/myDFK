@@ -4,28 +4,16 @@ using namespace gamemap;
 
 CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ )
    : minX(minX_), minY(minY_), maxX(maxX_), maxY(maxY_)
-   , content_( ( maxX - minX + 1 ) * ( maxY - minY + 1 ) )
+   , content( minX_, minY_, maxX_, maxY_ )
 {
 }
 
-bool CMap::checkBorders( TPoint point ) const
+bool CMap::checkBorders( const TPoint& point ) const
 {
    bool retVal = true;
    retVal = (minX <= point.x) && (point.x <= maxX);
    retVal = retVal && (minY <= point.y) && (point.y <= maxY);
    return retVal;
-}
-
-CMapPoint& CMap::content( const TPoint& point )
-{
-   int num = ( point.y - minY ) * ( maxY - minY + 1 ) + ( point.x - minX );
-   return content_[ num ];
-}
-
-const CMapPoint& CMap::content( const TPoint& point ) const
-{
-   int num = ( point.y - minY ) * ( maxY - minY + 1 ) + ( point.x - minX );
-   return content_[ num ];
 }
 
 void CMap::addObject( CObject* obj, const TPoint& pos )

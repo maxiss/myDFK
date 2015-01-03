@@ -14,6 +14,7 @@
     <ClInclude Include="h\baseObjectContainer.h" />
     <ClInclude Include="h\itemContainer.h" />
     <ClInclude Include="h\map.h" />
+    <ClInclude Include="h\mapData.h" />
     <ClInclude Include="h\object.h" />
     <ClInclude Include="h\objectContainer.h" />
     <ClInclude Include="h\objects.h" />
@@ -23,6 +24,7 @@
     <ClCompile Include="source\baseObjectContainer.cpp" />
     <ClCompile Include="source\itemContainer.cpp" />
     <ClCompile Include="source\map.cpp" />
+    <ClCompile Include="source\mapData.cpp" />
     <ClCompile Include="source\objectContainer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

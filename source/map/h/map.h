@@ -1,19 +1,11 @@
 #pragma once
 
-#include <vector>
 #include <list>
 #include <set>
-#include "point.h"
-#include "object.h"
-#include "objectContainer.h"
+#include "mapData.h"
 
 namespace gamemap
 {
-   class CMapPoint : public CObjectContainer
-   {
-   };
-
-   typedef std::vector< CMapPoint > TMap;
    typedef std::set< TPoint > TPointSet;
 
    struct TPosition // will remove
@@ -39,12 +31,10 @@ namespace gamemap
 
    private:
       const coord minX, minY, maxX, maxY;
-      TMap content_;
-      CMapPoint& content( const TPoint& point );
-      const CMapPoint& content( const TPoint& point ) const;
-
+      CMapData content;
       mutable TPointSet changes;
-      bool checkBorders( TPoint point ) const;
+
+      bool checkBorders( const TPoint& point ) const;
       void addChange( const TPoint& point ) const;
 
    };
