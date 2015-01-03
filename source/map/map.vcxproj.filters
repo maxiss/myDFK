@@ -30,6 +30,9 @@
     <ClInclude Include="h\mapData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="h\structure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\map.cpp">

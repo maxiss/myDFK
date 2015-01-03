@@ -18,6 +18,7 @@
     <ClInclude Include="h\objectContainer.h" />
     <ClInclude Include="h\objects.h" />
     <ClInclude Include="h\point.h" />
+    <ClInclude Include="h\structure.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\itemContainer.cpp" />

@@ -6,6 +6,13 @@ CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const co
    : minX(minX_), minY(minY_), maxX(maxX_), maxY(maxY_)
    , content( minX_, minY_, maxX_, maxY_ )
 {
+   for (coord y = minY; y <= maxY; y++)
+   {
+      for (coord x = minX; x <= maxX; x++)
+      {
+         content( x, y ).structure.type = STRUCTURE_FLOOR;
+      }
+   }
 }
 
 bool CMap::checkBorders( const TPoint& point ) const
