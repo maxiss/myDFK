@@ -10,7 +10,7 @@ CMapData::CMapData( const coord& minX_, const coord& minY_, const coord& maxX_, 
 
 long CMapData::convert( const coord& x, const coord& y ) const
 {
-   return ( y - minY ) * ( maxY - minY + 1 ) + ( x - minX );
+   return ( y - minY ) * ( maxX - minX + 1 ) + ( x - minX );
 }
 
 CMapPoint& CMapData::operator () ( const coord& x, const coord& y )
