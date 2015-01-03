@@ -2,21 +2,28 @@
 
 #include <map>
 #include "map\h\object.h"
+#include "map\h\structure.h"
 
 namespace visualization
 {
    using namespace gamemap;
 
-   typedef std::map< gamemap::TObjectType, const char* > TTypeObjectList;
+   typedef std::map< gamemap::TObjectType, const char* > TObjectTypeList;
+   typedef std::map< gamemap::TStructureType, const char* > TStructureTypeList;
 
-   class CTypeObjectVisualizator
+   class CMapPointVisuzlizator
    {
    public:
-      CTypeObjectVisualizator();
-      const char* getTypeObjectChar( const TObjectType& objType ) const;
+      CMapPointVisuzlizator();
+      const char* getObjectTypeChar( const TObjectType& objType ) const;
+      const char* getStructureTypeChar( const TStructureType& structureType ) const;
 
    private:
-      TTypeObjectList typeObjectList;
+      TObjectTypeList objectTypeList;
+      TStructureTypeList structureTypeList;
+
+      void fillTypeObjectList();
+      void fillStructureTypeList();
 
    };
 

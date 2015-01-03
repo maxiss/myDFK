@@ -13,7 +13,7 @@ namespace visualization
       CVisualizator_console( const CMap& gamemap );
 
    private:
-      CTypeObjectVisualizator objTypeChars;
+      CMapPointVisuzlizator typeChars;
       virtual void draw( const TMapPoint& mapPoint );
       void initConsole();
       void draw( const CMapPoint& mapPoint );

@@ -35,11 +35,7 @@ void CVisualizator_console::draw( const TMapPoint& mapPoint )
 void CVisualizator_console::draw( const CMapPoint& mapPoint )
 {
    if ( mapPoint.isEmpty() )
-   {
-      printf( " " );
-   }
+      printf( typeChars.getStructureTypeChar( mapPoint.structure.type ) );
    else
-   {
-      printf( objTypeChars.getTypeObjectChar( mapPoint.get()->getObjectType() ) );
-   }
+      printf( typeChars.getObjectTypeChar( mapPoint.get()->getObjectType() ) );
 }

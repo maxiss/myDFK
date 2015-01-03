@@ -9,12 +9,23 @@ struct TObjTypeChar
    const char* ch;
 };
 
-CTypeObjectVisualizator::CTypeObjectVisualizator()
+struct TStructureTypeChar
+{
+   const TStructureType structureType;
+   const char* ch;
+};
+
+CMapPointVisuzlizator::CMapPointVisuzlizator()
+{
+   fillTypeObjectList();
+   fillStructureTypeList();
+}
+
+void CMapPointVisuzlizator::fillTypeObjectList()
 {
    // TODO bear out to ini-file
    TObjTypeChar listChars[] = {
-      { OBJ_TYPE_EMPTY,    " " }
-    , { OBJ_TYPE_ITEM,     "i" }
+      { OBJ_TYPE_ITEM,     "i" }
     , { OBJ_TYPE_BUILDING, "b" }
     , { OBJ_TYPE_CREATURE, "@" }
       };
@@ -22,15 +33,40 @@ CTypeObjectVisualizator::CTypeObjectVisualizator()
    size_t arrLen = sizeof( listChars ) / sizeof( *listChars );
    for ( size_t i = 0; i < arrLen; ++i )
    {
-      typeObjectList.insert( std::make_pair <TObjectType, const char*> (listChars[i].objType, listChars[i].ch) );
+      objectTypeList.insert( std::make_pair <TObjectType, const char*> (listChars[i].objType, listChars[i].ch) );
    }
 }
 
-const char* CTypeObjectVisualizator::getTypeObjectChar( const TObjectType& objType ) const
+void CMapPointVisuzlizator::fillStructureTypeList()
+{
+   // TODO bear out to ini-file
+   TStructureTypeChar listChars[] = {
+      { STRUCTURE_NONE,    " " }
+    , { STRUCTURE_FLOOR,   "." }
+    , { STRUCTURE_WALL,    "#" }
+      };
+
+   size_t arrLen = sizeof( listChars ) / sizeof( *listChars );
+   for ( size_t i = 0; i < arrLen; ++i )
+   {
+      structureTypeList.insert( std::make_pair <TStructureType, const char*> (listChars[i].structureType, listChars[i].ch) );
+   }
+}
+
+const char* CMapPointVisuzlizator::getObjectTypeChar( const TObjectType& objType ) const
 {
    const char* retVal = "";
-   TTypeObjectList::const_iterator it = typeObjectList.find( objType );
-   if ( it != typeObjectList.end() )
+   TObjectTypeList::const_iterator it = objectTypeList.find( objType );
+   if ( it != objectTypeList.end() )
+      retVal = it->second;
+   return retVal;
+}
+
+const char* CMapPointVisuzlizator::getStructureTypeChar( const TStructureType& structureType ) const
+{
+   const char* retVal = "";
+   TStructureTypeList::const_iterator it = structureTypeList.find( structureType );
+   if ( it != structureTypeList.end() )
       retVal = it->second;
    return retVal;
 }
