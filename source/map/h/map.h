@@ -38,6 +38,7 @@ namespace gamemap
       mutable TPointSet changes;
 
       bool checkBorders( const TPoint& point ) const;
+      bool checkPassable( const TPoint& point ) const;
       void addChange( const TPoint& point ) const;
 
    };

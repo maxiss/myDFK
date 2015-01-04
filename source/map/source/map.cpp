@@ -11,21 +11,30 @@ CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const co
       for (coord x = minX; x <= maxX; x++)
       {
          content( x, y ).structure.type = STRUCTURE_FLOOR;
+         if ( ( x == maxX - 2 ) && ( y > minY + 1 ) && ( y < maxY - 1 ) )
+            content( x, y ).structure.type = STRUCTURE_WALL;
       }
    }
 }
 
 bool CMap::checkBorders( const TPoint& point ) const
 {
-   bool retVal = true;
-   retVal = (minX <= point.x) && (point.x <= maxX);
-   retVal = retVal && (minY <= point.y) && (point.y <= maxY);
-   return retVal;
+   return ( (minX <= point.x) && (point.x <= maxX) && (minY <= point.y) && (point.y <= maxY) );
+}
+
+bool CMap::checkPassable( const TPoint& point ) const
+{
+   if ( content( point ).structure.type == STRUCTURE_WALL )
+      return false;
+   if ( content( point ).structure.type == STRUCTURE_NONE )
+      return false;
+
+   return true;
 }
 
 void CMap::addObject( CObject* obj, const TPoint& pos )
 {
-   if ( checkBorders( pos ) )
+   if ( checkBorders( pos ) && checkPassable( pos ) )
    {
       content( pos ).add( obj );
       obj->point = pos;
@@ -36,7 +45,7 @@ void CMap::addObject( CObject* obj, const TPoint& pos )
 
 void CMap::moveObject( CObject* obj, const TPoint& pos )
 {
-   if ( checkBorders( pos ) )
+   if ( checkBorders( pos ) && checkPassable( pos ) )
    {
       addChange( obj->point );
 
