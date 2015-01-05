@@ -4,6 +4,7 @@
 #include "map\h\map.h"
 #include "map\h\objectContainer.h"
 #include "creatures\h\creature.h"
+#include "tasks\h\tasks.h"
 
 namespace game
 {
@@ -16,6 +17,8 @@ namespace game
    public:
       CGame();
       void start();
+
+      tasks::TTasks tasks;
 
    protected:
       virtual int eventHandler( int key ) = 0;

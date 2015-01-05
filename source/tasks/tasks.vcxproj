@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\task.h" />
+    <ClInclude Include="h\tasks.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\task.cpp" />
