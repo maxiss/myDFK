@@ -11,14 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\creature.h" />
-    <ClInclude Include="h\creatures.h" />
-    <ClInclude Include="h\creatureTypes.h" />
-    <ClInclude Include="h\dwarf.h" />
+    <ClInclude Include="creature.h" />
+    <ClInclude Include="creatures.h" />
+    <ClInclude Include="creatureTypes.h" />
+    <ClInclude Include="dwarf.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\creature.cpp" />
-    <ClCompile Include="source\dwarf.cpp" />
+    <ClCompile Include="creature.cpp" />
+    <ClCompile Include="dwarf.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC5BE5DA-66E0-4CD7-A6B9-282A9F5C79EE}</ProjectGuid>
@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -73,7 +73,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

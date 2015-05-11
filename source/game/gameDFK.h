@@ -1,6 +1,6 @@
 #pragma once
 #include "game.h"
-#include "creatures\h\dwarf.h"
+#include "creatures\dwarf.h"
 
 namespace game
 {

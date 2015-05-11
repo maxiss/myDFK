@@ -9,24 +9,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\creature.h">
+    <ClInclude Include="creature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\creatureTypes.h">
+    <ClInclude Include="creatureTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\dwarf.h">
+    <ClInclude Include="dwarf.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\creatures.h">
+    <ClInclude Include="creatures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\dwarf.cpp">
+    <ClCompile Include="dwarf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\creature.cpp">
+    <ClCompile Include="creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

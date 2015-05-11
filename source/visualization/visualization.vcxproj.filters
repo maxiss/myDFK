@@ -11,24 +11,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\visualizator.cpp">
+    <ClCompile Include="visualizator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\visualizator_console.cpp">
+    <ClCompile Include="visualizator_console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\objectTypeVisualizator.cpp">
+    <ClCompile Include="objectTypeVisualizator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\visualizator.h">
+    <ClInclude Include="visualizator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\visualizator_console.h">
+    <ClInclude Include="visualizator_console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\objectTypeVisualizator.h">
+    <ClInclude Include="objectTypeVisualizator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "game\h\interface.h"
+#include "game\interface.h"
 
 using namespace std;
 

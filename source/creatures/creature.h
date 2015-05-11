@@ -1,8 +1,8 @@
 #pragma once
 
-#include "map\h\object.h"
+#include "map\object.h"
 #include "creatureTypes.h"
-#include "map\h\itemContainer.h"
+#include "map\itemContainer.h"
 
 namespace creatures
 {

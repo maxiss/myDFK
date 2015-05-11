@@ -46,7 +46,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;EXPORTS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -70,7 +70,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;EXPORTS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -82,15 +82,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\game.cpp" />
-    <ClCompile Include="source\gameDFK.cpp" />
-    <ClCompile Include="source\interface.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameDFK.cpp" />
+    <ClCompile Include="interface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\game.h" />
-    <ClInclude Include="h\gameDFK.h" />
-    <ClInclude Include="h\interface.h" />
-    <ClInclude Include="h\threads.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameDFK.h" />
+    <ClInclude Include="interface.h" />
+    <ClInclude Include="threads.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

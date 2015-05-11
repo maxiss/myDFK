@@ -1,5 +1,5 @@
 #include "gameDFK.h"
-#include "map\h\objects.h"
+#include "map\objects.h"
 
 using namespace game;
 using namespace gamemap;

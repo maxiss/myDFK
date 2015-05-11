@@ -9,15 +9,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\task.h">
+    <ClInclude Include="task.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="h\tasks.h">
+    <ClInclude Include="tasks.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\task.cpp">
+    <ClCompile Include="task.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>

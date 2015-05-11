@@ -11,20 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\itemContainer.h" />
-    <ClInclude Include="h\map.h" />
-    <ClInclude Include="h\mapData.h" />
-    <ClInclude Include="h\object.h" />
-    <ClInclude Include="h\objectContainer.h" />
-    <ClInclude Include="h\objects.h" />
-    <ClInclude Include="h\point.h" />
-    <ClInclude Include="h\structure.h" />
+    <ClInclude Include="itemContainer.h" />
+    <ClInclude Include="map.h" />
+    <ClInclude Include="mapData.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="objectContainer.h" />
+    <ClInclude Include="objects.h" />
+    <ClInclude Include="point.h" />
+    <ClInclude Include="structure.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\itemContainer.cpp" />
-    <ClCompile Include="source\map.cpp" />
-    <ClCompile Include="source\mapData.cpp" />
-    <ClCompile Include="source\objectContainer.cpp" />
+    <ClCompile Include="itemContainer.cpp" />
+    <ClCompile Include="map.cpp" />
+    <ClCompile Include="mapData.cpp" />
+    <ClCompile Include="objectContainer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7D5519E-4193-4286-8DB6-E7A17B9A6355}</ProjectGuid>
@@ -63,7 +63,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -79,7 +79,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

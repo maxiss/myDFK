@@ -9,42 +9,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\object.h">
+    <ClInclude Include="object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\map.h">
+    <ClInclude Include="map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\point.h">
+    <ClInclude Include="point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\objects.h">
+    <ClInclude Include="objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\objectContainer.h">
+    <ClInclude Include="objectContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\itemContainer.h">
+    <ClInclude Include="itemContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\mapData.h">
+    <ClInclude Include="mapData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\structure.h">
+    <ClInclude Include="structure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\map.cpp">
+    <ClCompile Include="map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\objectContainer.cpp">
+    <ClCompile Include="objectContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\itemContainer.cpp">
+    <ClCompile Include="itemContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\mapData.cpp">
+    <ClCompile Include="mapData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

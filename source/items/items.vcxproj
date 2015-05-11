@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -63,7 +63,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -73,14 +73,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="h\item.h" />
-    <ClInclude Include="h\items.h" />
-    <ClInclude Include="h\ItemType.h" />
-    <ClInclude Include="h\weapon.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="items.h" />
+    <ClInclude Include="ItemType.h" />
+    <ClInclude Include="weapon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\item.cpp" />
-    <ClCompile Include="source\weapon.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="weapon.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

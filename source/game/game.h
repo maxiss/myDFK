@@ -1,10 +1,10 @@
 #pragma once
 
-#include "visualization\h\visualizator_console.h"
-#include "map\h\map.h"
-#include "map\h\objectContainer.h"
-#include "creatures\h\creature.h"
-#include "tasks\h\tasks.h"
+#include "visualization\visualizator_console.h"
+#include "map\map.h"
+#include "map\objectContainer.h"
+#include "creatures\creature.h"
+#include "tasks\tasks.h"
 
 namespace game
 {

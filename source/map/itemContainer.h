@@ -1,7 +1,7 @@
 #pragma once
 
 #include "objectContainer.h"
-#include "items\h\item.h"
+#include "items\item.h"
 
 namespace gamemap
 {

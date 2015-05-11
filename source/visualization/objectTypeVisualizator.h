@@ -1,8 +1,8 @@
 #pragma once
 
 #include <map>
-#include "map\h\object.h"
-#include "map\h\structure.h"
+#include "map\object.h"
+#include "map\structure.h"
 
 namespace visualization
 {

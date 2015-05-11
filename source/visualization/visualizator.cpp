@@ -1,5 +1,5 @@
 #include "visualizator.h"
-#include "game/h/threads.h"
+#include "game/threads.h"
 #include <Windows.h>
 
 using namespace visualization;

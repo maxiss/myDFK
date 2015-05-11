@@ -9,15 +9,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\building.cpp">
+    <ClCompile Include="building.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\building.h">
+    <ClInclude Include="building.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\buildings.h">
+    <ClInclude Include="buildings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

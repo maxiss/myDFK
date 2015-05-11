@@ -11,14 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\objectTypeVisualizator.h" />
-    <ClInclude Include="h\visualizator.h" />
-    <ClInclude Include="h\visualizator_console.h" />
+    <ClInclude Include="objectTypeVisualizator.h" />
+    <ClInclude Include="visualizator.h" />
+    <ClInclude Include="visualizator_console.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\objectTypeVisualizator.cpp" />
-    <ClCompile Include="source\visualizator.cpp" />
-    <ClCompile Include="source\visualizator_console.cpp" />
+    <ClCompile Include="objectTypeVisualizator.cpp" />
+    <ClCompile Include="visualizator.cpp" />
+    <ClCompile Include="visualizator_console.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C3709ACB-5C78-4F90-B15C-DA6CE272B2DB}</ProjectGuid>
@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -73,7 +73,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>h;..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

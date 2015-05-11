@@ -9,24 +9,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\item.h">
+    <ClInclude Include="item.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="h\weapon.h">
+    <ClInclude Include="weapon.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="h\ItemType.h">
+    <ClInclude Include="ItemType.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="h\items.h">
+    <ClInclude Include="items.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\weapon.cpp">
+    <ClCompile Include="weapon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\item.cpp">
+    <ClCompile Include="item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

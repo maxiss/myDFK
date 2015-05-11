@@ -11,27 +11,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\game.cpp">
+    <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\interface.cpp">
+    <ClCompile Include="interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\gameDFK.cpp">
+    <ClCompile Include="gameDFK.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="h\game.h">
+    <ClInclude Include="game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\interface.h">
+    <ClInclude Include="interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\threads.h">
+    <ClInclude Include="threads.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="h\gameDFK.h">
+    <ClInclude Include="gameDFK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
