@@ -24,33 +24,17 @@ CMapPointVisuzlizator::CMapPointVisuzlizator()
 void CMapPointVisuzlizator::fillTypeObjectList()
 {
    // TODO bear out to ini-file
-   TObjTypeChar listChars[] = {
-      { OBJ_TYPE_ITEM,     "i" }
-    , { OBJ_TYPE_BUILDING, "b" }
-    , { OBJ_TYPE_CREATURE, "@" }
-      };
-
-   size_t arrLen = sizeof( listChars ) / sizeof( *listChars );
-   for ( size_t i = 0; i < arrLen; ++i )
-   {
-      objectTypeList.insert( std::make_pair <TObjectType, const char*> (listChars[i].objType, listChars[i].ch) );
-   }
+   objectTypeList.insert( std::make_pair( OBJ_TYPE_ITEM,     "i" ) );
+   objectTypeList.insert( std::make_pair( OBJ_TYPE_BUILDING, "b" ) );
+   objectTypeList.insert( std::make_pair( OBJ_TYPE_CREATURE, "@" ) );
 }
 
 void CMapPointVisuzlizator::fillStructureTypeList()
 {
    // TODO bear out to ini-file
-   TStructureTypeChar listChars[] = {
-      { STRUCTURE_NONE,    " " }
-    , { STRUCTURE_FLOOR,   "." }
-    , { STRUCTURE_WALL,    "#" }
-      };
-
-   size_t arrLen = sizeof( listChars ) / sizeof( *listChars );
-   for ( size_t i = 0; i < arrLen; ++i )
-   {
-      structureTypeList.insert( std::make_pair <TStructureType, const char*> (listChars[i].structureType, listChars[i].ch) );
-   }
+   structureTypeList.insert( std::make_pair( STRUCTURE_NONE,    " " ) );
+   structureTypeList.insert( std::make_pair( STRUCTURE_FLOOR,   "." ) );
+   structureTypeList.insert( std::make_pair( STRUCTURE_WALL,    "#" ) );
 }
 
 const char* CMapPointVisuzlizator::getObjectTypeChar( const TObjectType& objType ) const
