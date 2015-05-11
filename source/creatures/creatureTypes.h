@@ -2,13 +2,13 @@
 
 namespace creatures
 {
-   enum TCreatureType
+   enum class TCreatureType
    {
-      CREATURE_TYPE_DWARF = 1
-    , CREATURE_TYPE_ORC
-    , CREATURE_TYPE_HUMAN
-    , CREATURE_TYPE_CRITTER
-    , CREATURE_TYPE_ANIMAL
+      dwarf,
+      orc,
+      human,
+      critter,
+      animal,
    };
 
 }

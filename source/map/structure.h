@@ -2,17 +2,17 @@
 
 namespace gamemap
 {
-   enum TStructureType
+   enum class TStructureType
    {
-      STRUCTURE_NONE
-    , STRUCTURE_FLOOR
-    , STRUCTURE_WALL
+      none,
+      floor,
+      wall,
    };
 
    class TStructure
    {
    public:
-      TStructure() : type( STRUCTURE_NONE ) {};
+      TStructure() : type( TStructureType::none ) {};
 
       TStructureType type;
    };

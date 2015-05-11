@@ -12,17 +12,17 @@ CMapPointVisuzlizator::CMapPointVisuzlizator()
 void CMapPointVisuzlizator::fillTypeObjectList()
 {
    // TODO bear out to ini-file
-   objectTypeList.insert( std::make_pair( OBJ_TYPE_ITEM,     'i' ) );
-   objectTypeList.insert( std::make_pair( OBJ_TYPE_BUILDING, 'b' ) );
-   objectTypeList.insert( std::make_pair( OBJ_TYPE_CREATURE, '@' ) );
+   objectTypeList.insert( std::make_pair( TObjectType::item,     'i' ) );
+   objectTypeList.insert( std::make_pair( TObjectType::building, 'b' ) );
+   objectTypeList.insert( std::make_pair( TObjectType::creature, '@' ) );
 }
 
 void CMapPointVisuzlizator::fillStructureTypeList()
 {
    // TODO bear out to ini-file
-   structureTypeList.insert( std::make_pair( STRUCTURE_NONE,    ' ' ) );
-   structureTypeList.insert( std::make_pair( STRUCTURE_FLOOR,   '.' ) );
-   structureTypeList.insert( std::make_pair( STRUCTURE_WALL,    '#' ) );
+   structureTypeList.insert( std::make_pair( TStructureType::none,  ' ' ) );
+   structureTypeList.insert( std::make_pair( TStructureType::floor, '.' ) );
+   structureTypeList.insert( std::make_pair( TStructureType::wall,  '#' ) );
 }
 
 char CMapPointVisuzlizator::getObjectTypeChar( const TObjectType& objType ) const

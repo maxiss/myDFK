@@ -5,5 +5,5 @@ using namespace gamemap;
 
 TObjectType CItem::getObjectType() const
 {
-   return OBJ_TYPE_ITEM;
+   return TObjectType::item;
 }

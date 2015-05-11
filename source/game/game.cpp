@@ -87,7 +87,7 @@ CObject* CGame::getObject( const TObjectType& objType, const coord& x, const coo
 
 void CGame::creatureCarryItem( CCreature* creature )
 {
-   CObject* obj = getObject( OBJ_TYPE_ITEM, creature->getx(), creature->gety() );
+   CObject* obj = getObject( TObjectType::item, creature->getx(), creature->gety() );
    if ( obj != nullptr )
    {
       removeObjectFromMap( obj );

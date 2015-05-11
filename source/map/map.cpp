@@ -10,9 +10,9 @@ CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const co
    {
       for (coord x = minX; x <= maxX; x++)
       {
-         content( x, y ).structure.type = STRUCTURE_FLOOR;
+         content( x, y ).structure.type = TStructureType::floor;
          if ( ( x == maxX - 2 ) && ( y > minY + 1 ) && ( y < maxY - 1 ) )
-            content( x, y ).structure.type = STRUCTURE_WALL;
+            content( x, y ).structure.type = TStructureType::wall;
       }
    }
 }
@@ -24,9 +24,9 @@ bool CMap::checkBorders( const TPoint& point ) const
 
 bool CMap::checkPassable( const TPoint& point ) const
 {
-   if ( content( point ).structure.type == STRUCTURE_WALL )
+   if ( content( point ).structure.type == TStructureType::wall )
       return false;
-   if ( content( point ).structure.type == STRUCTURE_NONE )
+   if ( content( point ).structure.type == TStructureType::none )
       return false;
 
    return true;

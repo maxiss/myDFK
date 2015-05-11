@@ -4,5 +4,5 @@ using namespace items;
 
 TItemType CWeapon::getItemType()
 {
-   return ITEM_TYPE_WEAPON;
+   return TItemType::weapon;
 }
