@@ -35,8 +35,8 @@ namespace game
 
    private:
       CObjectContainer objects;
-      CVisualizator_console visual;
       CMap map;
+      CVisualizator_console visual;
 
       bool loop;
       void gameLoop();

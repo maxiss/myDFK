@@ -8,15 +8,15 @@ namespace visualization
 {
    using namespace gamemap;
 
-   typedef std::map< gamemap::TObjectType, const char* > TObjectTypeList;
-   typedef std::map< gamemap::TStructureType, const char* > TStructureTypeList;
+   typedef std::map< gamemap::TObjectType, char > TObjectTypeList;
+   typedef std::map< gamemap::TStructureType, char > TStructureTypeList;
 
    class CMapPointVisuzlizator
    {
    public:
       CMapPointVisuzlizator();
-      const char* getObjectTypeChar( const TObjectType& objType ) const;
-      const char* getStructureTypeChar( const TStructureType& structureType ) const;
+      char getObjectTypeChar( const TObjectType& objType ) const;
+      char getStructureTypeChar( const TStructureType& structureType ) const;
 
    private:
       TObjectTypeList objectTypeList;
