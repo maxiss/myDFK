@@ -11,34 +11,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="map.h" />
-    <ClInclude Include="mapData.h" />
-    <ClInclude Include="objects.h" />
-    <ClInclude Include="point.h" />
-    <ClInclude Include="structure.h" />
+    <ClInclude Include="IObject.h" />
+    <ClInclude Include="ObjectList.h" />
+    <ClInclude Include="ObjectTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="map.cpp" />
-    <ClCompile Include="mapData.cpp" />
+    <ClCompile Include="ObjectList.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D7D5519E-4193-4286-8DB6-E7A17B9A6355}</ProjectGuid>
+    <ProjectGuid>{CFD708D6-CCCC-4844-8851-0417C9DEA64B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>map</RootNamespace>
+    <RootNamespace>objects</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">

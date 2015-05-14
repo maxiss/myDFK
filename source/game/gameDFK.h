@@ -14,7 +14,7 @@ namespace game
       virtual void step();
 
    private:
-      CDwarf* player;
+      std::shared_ptr< CDwarf > player;
 
    };
 

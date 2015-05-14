@@ -1,5 +1,6 @@
 #include "gameDFK.h"
 #include "map\objects.h"
+#include "items\weapon.h"
 
 using namespace game;
 using namespace gamemap;
@@ -17,10 +18,10 @@ using namespace items;
 
 void CGameDFK::initData()
 {
-   player = new CDwarf;
+   player.reset( new CDwarf );
    addObject( player, 1, 1 );
-   addObject( new CWeapon, 4, 2 );
-   addObject( new CWeapon, 5, 7 );
+   addObject( std::make_shared< CWeapon >(), 4, 2 );
+   addObject( std::make_shared< CWeapon >(), 5, 7 );
 }
 
 // TODO: bare out key mapping to other class
@@ -37,19 +38,31 @@ int CGameDFK::eventHandler( int key )
       break;
 
       case K_h :
-         moveObject( player, player->getx() - 1, player->gety() );
+      {
+         TCoords coords = player->getCoords();
+         moveObject( player, coords.x - 1, coords.y );
+      }
       break;
 
       case K_j :
-         moveObject( player, player->getx(), player->gety() + 1 );
+      {
+         TCoords coords = player->getCoords();
+         moveObject( player, coords.x, coords.y + 1 );
+      }
       break;
 
       case K_k :
-         moveObject( player, player->getx(), player->gety() - 1 );
+      {
+         TCoords coords = player->getCoords();
+         moveObject( player, coords.x, coords.y - 1 );
+      }
       break;
 
       case K_l :
-         moveObject( player, player->getx() + 1, player->gety() );
+      {
+         TCoords coords = player->getCoords();
+         moveObject( player, coords.x + 1, coords.y );
+      }
       break;
    }
    return key;

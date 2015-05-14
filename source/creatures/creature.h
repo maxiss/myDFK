@@ -1,25 +1,25 @@
 #pragma once
 
-#include "map\object.h"
+#include "objects\IObject.h"
 #include "creatureTypes.h"
-#include "map\itemContainer.h"
+//#include "map\itemContainer.h"
 
 namespace creatures
 {
-   using namespace gamemap;
+   using namespace objects;
 
-   class CCreature : public CObject
+   class ICreature : public IObject
    {
    public:
-      virtual TObjectType getObjectType() const;
-      virtual TCreatureType getCreatureType() = 0;
+      virtual TObjectType getObjectType() const override final;
+      virtual TCreatureType getCreatureType() const = 0;
 
-      CItem* getItem();
-      void carryItem( CItem* item );
-      void dropItem( CItem* item );
+      //CItem* getItem();
+      //void carryItem( CItem* item );
+      //void dropItem( CItem* item );
 
-   private:
-      CItemContainer items;
+   //private:
+   //   CItemContainer items;
 
    };
 

@@ -28,14 +28,17 @@ void CVisualizator_console::initConsole()
 
 void CVisualizator_console::draw( const TMapPoint& mapPoint )
 {
-   gotoXY( mapPoint.point.x, mapPoint.point.y );
-   draw( mapPoint.mapPoint );
+   gotoXY( mapPoint.coords.x, mapPoint.coords.y );
+   drawChar( mapPoint );
 }
 
-void CVisualizator_console::draw( const CMapPoint& mapPoint )
+void CVisualizator_console::drawChar( const TMapPoint& mapPoint )
 {
-   if ( mapPoint.isEmpty() )
-      printf( "%c", typeChars.getStructureTypeChar( mapPoint.structure.type ) );
+   if ( mapPoint.objectList.empty() )
+      printf( "%c", typeChars.getStructureTypeChar( mapPoint.structureType ) );
    else
-      printf( "%c", typeChars.getObjectTypeChar( mapPoint.get()->getObjectType() ) );
+   {
+      objects::IObject::ConstPtr object = *mapPoint.objectList.begin();
+      printf( "%c", typeChars.getObjectTypeChar( object->getObjectType() ) );
+   }
 }

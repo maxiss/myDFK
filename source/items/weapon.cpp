@@ -2,7 +2,7 @@
 
 using namespace items;
 
-TItemType CWeapon::getItemType()
+TItemType CWeapon::getItemType() const 
 {
    return TItemType::weapon;
 }

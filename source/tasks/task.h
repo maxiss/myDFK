@@ -1,6 +1,6 @@
 #pragma once
 
-#include "map\object.h"
+//#include "map\object.h"
 
 namespace tasks
 {
@@ -10,12 +10,12 @@ namespace tasks
    {
    };
 
-   class CMoveTask
-   {
-   public:
-      CObject* object;
-      TPoint point;
+   //class CMoveTask
+   //{
+   //public:
+   //   CObject* object;
+   //   TPoint point;
 
-   };
+   //};
 
 }

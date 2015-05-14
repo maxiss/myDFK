@@ -14,9 +14,9 @@ namespace visualization
 
    private:
       CMapPointVisuzlizator typeChars;
-      virtual void draw( const TMapPoint& mapPoint );
+      virtual void draw( const TMapPoint& mapPoint ) override final;
       void initConsole();
-      void draw( const CMapPoint& mapPoint );
+      void drawChar( const TMapPoint& mapPoint );
 
    };
 

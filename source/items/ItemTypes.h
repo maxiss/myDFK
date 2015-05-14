@@ -5,6 +5,6 @@ namespace items
    enum class TItemType
    {
       weapon,
-      armour,
+      //armour,
    };
 }

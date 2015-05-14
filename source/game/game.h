@@ -1,8 +1,10 @@
 #pragma once
 
+#include "map\point.h"
 #include "visualization\visualizator_console.h"
 #include "map\map.h"
-#include "map\objectContainer.h"
+//#include "map\objectContainer.h"
+//#include "objects\ObjectContainer.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"
 
@@ -18,23 +20,19 @@ namespace game
       CGame();
       void start();
 
-      tasks::TTasks tasks;
-
    protected:
       virtual int eventHandler( int key ) = 0;
       virtual void initData() = 0;
       virtual void step() = 0;
 
-      CObject* addObject( CObject* object, const coord& x, const coord& y );
+      IObject::Ptr addObject( IObject::Ptr object, coord x, coord y );
+      IObject::Ptr getObject( TObjectType objType, coord x, coord y );
+      void moveObject( IObject::Ptr object, coord x, coord y );
 
-      CObject* getObject( const TObjectType& objType,  const coord& x, const coord& y );
-      void moveObject( CObject* object, const coord& x, const coord& y );
-
-      void creatureCarryItem( CCreature* creature );
-      void creatureDropItem( CCreature* creature );
+      void creatureCarryItem( ICreature::Ptr creature );
+      void creatureDropItem( ICreature::Ptr creature );
 
    private:
-      CObjectContainer objects;
       CMap map;
       CVisualizator_console visual;
 
@@ -42,9 +40,8 @@ namespace game
       void gameLoop();
       void _eventHandler();
 
-      void addObject( CObject* object );
-      void addObjectToMap( CObject* object, const coord& x, const coord& y );
-      void removeObjectFromMap( CObject* object );
+      void addObjectToMap( IObject::Ptr object, coord x, coord y );
+      void removeObjectFromMap( IObject::Ptr object );
 
    };
 

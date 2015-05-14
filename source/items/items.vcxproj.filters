@@ -15,10 +15,13 @@
     <ClInclude Include="weapon.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemType.h">
+    <ClInclude Include="items.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="items.h">
+    <ClInclude Include="ItemTypes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemContainer.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -27,6 +30,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

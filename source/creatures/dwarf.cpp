@@ -2,7 +2,7 @@
 
 using namespace creatures;
 
-TCreatureType CDwarf::getCreatureType()
+TCreatureType CDwarf::getCreatureType() const
 {
    return TCreatureType::dwarf;
 }

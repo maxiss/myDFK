@@ -5,10 +5,10 @@ namespace creatures
    enum class TCreatureType
    {
       dwarf,
-      orc,
-      human,
-      critter,
-      animal,
+      //orc,
+      //human,
+      //critter,
+      //animal,
    };
 
 }

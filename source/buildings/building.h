@@ -1,13 +1,13 @@
 #pragma once
 
-#include "map\object.h"
+//#include "map\object.h"
+#include "objects\IObject.h"
 
-namespace creatures
+namespace buildings
 {
-   using namespace gamemap;
-
-   class CBuilding : public CObject
+   class IBuilding : public objects::IObject
    {
+      virtual objects::TObjectType getObjectType() const override final;
    };
 
 }

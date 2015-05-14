@@ -1,18 +1,16 @@
 #pragma once
 
-#include "map\object.h"
-#include "ItemType.h"
+#include "objects\IObject.h"
+#include "ItemTypes.h"
 
 namespace items
 {
-   using namespace gamemap;
-
-   class CItem : public CObject
+   class IItem : public objects::IObject
    {
    public:
-      virtual TObjectType getObjectType() const;
-      virtual TItemType getItemType() = 0;
+      typedef std::shared_ptr< IItem > Ptr;
 
+      virtual objects::TObjectType getObjectType() const override final;
+      virtual TItemType getItemType() const = 0;
    };
-
 }

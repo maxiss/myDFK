@@ -1,35 +1,38 @@
 #pragma once
 
+#include <set>
 #include <vector>
-#include "objectContainer.h"
+#include <map>
+#include "point.h"
 #include "structure.h"
+#include "objects\IObject.h"
 
 namespace gamemap
 {
-   class CMapPoint : public CObjectContainer
-   {
-   public:
-      TStructure structure;
-   };
-
    class CMapData
    {
    public:
-      CMapData( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ );
+      CMapData( const TCoords& min, const TCoords& max );
 
-      CMapPoint& operator () ( const TPoint& point );
-      const CMapPoint& operator () ( const TPoint& point ) const;
+      void addObject( objects::IObject::Ptr );
+      void removeObject( objects::IObject::Ptr );
+      void updateObject( objects::IObject::Ptr );
+      objects::TObjectList getObjectList( const TCoords&, objects::TObjectType, size_t = 1 );
+      objects::TConstObjectList getConstObjectList( const TCoords&, objects::TObjectType, size_t = 1 ) const;
 
-      CMapPoint& operator () ( const coord& x, const coord& y );
-      const CMapPoint& operator () ( const coord& x, const coord& y ) const;
+      TStructure& operator[] ( const TCoords& );
+      const TStructure& operator[] ( const TCoords& ) const;
 
    private:
-      const coord minX, minY, maxX, maxY;
-      std::vector< CMapPoint > content;
+      long convert( const TCoords& coords ) const;
 
-      long convert( const coord& x, const coord& y ) const;
+   private: // data
+      const TCoords min, max;
+      const long cellCount;
 
+      std::map< objects::IObject::RawPtr, objects::IObject::Ptr > content;
+      std::map< objects::IObject::RawPtr, TCoords > objectCoordIndex;
+      std::vector< TStructure > structures;
+      std::vector< std::set< objects::IObject::RawPtr > > coordIndex;
    };
-
 }
-

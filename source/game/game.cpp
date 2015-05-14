@@ -9,14 +9,14 @@ using namespace gamemap;
 using namespace visualization;
 
 // TODO: move to ini-file
-#define MINX 0
-#define MINY 0
-#define MAXX 20
-#define MAXY 10
-#define SLEEP_TIME 300
+const int MINX = 0;
+const int MINY = 0;
+const int MAXX = 20;
+const int MAXY = 10;
+const int SLEEP_TIME = 300;
 
 CGame::CGame()
-   : map( MINX, MINY, MAXX, MAXY )
+   : map( TCoords{ MINX, MINY }, TCoords{ MINY, MAXY } )
    , visual( map )
 {
 }
@@ -53,54 +53,49 @@ void CGame::gameLoop()
    }
 }
 
-void CGame::addObject( CObject* object )
+IObject::Ptr CGame::addObject( IObject::Ptr object, coord x, coord y )
 {
-   objects.add( object );
-}
-
-CObject* CGame::addObject( CObject* object, const coord& x, const coord& y )
-{
-   addObject( object );
-   map.addObject( object, TPoint( x, y ) );
+   map.addObject( object, TCoords{ x, y } );
    return object;
 }
 
-void CGame::moveObject( CObject* object, const coord& x, const coord& y )
+void CGame::moveObject( IObject::Ptr object, coord x, coord y )
 {
-   map.moveObject( object, TPoint( x, y ) );
+   map.moveObject( object, TCoords{ x, y } );
 }
 
-void CGame::addObjectToMap( CObject* object, const coord& x, const coord& y )
+void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
 {
-   map.addObject( object, TPoint( x, y ) );
+   map.addObject( object, TCoords{ x, y } );
 }
 
-void CGame::removeObjectFromMap( CObject* object )
+void CGame::removeObjectFromMap( IObject::Ptr object )
 {
    map.removeObject( object );
 }
 
-CObject* CGame::getObject( const TObjectType& objType, const coord& x, const coord& y )
+IObject::Ptr CGame::getObject( TObjectType objType, coord x, coord y )
 {
-   return map.getObject( objType, TPoint( x, y ) );
+   return map.getObject( TCoords{ x, y }, objType );
 }
 
-void CGame::creatureCarryItem( CCreature* creature )
+void CGame::creatureCarryItem( ICreature::Ptr creature )
 {
-   CObject* obj = getObject( TObjectType::item, creature->getx(), creature->gety() );
-   if ( obj != nullptr )
-   {
-      removeObjectFromMap( obj );
-      creature->carryItem( reinterpret_cast <CItem*>(obj) );
-   }
+   //TCoords coords = creature->getCoords();
+   //IObject::Ptr obj = map.getObject( coords, TObjectType::item );
+   //if ( obj != nullptr )
+   //{
+   //   removeObjectFromMap( obj );
+   //   creature->carryItem( reinterpret_cast <CItem*>(obj) );
+   //}
 }
 
-void CGame::creatureDropItem( CCreature* creature )
+void CGame::creatureDropItem( ICreature::Ptr creature )
 {
-   CItem* item = creature->getItem();
-   if ( item != nullptr )
-   {
-      creature->dropItem( item );
-      addObjectToMap( item, creature->getx(), creature->gety() );
-   }
+   //CItem* item = creature->getItem();
+   //if ( item != nullptr )
+   //{
+   //   creature->dropItem( item );
+   //   addObjectToMap( item, creature->getx(), creature->gety() );
+   //}
 }

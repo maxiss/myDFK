@@ -6,41 +6,41 @@
 
 namespace gamemap
 {
-   typedef std::set< TPoint > TPointSet;
+   typedef std::set< TCoords > TCoordsSet;
 
    struct TMapPoint
    {
-      TPoint point;
-      const CMapPoint& mapPoint;
-
-      TMapPoint( const TPoint& point_, const CMapPoint& mapPoint_ )
-         : point( point_) , mapPoint( mapPoint_ ) {}
+      TCoords coords;
+      TStructureType structureType;
+      objects::TConstObjectList objectList;
    };
+
    typedef std::list< TMapPoint > TMapPointList;
 
    class CMap
    {
    public:
-      CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ );
+      CMap( const TCoords& min, const TCoords& max );
 
-      void addObject( CObject* obj, const TPoint& pos );
-      void moveObject( CObject* obj, const TPoint& pos );
-      void removeObject( CObject* obj );
-      CObject* getObject( const TObjectType& objType,  const TPoint& pos );
+      void addObject( objects::IObject::Ptr, const TCoords& );
+      void moveObject( objects::IObject::Ptr obj, const TCoords& );
+      void removeObject( objects::IObject::Ptr obj );
+      objects::IObject::Ptr getObject( const TCoords& pos, objects::TObjectType objType );
 
       TMapPointList getMapPositionList() const;
       TMapPointList getMapChanges() const;
       void clearChanges() const;
 
    private:
-      const coord minX, minY, maxX, maxY;
+      const TCoords min, max;
       CMapData content;
-      mutable TPointSet changes;
+      mutable TCoordsSet changes;
 
-      bool checkBorders( const TPoint& point ) const;
-      bool checkPassable( const TPoint& point ) const;
-      void addChange( const TPoint& point ) const;
+      bool checkBorders( const TCoords& ) const;
+      bool checkPassable( const TCoords& ) const;
+      void addChange( const TCoords& ) const;
 
+      void tmp_initSturctures();
    };
 
 }

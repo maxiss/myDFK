@@ -1,9 +1,9 @@
 #include "item.h"
 
 using namespace items;
-using namespace gamemap;
+using namespace objects;
 
-TObjectType CItem::getObjectType() const
+TObjectType IItem::getObjectType() const
 {
    return TObjectType::item;
 }

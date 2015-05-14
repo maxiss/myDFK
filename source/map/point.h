@@ -2,28 +2,25 @@
 
 namespace gamemap
 {
-   typedef int coord;
+   typedef unsigned int coord;
 
-   struct TPoint
+   struct TCoords
    {
       coord x;
       coord y;
-
-      TPoint() : x(0), y(0) {}
-      TPoint( const coord& x_, const coord& y_ ) : x(x_) , y(y_) {}
    };
 
-   inline bool operator < (const TPoint& left, const TPoint& right )
+   inline bool operator < (const TCoords& left, const TCoords& right )
    {
       bool retVal;
       if (left.y == right.y)
          retVal = (left.x < right.x);
       else
-         retVal =  (left.y < right.y);
+         retVal = (left.y < right.y);
       return retVal;
    }
 
-   inline bool operator == ( const TPoint& pos1, const TPoint& pos2 )
+   inline bool operator == ( const TCoords& pos1, const TCoords& pos2 )
    {
       return ( (pos1.x == pos2.x) && (pos1.y == pos2.y) );
    }

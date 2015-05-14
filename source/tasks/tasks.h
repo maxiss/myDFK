@@ -5,6 +5,6 @@
 
 namespace tasks
 {
-   typedef std::queue< CMoveTask > TTasks;
+   //typedef std::queue< CMoveTask > TTasks;
 
 }

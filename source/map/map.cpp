@@ -1,78 +1,91 @@
 #include "map.h"
 
 using namespace gamemap;
+using namespace objects;
 
-CMap::CMap( const coord& minX_, const coord& minY_, const coord& maxX_, const coord& maxY_ )
-   : minX(minX_), minY(minY_), maxX(maxX_), maxY(maxY_)
-   , content( minX_, minY_, maxX_, maxY_ )
+CMap::CMap( const TCoords& min_, const TCoords& max_ )
+   : min( min_ ), max( max_ )
+   , content( min, max )
 {
-   for (coord y = minY; y <= maxY; y++)
+   tmp_initSturctures();
+}
+
+void CMap::tmp_initSturctures()
+{
+   for (coord y = min.y; y <= max.y; y++)
    {
-      for (coord x = minX; x <= maxX; x++)
+      for (coord x = min.x; x <= max.x; x++)
       {
-         content( x, y ).structure.type = TStructureType::floor;
-         if ( ( x == maxX - 2 ) && ( y > minY + 1 ) && ( y < maxY - 1 ) )
-            content( x, y ).structure.type = TStructureType::wall;
+         content[ TCoords{ x, y } ].type = TStructureType::floor; 
+
+         if ( ( x == max.x - 2 ) && ( y > min.y + 1 ) && ( y < max.y - 1 ) )
+            content[ TCoords{ x, y } ].type = TStructureType::wall;
       }
    }
 }
 
-bool CMap::checkBorders( const TPoint& point ) const
+bool CMap::checkBorders( const TCoords& coords ) const
 {
-   return ( (minX <= point.x) && (point.x <= maxX) && (minY <= point.y) && (point.y <= maxY) );
+   return ( (min.x <= coords.x) && (coords.x <= max.x) && (min.y <= coords.y) && (coords.y <= max.y) );
 }
 
-bool CMap::checkPassable( const TPoint& point ) const
+bool CMap::checkPassable( const TCoords& coords ) const
 {
-   if ( content( point ).structure.type == TStructureType::wall )
-      return false;
-   if ( content( point ).structure.type == TStructureType::none )
-      return false;
+   bool retVal = true;
 
-   return true;
-}
-
-void CMap::addObject( CObject* obj, const TPoint& pos )
-{
-   if ( checkBorders( pos ) && checkPassable( pos ) )
+   const TStructure structure = content[ coords ];
+   switch ( structure.type )
    {
-      content( pos ).add( obj );
-      obj->point = pos;
+      case TStructureType::wall :
+      case TStructureType::none :
+         retVal = false;
+      break;
+   }
 
-      addChange( pos );
+   return retVal;
+}
+
+void CMap::addObject( IObject::Ptr obj, const TCoords& coords )
+{
+   if ( checkBorders( coords ) && checkPassable( coords ) )
+   {
+      obj->setCoords( coords );
+      content.addObject( obj );
+      addChange( coords );
    }
 }
 
-void CMap::moveObject( CObject* obj, const TPoint& pos )
+void CMap::moveObject( IObject::Ptr obj, const TCoords& coords )
 {
-   if ( checkBorders( pos ) && checkPassable( pos ) )
+   if ( checkBorders( coords ) && checkPassable( coords ) )
    {
-      addChange( obj->point );
+      addChange( obj->getCoords() );
 
-      content( obj->point ).remove( obj );
-      content( pos ).add( obj );
-      obj->point = pos;
+      obj->setCoords( coords );
+      content.updateObject( obj );
 
-      addChange( pos );
+      addChange( coords );
    }
 }
 
-void CMap::removeObject( CObject* obj )
+void CMap::removeObject( IObject::Ptr obj )
 {
-   addChange( obj->point );
+   addChange( obj->getCoords() );
 
-   content( obj->point ).remove( obj );
+   content.removeObject( obj );
 }
 
 TMapPointList CMap::getMapPositionList() const
 {
    TMapPointList retVal;
 
-   for (coord y = minY; y <= maxY; y++)
+   for (coord y = min.y; y <= max.y; y++)
    {
-      for (coord x = minX; x <= maxX; x++)
+      for (coord x = min.x; x <= max.x; x++)
       {
-         retVal.push_back( TMapPoint( TPoint( x, y ), content( x, y ) ) );
+         TCoords coords{ x, y };
+         retVal.push_back( TMapPoint{ coords, content[ coords ].type,
+                                      content.getConstObjectList( coords, TObjectType::all ) } );
       }
    }
 
@@ -83,32 +96,25 @@ TMapPointList CMap::getMapChanges() const
 {
    TMapPointList retVal;
 
-   TPointSet::const_iterator it = changes.begin();
-   while ( it != changes.end() )
-   {
-      retVal.push_back( TMapPoint( *it, content( *it ) ) );
-
-      ++it;
-   }
+   for ( auto it : changes )
+      retVal.push_back( TMapPoint{ it, content[ it ].type,
+                                   content.getConstObjectList( it, TObjectType::all ) } );
 
    return retVal;
 }
 
-CObject* CMap::getObject( const TObjectType& objType,  const TPoint& pos )
+IObject::Ptr CMap::getObject( const TCoords& coords, TObjectType objectType )
 {
-   CObject* retVal = nullptr;
+   IObject::Ptr retVal;
 
-   CMapPoint& mapPoint = content( pos );
-
-   if ( !mapPoint.isEmpty() )
-   {
-      retVal = mapPoint.get( objType );
-   }
+   TObjectList objectList = content.getObjectList( coords, objectType );
+   if ( !objectList.empty() )
+      retVal = *objectList.begin();
 
    return retVal;
 }
 
-void CMap::addChange( const TPoint& point ) const
+void CMap::addChange( const TCoords& point ) const
 {
    changes.insert( point );
 }

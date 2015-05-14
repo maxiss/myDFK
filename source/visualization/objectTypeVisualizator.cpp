@@ -2,6 +2,7 @@
 
 using namespace visualization;
 using namespace gamemap;
+using namespace objects;
 
 CMapPointVisuzlizator::CMapPointVisuzlizator()
 {
@@ -25,7 +26,7 @@ void CMapPointVisuzlizator::fillStructureTypeList()
    structureTypeList.insert( std::make_pair( TStructureType::wall,  '#' ) );
 }
 
-char CMapPointVisuzlizator::getObjectTypeChar( const TObjectType& objType ) const
+char CMapPointVisuzlizator::getObjectTypeChar( TObjectType objType ) const
 {
    char retVal = '\0';
    auto it = objectTypeList.find( objType );
@@ -34,7 +35,7 @@ char CMapPointVisuzlizator::getObjectTypeChar( const TObjectType& objType ) cons
    return retVal;
 }
 
-char CMapPointVisuzlizator::getStructureTypeChar( const TStructureType& structureType ) const
+char CMapPointVisuzlizator::getStructureTypeChar( TStructureType structureType ) const
 {
    char retVal = '\0';
    auto it = structureTypeList.find( structureType );

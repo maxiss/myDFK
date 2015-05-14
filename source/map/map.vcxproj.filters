@@ -9,9 +9,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -19,12 +16,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="objects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="objectContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="itemContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mapData.h">
@@ -36,12 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="objectContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="itemContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mapData.cpp">

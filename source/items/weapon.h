@@ -4,11 +4,10 @@
 
 namespace items
 {
-   class CWeapon : public CItem
+   class CWeapon : public IItem
    {
    public:
-      virtual TItemType getItemType();
+      virtual TItemType getItemType() const override final;
 
    };
-
 }
