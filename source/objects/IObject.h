@@ -12,7 +12,7 @@ namespace objects
    public:
       typedef std::shared_ptr< IObject > Ptr;
       typedef std::shared_ptr< const IObject > ConstPtr;
-      typedef const IObject* const RawPtr;
+      typedef const IObject* RawPtr;
 
       IObject() : coords( gamemap::TCoords{ 0, 0 } ) {}
       virtual TObjectType getObjectType() const = 0;

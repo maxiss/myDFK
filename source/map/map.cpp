@@ -16,10 +16,10 @@ void CMap::tmp_initSturctures()
    {
       for (coord x = min.x; x <= max.x; x++)
       {
-         content[ TCoords{ x, y } ].type = TStructureType::floor; 
+         content.getStructure( TCoords{ x, y } ).type = TStructureType::floor;
 
          if ( ( x == max.x - 2 ) && ( y > min.y + 1 ) && ( y < max.y - 1 ) )
-            content[ TCoords{ x, y } ].type = TStructureType::wall;
+            content.getStructure( TCoords{ x, y } ).type = TStructureType::wall;
       }
    }
 }
@@ -31,18 +31,19 @@ bool CMap::checkBorders( const TCoords& coords ) const
 
 bool CMap::checkPassable( const TCoords& coords ) const
 {
-   bool retVal = true;
+   const TStructure& structure = content.getStructure( coords );
 
-   const TStructure structure = content[ coords ];
    switch ( structure.type )
    {
       case TStructureType::wall :
       case TStructureType::none :
-         retVal = false;
+         return false;
+      break;
+
+      default :
+         return true;
       break;
    }
-
-   return retVal;
 }
 
 void CMap::addObject( IObject::Ptr obj, const TCoords& coords )
@@ -84,7 +85,7 @@ TMapPointList CMap::getMapPositionList() const
       for (coord x = min.x; x <= max.x; x++)
       {
          TCoords coords{ x, y };
-         retVal.push_back( TMapPoint{ coords, content[ coords ].type,
+         retVal.push_back( TMapPoint{ coords, content.getStructure( coords ).type,
                                       content.getConstObjectList( coords, TObjectType::all ) } );
       }
    }
@@ -97,7 +98,7 @@ TMapPointList CMap::getMapChanges() const
    TMapPointList retVal;
 
    for ( auto it : changes )
-      retVal.push_back( TMapPoint{ it, content[ it ].type,
+      retVal.push_back( TMapPoint{ it, content.getStructure( it ).type,
                                    content.getConstObjectList( it, TObjectType::all ) } );
 
    return retVal;
