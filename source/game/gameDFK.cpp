@@ -2,6 +2,7 @@
 #include "map\objects.h"
 #include "items\weapon.h"
 #include "map\mapPosition.h"
+#include "map\mapInstance.h"
 
 using namespace game;
 using namespace gamemap;
@@ -39,6 +40,38 @@ static void moveObject( IObject::Ptr object, int dx, int dy )
    }
 }
 
+static void creaturePickUpItem( ICreature::Ptr creature )
+{
+   IPositionBehavior::Ptr position = creature->getPosition();
+   if ( position.use_count() != 0 && position->getPositionType() == TPositionType::map )
+   {
+      auto mapPosition = dynamic_cast<CMapPosition*>( position.get() );
+      const TCoords& coords = mapPosition->getCoords();
+      CMap& map = Map::Intance().getMap();
+
+      auto obj = map.getObject( coords, TObjectType::item );
+      if ( obj.use_count() != 0 )
+         creature->carryItem( std::dynamic_pointer_cast< IItem >( obj ) );
+   }
+}
+
+static void creatureDropItem( ICreature::Ptr creature )
+{
+   IPositionBehavior::Ptr position = creature->getPosition();
+   if ( position.use_count() != 0 && position->getPositionType() == TPositionType::map )
+   {
+      auto mapPosition = dynamic_cast<CMapPosition*>(position.get());
+      const TCoords& coords = mapPosition->getCoords();
+
+      IItem::Ptr item = creature->getItem();
+      if ( item.use_count() != 0 )
+      {
+         creature->dropItem( item );
+         item->setPosition( std::make_shared<CMapPosition>( item, coords ) );
+      }
+   }
+}
+
 // TODO: bare out key mapping to other class
 int CGameDFK::eventHandler( int key )
 {
@@ -49,7 +82,7 @@ int CGameDFK::eventHandler( int key )
       break;
 
       case K_g :
-         creatureCarryItem( player );
+         creaturePickUpItem( player );
       break;
 
       case K_h :

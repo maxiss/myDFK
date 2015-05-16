@@ -28,9 +28,6 @@ namespace game
       void addObjectToMap( IObject::Ptr object, coord x, coord y );
       IObject::Ptr getObjectOnMap( TObjectType objType, coord x, coord y );
 
-      void creatureCarryItem( ICreature::Ptr creature );
-      void creatureDropItem( ICreature::Ptr creature );
-
    private:
       CMap map;
       CVisualizator_console visual;

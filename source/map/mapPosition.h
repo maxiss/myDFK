@@ -13,6 +13,7 @@ namespace gamemap
 	   virtual objects::TPositionType getPositionType() const override final;
 
       CMapPosition( objects::IObject::Ptr, const TCoords& );
+      ~CMapPosition();
 
       const TCoords& getCoords() const;
       void setCoords( const TCoords& );

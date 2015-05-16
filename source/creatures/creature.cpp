@@ -1,6 +1,7 @@
 #include "creature.h"
 
 using namespace creatures;
+using namespace items;
 //using namespace gamemap;
 
 TObjectType ICreature::getObjectType() const
@@ -8,17 +9,22 @@ TObjectType ICreature::getObjectType() const
    return TObjectType::creature;
 }
 
-//CItem* CCreature::getItem()
-//{
-//   return items.get();
-//}
+IItem::Ptr ICreature::getItem()
+{
+   if ( !itemContainer.empty() )
+      return itemContainer.begin()->second;
+   else
+      return nullptr;
+}
 
-//void CCreature::carryItem( CItem* item )
-//{
-//   items.add( item );
-//}
+void ICreature::carryItem( IItem::Ptr item )
+{
+   // itemContainer.insert( item ); // !!! make interface like this
+   item->setPosition( nullptr );
+   itemContainer[ item.get() ] = item;
+}
 
-//void CCreature::dropItem( CItem* item )
-//{
-//   items.remove( item );
-//}
+void ICreature::dropItem( IItem::Ptr item )
+{
+   itemContainer.erase( item.get() );
+}

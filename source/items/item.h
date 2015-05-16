@@ -9,6 +9,7 @@ namespace items
    {
    public:
       typedef std::shared_ptr< IItem > Ptr;
+      typedef const IItem* RawPtr;
 
       virtual objects::TObjectType getObjectType() const override final;
       virtual TItemType getItemType() const = 0;

@@ -1,8 +1,9 @@
 #pragma once
 
+#include <map>
 #include "objects\IObject.h"
 #include "creatureTypes.h"
-//#include "map\itemContainer.h"
+#include "items\item.h"
 
 namespace creatures
 {
@@ -11,15 +12,16 @@ namespace creatures
    class ICreature : public IObject
    {
    public:
+      typedef std::shared_ptr< ICreature > Ptr;
       virtual TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
-      //CItem* getItem();
-      //void carryItem( CItem* item );
-      //void dropItem( CItem* item );
+      items::IItem::Ptr getItem();
+      void carryItem( items::IItem::Ptr );
+      void dropItem( items::IItem::Ptr );
 
-   //private:
-   //   CItemContainer items;
+   private:
+      std::map < items::IItem::RawPtr, items::IItem::Ptr > itemContainer;
 
    };
 

@@ -66,24 +66,3 @@ IObject::Ptr CGame::getObjectOnMap( TObjectType objType, coord x, coord y )
 {
    return map.getObject( TCoords{ x, y }, objType );
 }
-
-void CGame::creatureCarryItem( ICreature::Ptr creature )
-{
-   //TCoords coords = creature->getCoords();
-   //IObject::Ptr obj = map.getObject( coords, TObjectType::item );
-   //if ( obj != nullptr )
-   //{
-   //   removeObjectFromMap( obj );
-   //   creature->carryItem( reinterpret_cast <CItem*>(obj) );
-   //}
-}
-
-void CGame::creatureDropItem( ICreature::Ptr creature )
-{
-   //CItem* item = creature->getItem();
-   //if ( item != nullptr )
-   //{
-   //   creature->dropItem( item );
-   //   addObjectToMap( item, creature->getx(), creature->gety() );
-   //}
-}

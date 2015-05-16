@@ -41,3 +41,10 @@ void CMapPosition::setCoords( const TCoords& coords_ )
       map.moveObject( object.lock(), coords );
    }
 }
+
+gamemap::CMapPosition::~CMapPosition()
+{
+   CMap& map = getMap();
+   if ( !object.expired() )
+      map.removeObject( object.lock() );
+}
