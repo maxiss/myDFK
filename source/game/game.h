@@ -1,6 +1,6 @@
 #pragma once
 
-#include "map\point.h"
+#include "map\TCoords.h"
 #include "visualization\visualizator_console.h"
 #include "map\map.h"
 //#include "map\objectContainer.h"

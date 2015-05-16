@@ -15,7 +15,7 @@
     <ClInclude Include="map.h" />
     <ClInclude Include="mapData.h" />
     <ClInclude Include="objects.h" />
-    <ClInclude Include="point.h" />
+    <ClInclude Include="TCoords.h" />
     <ClInclude Include="structure.h" />
   </ItemGroup>
   <ItemGroup>

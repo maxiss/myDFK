@@ -12,7 +12,7 @@
     <ClInclude Include="map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="point.h">
+    <ClInclude Include="TCoords.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="objects.h">

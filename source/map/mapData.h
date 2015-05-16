@@ -3,7 +3,7 @@
 #include <set>
 #include <vector>
 #include <map>
-#include "point.h"
+#include "TCoords.h"
 #include "structure.h"
 #include "objects\IObject.h"
 #include "CoordsVector.h"

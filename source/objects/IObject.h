@@ -3,7 +3,7 @@
 #include <memory>
 #include <list>
 #include "ObjectTypes.h"
-#include "map\point.h"
+#include "map\TCoords.h"
 
 namespace objects
 {
