@@ -16,7 +16,7 @@ const int MAXY = 10;
 const int SLEEP_TIME = 300;
 
 CGame::CGame()
-   : map( TCoords{ MINX, MINY }, TCoords{ MINY, MAXY } )
+   : map( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } )
    , visual( map )
 {
 }
