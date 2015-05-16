@@ -26,6 +26,7 @@ namespace gamemap
       void moveObject( objects::IObject::Ptr obj, const TCoords& );
       void removeObject( objects::IObject::Ptr obj );
       objects::IObject::Ptr getObject( const TCoords& pos, objects::TObjectType objType );
+      bool canMove( objects::IObject::Ptr, const TCoords& );
 
       TMapPointList getMapPositionList() const;
       TMapPointList getMapChanges() const;

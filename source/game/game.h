@@ -25,9 +25,8 @@ namespace game
       virtual void initData() = 0;
       virtual void step() = 0;
 
-      IObject::Ptr addObject( IObject::Ptr object, coord x, coord y );
-      IObject::Ptr getObject( TObjectType objType, coord x, coord y );
-      void moveObject( IObject::Ptr object, coord x, coord y );
+      void addObjectToMap( IObject::Ptr object, coord x, coord y );
+      IObject::Ptr getObjectOnMap( TObjectType objType, coord x, coord y );
 
       void creatureCarryItem( ICreature::Ptr creature );
       void creatureDropItem( ICreature::Ptr creature );
@@ -40,8 +39,6 @@ namespace game
       void gameLoop();
       void _eventHandler();
 
-      void addObjectToMap( IObject::Ptr object, coord x, coord y );
-      void removeObjectFromMap( IObject::Ptr object );
 
    };
 

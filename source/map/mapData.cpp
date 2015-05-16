@@ -10,17 +10,16 @@ CMapData::CMapData( const TCoords& min_, const TCoords& max_ )
 {
 }
 
-void CMapData::addObject( objects::IObject::Ptr obj )
+void CMapData::addObject( IObject::Ptr object, const TCoords& coords )
 {
-   const IObject* objId = obj.get();
-   content.insert( make_pair( objId, obj ) );
+   const IObject* objId = object.get();
+   content.insert( make_pair( objId, object ) );
 
-   const TCoords coords = obj->getCoords();
    objectCoordIndex[ objId ] = coords;
    coordIndex[ coords ].insert( objId );
 }
 
-void CMapData::removeObject( objects::IObject::Ptr obj )
+void CMapData::removeObject( IObject::Ptr obj )
 {
    const IObject* objId = obj.get();
    const TCoords coords = objectCoordIndex[ objId ];
@@ -30,15 +29,24 @@ void CMapData::removeObject( objects::IObject::Ptr obj )
    content.erase( objId );
 }
 
-void CMapData::updateObject( objects::IObject::Ptr obj )
+void CMapData::updateObject( IObject::Ptr object, const TCoords& coords )
 {
-   const IObject* objId = obj.get();
+   const IObject* objId = object.get();
    const TCoords oldCoords = objectCoordIndex[ objId ];
    coordIndex[ oldCoords ].erase( objId );
 
-   const TCoords newCoords = obj->getCoords();
-   objectCoordIndex[ objId ] = newCoords;
-   coordIndex[ newCoords ].insert( objId );
+   objectCoordIndex[ objId ] = coords;
+   coordIndex[ coords ].insert( objId );
+}
+
+const TCoords& CMapData::getObjectCoords( IObject::Ptr object ) const
+{
+   const IObject* objId = object.get();
+   auto it = objectCoordIndex.find( objId );
+   if ( it != objectCoordIndex.end() )
+      return it->second;
+   else
+      throw std::exception( "objectCoordIndex no index" );
 }
 
 TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectType_, size_t count )

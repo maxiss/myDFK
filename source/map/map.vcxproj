@@ -14,6 +14,8 @@
     <ClInclude Include="CoordsVector.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapData.h" />
+    <ClInclude Include="mapInstance.h" />
+    <ClInclude Include="mapPosition.h" />
     <ClInclude Include="objects.h" />
     <ClInclude Include="TCoords.h" />
     <ClInclude Include="structure.h" />
@@ -21,6 +23,8 @@
   <ItemGroup>
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mapData.cpp" />
+    <ClCompile Include="mapInstance.cpp" />
+    <ClCompile Include="mapPosition.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7D5519E-4193-4286-8DB6-E7A17B9A6355}</ProjectGuid>

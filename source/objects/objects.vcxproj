@@ -12,8 +12,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IObject.h" />
+    <ClInclude Include="IPositionBehavior.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="ObjectTypes.h" />
+    <ClInclude Include="PositionTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ObjectList.cpp" />

@@ -48,30 +48,31 @@ bool CMap::checkPassable( const TCoords& coords ) const
 
 void CMap::addObject( IObject::Ptr obj, const TCoords& coords )
 {
-   if ( checkBorders( coords ) && checkPassable( coords ) )
-   {
-      obj->setCoords( coords );
-      content.addObject( obj );
-      addChange( coords );
-   }
+   if ( !canMove( obj, coords ) )
+      throw std::exception( "can't move object there" );
+
+   content.addObject( obj, coords );
+
+   addChange( coords );
 }
 
 void CMap::moveObject( IObject::Ptr obj, const TCoords& coords )
 {
-   if ( checkBorders( coords ) && checkPassable( coords ) )
-   {
-      addChange( obj->getCoords() );
+   if ( !canMove( obj, coords ) )
+      throw std::exception( "can't move object there" );
 
-      obj->setCoords( coords );
-      content.updateObject( obj );
+   const TCoords& oldCoords = content.getObjectCoords( obj );
+   addChange( oldCoords );
 
-      addChange( coords );
-   }
+   content.updateObject( obj, coords );
+
+   addChange( coords );
 }
 
 void CMap::removeObject( IObject::Ptr obj )
 {
-   addChange( obj->getCoords() );
+   const TCoords& oldCoords = content.getObjectCoords( obj );
+   addChange( oldCoords );
 
    content.removeObject( obj );
 }
@@ -123,4 +124,9 @@ void CMap::addChange( const TCoords& point ) const
 void CMap::clearChanges() const
 {
    changes.clear();
+}
+
+bool gamemap::CMap::canMove( objects::IObject::Ptr, const TCoords& coords )
+{
+   return checkBorders( coords ) && checkPassable( coords );
 }

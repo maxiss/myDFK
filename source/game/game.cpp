@@ -2,11 +2,14 @@
 #include <Windows.h>
 #include <conio.h>
 #include "threads.h"
+#include "map\mapPosition.h"
+#include "map\mapInstance.h"
 
 using namespace game;
 using namespace threads;
 using namespace gamemap;
 using namespace visualization;
+using namespace objects;
 
 // TODO: move to ini-file
 const int MINX = 0;
@@ -19,6 +22,7 @@ CGame::CGame()
    : map( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } )
    , visual( map )
 {
+   Map::Intance().setMap( &map );
 }
 
 void CGame::start()
@@ -53,28 +57,12 @@ void CGame::gameLoop()
    }
 }
 
-IObject::Ptr CGame::addObject( IObject::Ptr object, coord x, coord y )
-{
-   map.addObject( object, TCoords{ x, y } );
-   return object;
-}
-
-void CGame::moveObject( IObject::Ptr object, coord x, coord y )
-{
-   map.moveObject( object, TCoords{ x, y } );
-}
-
 void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
 {
-   map.addObject( object, TCoords{ x, y } );
+   object->setPosition( std::make_shared< CMapPosition >( object, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
 }
 
-void CGame::removeObjectFromMap( IObject::Ptr object )
-{
-   map.removeObject( object );
-}
-
-IObject::Ptr CGame::getObject( TObjectType objType, coord x, coord y )
+IObject::Ptr CGame::getObjectOnMap( TObjectType objType, coord x, coord y )
 {
    return map.getObject( TCoords{ x, y }, objType );
 }

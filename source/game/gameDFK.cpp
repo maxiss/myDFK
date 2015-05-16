@@ -1,11 +1,13 @@
 #include "gameDFK.h"
 #include "map\objects.h"
 #include "items\weapon.h"
+#include "map\mapPosition.h"
 
 using namespace game;
 using namespace gamemap;
 using namespace creatures;
 using namespace items;
+using namespace objects;
 
 #define K_SPACE 32
 
@@ -19,9 +21,22 @@ using namespace items;
 void CGameDFK::initData()
 {
    player.reset( new CDwarf );
-   addObject( player, 1, 1 );
-   addObject( std::make_shared< CWeapon >(), 4, 2 );
-   addObject( std::make_shared< CWeapon >(), 5, 7 );
+   addObjectToMap( player, 1, 1 );
+   addObjectToMap( std::make_shared< CWeapon >(), 4, 2 );
+   addObjectToMap( std::make_shared< CWeapon >(), 5, 7 );
+}
+
+static void moveObject( IObject::Ptr object, int dx, int dy )
+{
+   IPositionBehavior::Ptr position = object->getPosition();
+   if ( position->getPositionType() == TPositionType::map )
+   {
+      auto mapPosition = dynamic_cast<CMapPosition*>( position.get() );
+      TCoords coords = mapPosition->getCoords();
+      coords.x += dx;
+      coords.y += dy;
+      mapPosition->setCoords( coords );
+   }
 }
 
 // TODO: bare out key mapping to other class
@@ -38,31 +53,19 @@ int CGameDFK::eventHandler( int key )
       break;
 
       case K_h :
-      {
-         TCoords coords = player->getCoords();
-         moveObject( player, coords.x - 1, coords.y );
-      }
+         moveObject( player, -1, +0 );
       break;
 
       case K_j :
-      {
-         TCoords coords = player->getCoords();
-         moveObject( player, coords.x, coords.y + 1 );
-      }
+         moveObject( player, +0, +1 );
       break;
 
       case K_k :
-      {
-         TCoords coords = player->getCoords();
-         moveObject( player, coords.x, coords.y - 1 );
-      }
+         moveObject( player, +0, -1 );
       break;
 
       case K_l :
-      {
-         TCoords coords = player->getCoords();
-         moveObject( player, coords.x + 1, coords.y );
-      }
+         moveObject( player, +1, +0 );
       break;
    }
    return key;
