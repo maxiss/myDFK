@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="containerPosition.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="ItemContainer.h" />
     <ClInclude Include="items.h" />
@@ -81,6 +82,7 @@
     <ClInclude Include="weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="containerPosition.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="ItemContainer.cpp" />
     <ClCompile Include="weapon.cpp" />

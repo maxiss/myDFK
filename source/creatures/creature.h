@@ -4,6 +4,7 @@
 #include "objects\IObject.h"
 #include "creatureTypes.h"
 #include "items\item.h"
+#include "items\ItemContainer.h"
 
 namespace creatures
 {
@@ -13,15 +14,17 @@ namespace creatures
    {
    public:
       typedef std::shared_ptr< ICreature > Ptr;
+
+      ICreature();
+
       virtual TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
       items::IItem::Ptr getItem();
       void carryItem( items::IItem::Ptr );
-      void dropItem( items::IItem::Ptr );
 
    private:
-      std::map < items::IItem::RawPtr, items::IItem::Ptr > itemContainer;
+      items::CItemContainer::Ptr backpack;
 
    };
 

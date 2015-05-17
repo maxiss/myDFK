@@ -9,17 +9,19 @@ namespace visualization
    class CVisualizator
    {
    public:
-      CVisualizator( const CMap& gamemap );
+      CVisualizator( CMap::ConstPtr );
       void gameLoop();
       void stop();
 
    private:
-      bool loop;
-      bool redraw;
-      const CMap& map;
       void frame();
       virtual void draw( const TMapPoint& mapPoint ) = 0;
       const TMapPointList getChanges();
+
+   private: // data
+      bool loop;
+      bool redraw;
+      CMap::ConstPtr map;
 
    };
 

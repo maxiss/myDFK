@@ -3,7 +3,6 @@
 #include <conio.h>
 #include "threads.h"
 #include "map\mapPosition.h"
-#include "map\mapInstance.h"
 
 using namespace game;
 using namespace threads;
@@ -19,11 +18,9 @@ const int MAXY = 10;
 const int SLEEP_TIME = 300;
 
 CGame::CGame()
-   : map( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } )
+   : map( std::make_shared<CMap>( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } ) )
    , visual( map )
-{
-   Map::Intance().setMap( &map );
-}
+{}
 
 void CGame::start()
 {
@@ -59,10 +56,10 @@ void CGame::gameLoop()
 
 void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
 {
-   object->setPosition( std::make_shared< CMapPosition >( object, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
+   object->setPosition( std::make_shared< CMapPosition >( object, map, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
 }
 
 IObject::Ptr CGame::getObjectOnMap( TObjectType objType, coord x, coord y )
 {
-   return map.getObject( TCoords{ x, y }, objType );
+   return map->getObject( TCoords{ x, y }, objType );
 }

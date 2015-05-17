@@ -1,8 +1,8 @@
 #include "creature.h"
+#include "items\containerPosition.h"
 
 using namespace creatures;
 using namespace items;
-//using namespace gamemap;
 
 TObjectType ICreature::getObjectType() const
 {
@@ -11,20 +11,14 @@ TObjectType ICreature::getObjectType() const
 
 IItem::Ptr ICreature::getItem()
 {
-   if ( !itemContainer.empty() )
-      return itemContainer.begin()->second;
-   else
-      return nullptr;
+   return backpack->get();
 }
 
 void ICreature::carryItem( IItem::Ptr item )
 {
-   // itemContainer.insert( item ); // !!! make interface like this
-   item->setPosition( nullptr );
-   itemContainer[ item.get() ] = item;
+   item->setPosition( std::make_shared<CContainerPosition>( item, backpack ) );
 }
 
-void ICreature::dropItem( IItem::Ptr item )
-{
-   itemContainer.erase( item.get() );
-}
+ICreature::ICreature()
+   : backpack{ new CItemContainer }
+{}

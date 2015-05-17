@@ -14,7 +14,6 @@
     <ClInclude Include="CoordsVector.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapData.h" />
-    <ClInclude Include="mapInstance.h" />
     <ClInclude Include="mapPosition.h" />
     <ClInclude Include="objects.h" />
     <ClInclude Include="TCoords.h" />
@@ -23,7 +22,6 @@
   <ItemGroup>
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mapData.cpp" />
-    <ClCompile Include="mapInstance.cpp" />
     <ClCompile Include="mapPosition.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

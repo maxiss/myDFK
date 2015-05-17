@@ -1,19 +1,27 @@
 #pragma once
 
+#include <map>
 #include "item.h"
 
 namespace items
 {
+   class CContainerPosition;
+
    class CItemContainer
    {
    public:
-      void add( IItem::Ptr item );
-      void remove( IItem::Ptr item );
-      bool isEmpty() const;
+      typedef std::shared_ptr< CItemContainer > Ptr;
+      typedef std::weak_ptr< CItemContainer > WeakPtr;
 
-      IItem::Ptr get() const;
+      bool isEmpty() const;
+      IItem::Ptr get();
 
    private:
-      std::list< IItem::Ptr > content;
+      friend CContainerPosition;
+      void add( IItem::Ptr item );
+      void remove( IItem::Ptr item );
+
+   private:
+      std::map< IItem::RawPtr, IItem::Ptr > content;
    };
 }

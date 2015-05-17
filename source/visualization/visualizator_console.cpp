@@ -11,8 +11,8 @@ static void gotoXY( const int& xpos, const int& ypos )
    SetConsoleCursorPosition( hOuput, scrn );
 }
 
-CVisualizator_console::CVisualizator_console( const CMap& gamemap )
-   : CVisualizator( gamemap )
+CVisualizator_console::CVisualizator_console( CMap::ConstPtr map_ )
+   : CVisualizator( map_ )
 {
    initConsole();
 }

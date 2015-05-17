@@ -2,7 +2,6 @@
 #include "map\objects.h"
 #include "items\weapon.h"
 #include "map\mapPosition.h"
-#include "map\mapInstance.h"
 
 using namespace game;
 using namespace gamemap;
@@ -47,9 +46,9 @@ static void creaturePickUpItem( ICreature::Ptr creature )
    {
       auto mapPosition = dynamic_cast<CMapPosition*>( position.get() );
       const TCoords& coords = mapPosition->getCoords();
-      CMap& map = Map::Intance().getMap();
+      CMap::Ptr map = mapPosition->getMap();
 
-      auto obj = map.getObject( coords, TObjectType::item );
+      auto obj = map->getObject( coords, TObjectType::item );
       if ( obj.use_count() != 0 )
          creature->carryItem( std::dynamic_pointer_cast< IItem >( obj ) );
    }
@@ -57,17 +56,17 @@ static void creaturePickUpItem( ICreature::Ptr creature )
 
 static void creatureDropItem( ICreature::Ptr creature )
 {
-   IPositionBehavior::Ptr position = creature->getPosition();
-   if ( position.use_count() != 0 && position->getPositionType() == TPositionType::map )
+   IItem::Ptr item = creature->getItem();
+   if ( item.use_count() != 0 )
    {
-      auto mapPosition = dynamic_cast<CMapPosition*>(position.get());
-      const TCoords& coords = mapPosition->getCoords();
-
-      IItem::Ptr item = creature->getItem();
-      if ( item.use_count() != 0 )
+      IPositionBehavior::Ptr position = creature->getPosition();
+      if ( position.use_count() != 0 && position->getPositionType() == TPositionType::map )
       {
-         creature->dropItem( item );
-         item->setPosition( std::make_shared<CMapPosition>( item, coords ) );
+         auto mapPosition = dynamic_cast<CMapPosition*>(position.get());
+         CMap::Ptr map = mapPosition->getMap();
+         const TCoords& coords = mapPosition->getCoords();
+
+         item->setPosition( std::make_shared<CMapPosition>( item, map, coords ) );
       }
    }
 }

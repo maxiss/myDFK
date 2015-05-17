@@ -10,7 +10,7 @@ namespace visualization
    class CVisualizator_console : public CVisualizator
    {
    public:
-      CVisualizator_console( const CMap& gamemap );
+      CVisualizator_console( CMap::ConstPtr );
 
    private:
       CMapPointVisuzlizator typeChars;

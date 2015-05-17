@@ -27,9 +27,6 @@
     <ClInclude Include="CoordsVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mapInstance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="mapPosition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,9 +36,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mapData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mapInstance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mapPosition.cpp">

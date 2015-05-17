@@ -7,8 +7,8 @@ using namespace gamemap;
 
 #define SLEEP_TIME 100
 
-CVisualizator::CVisualizator( const CMap& map_ )
-   : map(map_)
+CVisualizator::CVisualizator( CMap::ConstPtr map_ )
+   : map( map_ )
 {
 }
 
@@ -33,16 +33,16 @@ const TMapPointList CVisualizator::getChanges()
    if ( redraw )
    {
       redraw = false;
-      return map.getMapPositionList();
+      return map->getMapPositionList();
    }
    else
-      return map.getMapChanges();
+      return map->getMapChanges();
 }
 
 void CVisualizator::frame()
 {
    const TMapPointList changes = getChanges();
-   map.clearChanges();
+   map->clearChanges();
    for ( TMapPointList::const_iterator it = changes.begin(); it != changes.end(); ++it )
    {
       draw( *it );

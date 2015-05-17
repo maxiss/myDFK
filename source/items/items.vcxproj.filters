@@ -24,6 +24,9 @@
     <ClInclude Include="ItemContainer.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="containerPosition.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="weapon.cpp">
@@ -33,6 +36,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ItemContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="containerPosition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

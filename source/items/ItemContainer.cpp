@@ -2,22 +2,25 @@
 
 using namespace items;
 
-IItem::Ptr CItemContainer::get() const 
-{
-   return *content.begin();
-}
-
 void CItemContainer::add( IItem::Ptr item )
 {
-   content.push_back( item );
+   content[ item.get() ] = item;
 }
 
 void CItemContainer::remove( IItem::Ptr item )
 {
-   content.remove( item );
+   content.erase( item.get() );
 }
 
 bool CItemContainer::isEmpty() const
 {
    return content.empty();
+}
+
+IItem::Ptr CItemContainer::get()
+{
+   if ( !content.empty() )
+      return content.begin()->second;
+   else
+      return nullptr;
 }

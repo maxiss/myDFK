@@ -1,5 +1,4 @@
 #include "mapPosition.h"
-#include "mapInstance.h"
 
 using namespace gamemap;
 using namespace objects;
@@ -9,22 +8,27 @@ TPositionType CMapPosition::getPositionType() const
    return TPositionType::map;
 }
 
-CMapPosition::CMapPosition( IObject::Ptr object_, const TCoords& coords_ )
+CMapPosition::CMapPosition( IObject::Ptr object_, CMap::Ptr map_, const TCoords& coords_ )
    : object{ object_ }
+   , map( map_ )
 {
-   CMap& map = getMap();
-   if ( map.canMove( object.lock(), coords_ ) )
+   if ( map_->canMove( object_, coords_ ) )
    {
       coords = coords_;
-      map.addObject( object.lock(), coords );
+      map_->addObject( object_, coords );
    }
    else
       throw std::exception( "can't add object to map" );
 }
 
-CMap& CMapPosition::getMap() const
+IObject::Ptr CMapPosition::getObject()
 {
-   return Map::Intance().getMap();
+   return object.lock();
+}
+
+CMap::Ptr CMapPosition::getMap()
+{
+   return map.lock();
 }
 
 const TCoords& CMapPosition::getCoords() const
@@ -34,17 +38,18 @@ const TCoords& CMapPosition::getCoords() const
 
 void CMapPosition::setCoords( const TCoords& coords_ )
 {
-   CMap& map = getMap();
-   if ( map.canMove( object.lock(), coords_ ) )
+   CMap::Ptr map_ = getMap();
+   IObject::Ptr object_ = getObject();
+   if ( map_->canMove( object_, coords_ ) )
    {
       coords = coords_;
-      map.moveObject( object.lock(), coords );
+      map_->moveObject( object_, coords );
    }
 }
 
-gamemap::CMapPosition::~CMapPosition()
+CMapPosition::~CMapPosition()
 {
-   CMap& map = getMap();
+   CMap::Ptr map_ = getMap();
    if ( !object.expired() )
-      map.removeObject( object.lock() );
+      map_->removeObject( getObject() );
 }

@@ -3,8 +3,6 @@
 #include "map\TCoords.h"
 #include "visualization\visualizator_console.h"
 #include "map\map.h"
-//#include "map\objectContainer.h"
-//#include "objects\ObjectContainer.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"
 
@@ -29,13 +27,13 @@ namespace game
       IObject::Ptr getObjectOnMap( TObjectType objType, coord x, coord y );
 
    private:
-      CMap map;
-      CVisualizator_console visual;
-
-      bool loop;
       void gameLoop();
       void _eventHandler();
 
+   private: // data
+      CMap::Ptr map;
+      CVisualizator_console visual;
+      bool loop;
 
    };
 

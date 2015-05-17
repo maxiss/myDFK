@@ -5,7 +5,7 @@ namespace objects
    enum class TPositionType
    {
       map,
-      //container,
+      container,
       //jail,
    };
 }
