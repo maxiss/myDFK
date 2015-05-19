@@ -22,7 +22,7 @@ namespace creatures
       void carryItem( items::IItem::Ptr );
 
    private:
-      items::CItemContainer::Ptr backpack;
+      items::IItem::Ptr storage;
 
    };
 

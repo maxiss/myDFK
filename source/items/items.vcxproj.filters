@@ -7,6 +7,12 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{64619d70-5021-4832-90e2-71428e6c6b9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header files\items">
+      <UniqueIdentifier>{a48eec2d-27a4-41d8-a2f5-4cea3a5ca601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\items">
+      <UniqueIdentifier>{6b00d15b-6f40-49b5-9484-199bc5067380}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="item.h">
@@ -27,6 +33,9 @@
     <ClInclude Include="containerPosition.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="backpack.h">
+      <Filter>Header files\items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="weapon.cpp">
@@ -40,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="containerPosition.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="backpack.cpp">
+      <Filter>Source Files\items</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

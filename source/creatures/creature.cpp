@@ -1,11 +1,12 @@
 #include "creature.h"
 #include "items\containerPosition.h"
+#include "items\backpack.h"
 
 using namespace creatures;
 using namespace items;
 
 ICreature::ICreature()
-   : backpack{ new CItemContainer }
+   : storage( new CBackPack )
 {}
 
 objects::TObjectType ICreature::getObjectType() const
@@ -15,11 +16,21 @@ objects::TObjectType ICreature::getObjectType() const
 
 IItem::Ptr ICreature::getItem()
 {
-   return backpack->get();
+   if ( storage )
+   {
+      auto backpack = std::dynamic_pointer_cast<CBackPack>(storage);
+      return backpack->get();
+   }
+   else
+      return nullptr;
 }
 
 void ICreature::carryItem( IItem::Ptr item )
 {
-   item->setPosition( std::make_shared<CContainerPosition>( item, backpack ) );
+   if ( storage )
+   {
+      auto backpack = std::dynamic_pointer_cast<CBackPack>(storage);
+      backpack->store( item );
+   }
 }
 
