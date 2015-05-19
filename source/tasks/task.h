@@ -4,8 +4,6 @@
 
 namespace tasks
 {
-   using namespace gamemap;
-
    class CTask
    {
    };

@@ -8,16 +8,14 @@
 
 namespace creatures
 {
-   using namespace objects;
-
-   class ICreature : public IObject
+   class ICreature : public objects::IObject
    {
    public:
       typedef std::shared_ptr< ICreature > Ptr;
 
       ICreature();
 
-      virtual TObjectType getObjectType() const override final;
+      virtual objects::TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
       items::IItem::Ptr getItem();

@@ -4,8 +4,6 @@
 
 namespace game
 {
-   using namespace creatures;
-
    class CGameDFK : public CGame
    {
    protected:
@@ -14,7 +12,7 @@ namespace game
       virtual void step();
 
    private:
-      std::shared_ptr< CDwarf > player;
+      std::shared_ptr< creatures::CDwarf > player;
 
    };
 

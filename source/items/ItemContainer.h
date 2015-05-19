@@ -18,8 +18,8 @@ namespace items
 
    private:
       friend CContainerPosition;
-      void add( IItem::Ptr item );
-      void remove( IItem::Ptr item );
+      void add( IItem::Ptr );
+      void remove( IItem::Ptr );
 
    private:
       std::map< IItem::RawPtr, IItem::Ptr > content;

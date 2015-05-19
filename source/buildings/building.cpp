@@ -1,8 +1,9 @@
 #include "building.h"
 
 using namespace buildings;
+using namespace objects;
 
-objects::TObjectType IBuilding::getObjectType() const
+TObjectType IBuilding::getObjectType() const
 {
-   return objects::TObjectType::building;
+   return TObjectType::building;
 }

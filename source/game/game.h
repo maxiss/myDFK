@@ -8,10 +8,6 @@
 
 namespace game
 {
-   using namespace gamemap;
-   using namespace visualization;
-   using namespace creatures;
-
    class CGame
    {
    public:
@@ -23,18 +19,17 @@ namespace game
       virtual void initData() = 0;
       virtual void step() = 0;
 
-      void addObjectToMap( IObject::Ptr object, coord x, coord y );
-      IObject::Ptr getObjectOnMap( TObjectType objType, coord x, coord y );
+      void addObjectToMap( objects::IObject::Ptr, gamemap::coord x, gamemap::coord y );
+      objects::IObject::Ptr getObjectOnMap( objects::TObjectType, gamemap::coord x, gamemap::coord y );
 
    private:
       void gameLoop();
       void _eventHandler();
 
    private: // data
-      CMap::Ptr map;
-      CVisualizator_console visual;
+      gamemap::CMap::Ptr map;
+      visualization::CVisualizator_console visual;
       bool loop;
 
    };
-
 }

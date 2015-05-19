@@ -5,18 +5,16 @@
 
 namespace visualization
 {
-   using namespace gamemap;
-
    class CVisualizator_console : public CVisualizator
    {
    public:
-      CVisualizator_console( CMap::ConstPtr );
+      CVisualizator_console( gamemap::CMap::ConstPtr );
 
    private:
       CMapPointVisuzlizator typeChars;
-      virtual void draw( const TMapPoint& mapPoint ) override final;
+      virtual void draw( const gamemap::TMapPoint& mapPoint ) override final;
       void initConsole();
-      void drawChar( const TMapPoint& mapPoint );
+      void drawChar( const gamemap::TMapPoint& mapPoint );
 
    };
 

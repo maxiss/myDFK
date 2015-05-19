@@ -4,24 +4,22 @@
 
 namespace visualization
 {
-   using namespace gamemap;
-
    class CVisualizator
    {
    public:
-      CVisualizator( CMap::ConstPtr );
+      CVisualizator( gamemap::CMap::ConstPtr );
       void gameLoop();
       void stop();
 
    private:
       void frame();
-      virtual void draw( const TMapPoint& mapPoint ) = 0;
-      const TMapPointList getChanges();
+      virtual void draw( const gamemap::TMapPoint& mapPoint ) = 0;
+      const gamemap::TMapPointList getChanges();
 
    private: // data
       bool loop;
       bool redraw;
-      CMap::ConstPtr map;
+      gamemap::CMap::ConstPtr map;
 
    };
 

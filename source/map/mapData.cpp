@@ -97,12 +97,12 @@ TConstObjectList CMapData::getConstObjectList( const TCoords& coords, TObjectTyp
    return retVal;
 }
 
-TStructure& gamemap::CMapData::getStructure( const TCoords& coords )
+TStructure& CMapData::getStructure( const TCoords& coords )
 {
    return structures[ coords ];
 }
 
-const TStructure& gamemap::CMapData::getStructure( const TCoords& coords ) const
+const TStructure& CMapData::getStructure( const TCoords& coords ) const
 {
    return structures[ coords ];
 }

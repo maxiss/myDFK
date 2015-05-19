@@ -126,7 +126,7 @@ void CMap::clearChanges() const
    changes.clear();
 }
 
-bool gamemap::CMap::canMove( objects::IObject::Ptr, const TCoords& coords )
+bool CMap::canMove( IObject::Ptr, const TCoords& coords )
 {
    return checkBorders( coords ) && checkPassable( coords );
 }

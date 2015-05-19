@@ -12,8 +12,8 @@ namespace items
    public: 
       CContainerPosition( IItem::Ptr, CItemContainer::Ptr );
       ~CContainerPosition();
-      virtual objects::TPositionType getPositionType() const override final;
 
+      virtual objects::TPositionType getPositionType() const override final;
       CItemContainer::Ptr getContainer();
 
    private:

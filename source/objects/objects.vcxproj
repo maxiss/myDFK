@@ -13,12 +13,8 @@
   <ItemGroup>
     <ClInclude Include="IObject.h" />
     <ClInclude Include="IPositionBehavior.h" />
-    <ClInclude Include="ObjectList.h" />
     <ClInclude Include="ObjectTypes.h" />
     <ClInclude Include="PositionTypes.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ObjectList.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CFD708D6-CCCC-4844-8851-0417C9DEA64B}</ProjectGuid>

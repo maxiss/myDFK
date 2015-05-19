@@ -4,9 +4,13 @@
 using namespace creatures;
 using namespace items;
 
-TObjectType ICreature::getObjectType() const
+ICreature::ICreature()
+   : backpack{ new CItemContainer }
+{}
+
+objects::TObjectType ICreature::getObjectType() const
 {
-   return TObjectType::creature;
+   return objects::TObjectType::creature;
 }
 
 IItem::Ptr ICreature::getItem()
@@ -19,6 +23,3 @@ void ICreature::carryItem( IItem::Ptr item )
    item->setPosition( std::make_shared<CContainerPosition>( item, backpack ) );
 }
 
-ICreature::ICreature()
-   : backpack{ new CItemContainer }
-{}
