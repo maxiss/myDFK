@@ -18,6 +18,9 @@ namespace creatures
 
       items::IItem::Ptr getItem();
       void carryItem( items::IItem::Ptr );
+      void pickUpItem();
+      void dropItem();
+      void move( gamemap::coord dx, gamemap::coord dy );
 
    protected:
       items::CItemContainer::Ptr storage;

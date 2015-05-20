@@ -22,7 +22,7 @@ namespace objects
       IPositionBehavior::Ptr getPosition() const { return position; }
       void setPosition( IPositionBehavior::Ptr position_ ) { position = position_; }
 
-   private:
+   protected:
       IPositionBehavior::Ptr position;
    };
 
