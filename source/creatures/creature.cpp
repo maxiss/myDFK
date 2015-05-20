@@ -5,10 +5,6 @@
 using namespace creatures;
 using namespace items;
 
-ICreature::ICreature()
-   : storage( new CBackPack )
-{}
-
 objects::TObjectType ICreature::getObjectType() const
 {
    return objects::TObjectType::creature;
@@ -17,10 +13,7 @@ objects::TObjectType ICreature::getObjectType() const
 IItem::Ptr ICreature::getItem()
 {
    if ( storage )
-   {
-      auto backpack = std::dynamic_pointer_cast<CBackPack>(storage);
-      return backpack->get();
-   }
+      return storage->get();
    else
       return nullptr;
 }
@@ -28,9 +21,6 @@ IItem::Ptr ICreature::getItem()
 void ICreature::carryItem( IItem::Ptr item )
 {
    if ( storage )
-   {
-      auto backpack = std::dynamic_pointer_cast<CBackPack>(storage);
-      backpack->store( item );
-   }
+      storage->store( item );
 }
 

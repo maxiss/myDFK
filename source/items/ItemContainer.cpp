@@ -1,4 +1,5 @@
 #include "itemContainer.h"
+#include "containerPosition.h"
 
 using namespace items;
 
@@ -23,4 +24,9 @@ IItem::Ptr CItemContainer::get()
       return content.begin()->second;
    else
       return nullptr;
+}
+
+void CItemContainer::store( IItem::Ptr item )
+{
+   item->setPosition( std::make_shared<CContainerPosition>( item, shared_from_this() ) );
 }

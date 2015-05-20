@@ -4,8 +4,11 @@
 
 namespace creatures
 {
-   class CDwarf /*final*/ : public ICreature
+   class CDwarf final
+      : public ICreature
    {
+   public:
+      CDwarf();
       virtual TCreatureType getCreatureType() const override final;
    };
 

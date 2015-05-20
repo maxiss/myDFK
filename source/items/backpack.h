@@ -5,21 +5,11 @@
 
 namespace items
 {
-   class CBackPack : public IItem
+   class CBackPack final
+      : public IItem
+      , public CItemContainer
    {
    public:
-      CBackPack();
-
       virtual TItemType getItemType() const override final;
-
-      IItem::Ptr get();
-      void store( IItem::Ptr );
-      bool isEmpty() const;
-
-   private:
-      CItemContainer::Ptr content;
-
    };
-
-
 }

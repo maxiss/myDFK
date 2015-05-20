@@ -13,16 +13,14 @@ namespace creatures
    public:
       typedef std::shared_ptr< ICreature > Ptr;
 
-      ICreature();
-
       virtual objects::TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
       items::IItem::Ptr getItem();
       void carryItem( items::IItem::Ptr );
 
-   private:
-      items::IItem::Ptr storage;
+   protected:
+      items::CItemContainer::Ptr storage;
 
    };
 
