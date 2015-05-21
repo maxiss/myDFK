@@ -5,14 +5,18 @@
 #include "map\map.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"
+#include "IPlayer.h"
 
 namespace game
 {
    class CGame
    {
    public:
+      typedef std::shared_ptr< CGame > Ptr;
+      typedef std::weak_ptr< CGame > WeakPtr;
       CGame();
       void start();
+      IPlayer::Ptr& getPlayerInterface();
 
    protected:
       virtual int eventHandler( int key ) = 0;
@@ -20,7 +24,9 @@ namespace game
       virtual void step() = 0;
 
       void addObjectToMap( objects::IObject::Ptr, gamemap::coord x, gamemap::coord y );
-      objects::IObject::Ptr getObjectOnMap( objects::TObjectType, gamemap::coord x, gamemap::coord y );
+
+   protected: // data
+      IPlayer::Ptr playerInterface;
 
    private:
       void gameLoop();
@@ -30,6 +36,5 @@ namespace game
       gamemap::CMap::Ptr map;
       visualization::CVisualizator_console visual;
       bool loop;
-
    };
 }

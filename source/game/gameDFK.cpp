@@ -1,5 +1,6 @@
 #include "gameDFK.h"
 #include "items\weapon.h"
+#include "player.h"
 
 using namespace game;
 using namespace creatures;
@@ -56,4 +57,9 @@ int CGameDFK::eventHandler( int key )
 
 void CGameDFK::step()
 {
+}
+
+game::CGameDFK::CGameDFK()
+{
+   playerInterface.reset( new CPlayer );
 }

@@ -13,6 +13,7 @@ namespace visualization
    private:
       CMapPointVisuzlizator typeChars;
       virtual void draw( const gamemap::TMapPoint& mapPoint ) override final;
+      virtual void drawPlayerInterface() override final;
       void initConsole();
       void drawChar( const gamemap::TMapPoint& mapPoint );
 

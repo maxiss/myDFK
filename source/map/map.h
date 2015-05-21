@@ -28,7 +28,8 @@ namespace gamemap
 
       CMap( const TCoords& min, const TCoords& max );
 
-      objects::IObject::Ptr getObject( const TCoords& pos, objects::TObjectType objType );
+      objects::IObject::Ptr getObject( const TCoords&, objects::TObjectType );
+      objects::TObjectList getObjects( const TCoords&, objects::TObjectType );
       bool canMove( objects::IObject::Ptr, const TCoords& );
 
       TMapPointList getMapPositionList() const;

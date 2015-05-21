@@ -1,5 +1,6 @@
 #include "visualizator_console.h"
 #include <Windows.h>
+#include "game\gameInstance.h"
 
 using namespace visualization;
 using namespace gamemap;
@@ -40,5 +41,32 @@ void CVisualizator_console::drawChar( const TMapPoint& mapPoint )
    {
       objects::IObject::ConstPtr object = *mapPoint.objectList.begin();
       printf( "%c", typeChars.getObjectTypeChar( object->getObjectType() ) );
+   }
+}
+
+const int X_LAYOUT = 50;
+
+void visualization::CVisualizator_console::drawPlayerInterface() // !!! need refactoring
+{
+   for ( int i = 0; i < 10; i++ )
+   {
+      gotoXY( X_LAYOUT-1, i );
+      printf( "%s", "                    " );
+   }
+
+   auto& playerInterface = game::getGame()->getPlayerInterface();
+   if ( playerInterface->isNeedSelect() )
+   {
+      const auto& list = playerInterface->getFullList();
+      int i = 0;
+      for ( auto it : list )
+      {
+         gotoXY( X_LAYOUT, i );
+         printf( "%s", "test" );
+         i++;
+      }
+
+      gotoXY( X_LAYOUT - 1, playerInterface->getIndex() );
+      printf( "%c", 'x' );
    }
 }

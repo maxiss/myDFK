@@ -6,6 +6,9 @@ namespace game
 {
    class CGameDFK : public CGame
    {
+   public:
+      CGameDFK();
+
    protected:
       virtual int eventHandler( int key );
       virtual void initData();
@@ -13,7 +16,5 @@ namespace game
 
    private:
       std::shared_ptr< creatures::CDwarf > player;
-
    };
-
 }

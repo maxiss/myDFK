@@ -14,6 +14,7 @@ namespace visualization
    private:
       void frame();
       virtual void draw( const gamemap::TMapPoint& mapPoint ) = 0;
+      virtual void drawPlayerInterface() = 0;
       const gamemap::TMapPointList getChanges();
 
    private: // data

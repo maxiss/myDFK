@@ -59,7 +59,7 @@ void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
    object->setPosition( std::make_shared< CMapPosition >( object, map, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
 }
 
-IObject::Ptr CGame::getObjectOnMap( TObjectType objType, coord x, coord y )
+IPlayer::Ptr& CGame::getPlayerInterface()
 {
-   return map->getObject( TCoords{ x, y }, objType );
+   return playerInterface;
 }

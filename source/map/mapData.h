@@ -20,8 +20,8 @@ namespace gamemap
       void updateObject( objects::IObject::Ptr object, const TCoords& coords );
       const TCoords& getObjectCoords( objects::IObject::Ptr ) const;
 
-      objects::TObjectList getObjectList( const TCoords&, objects::TObjectType, size_t = 1 );
-      objects::TConstObjectList getConstObjectList( const TCoords&, objects::TObjectType, size_t = 1 ) const;
+      objects::TObjectList getObjectList( const TCoords&, objects::TObjectType, size_t = 0 );
+      objects::TConstObjectList getConstObjectList( const TCoords&, objects::TObjectType, size_t = 0 ) const;
 
       TStructure& getStructure( const TCoords& );
       const TStructure& getStructure( const TCoords& ) const;

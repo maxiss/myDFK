@@ -109,11 +109,16 @@ IObject::Ptr CMap::getObject( const TCoords& coords, TObjectType objectType )
 {
    IObject::Ptr retVal;
 
-   TObjectList objectList = content.getObjectList( coords, objectType );
+   TObjectList objectList = content.getObjectList( coords, objectType, 1 );
    if ( !objectList.empty() )
       retVal = *objectList.begin();
 
    return retVal;
+}
+
+objects::TObjectList gamemap::CMap::getObjects( const TCoords& coords, objects::TObjectType objectType )
+{
+   return content.getObjectList( coords, objectType );
 }
 
 void CMap::addChange( const TCoords& point ) const

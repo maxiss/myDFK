@@ -51,7 +51,6 @@ const TCoords& CMapData::getObjectCoords( IObject::Ptr object ) const
 
 TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectType_, size_t count )
 {
-   _ASSERT( count > 0 );
    TObjectList retVal;
 
    const auto& objectIdSet = coordIndex[ coords ];
@@ -75,7 +74,6 @@ TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectTy
 
 TConstObjectList CMapData::getConstObjectList( const TCoords& coords, TObjectType objectType_, size_t count ) const
 {
-   _ASSERT( count > 0 );
    TConstObjectList retVal;
 
    const auto& objectIdSet = coordIndex[ coords ];

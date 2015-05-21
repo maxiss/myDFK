@@ -85,12 +85,17 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameDFK.cpp" />
+    <ClCompile Include="gameInstance.cpp" />
     <ClCompile Include="interface.cpp" />
+    <ClCompile Include="player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
     <ClInclude Include="gameDFK.h" />
+    <ClInclude Include="gameInstance.h" />
     <ClInclude Include="interface.h" />
+    <ClInclude Include="IPlayer.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="threads.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

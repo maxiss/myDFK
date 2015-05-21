@@ -9,8 +9,7 @@ using namespace gamemap;
 
 CVisualizator::CVisualizator( CMap::ConstPtr map_ )
    : map( map_ )
-{
-}
+{}
 
 void CVisualizator::gameLoop()
 {
@@ -43,8 +42,7 @@ void CVisualizator::frame()
 {
    const TMapPointList changes = getChanges();
    map->clearChanges();
-   for ( TMapPointList::const_iterator it = changes.begin(); it != changes.end(); ++it )
-   {
-      draw( *it );
-   }
+   for ( const auto& it : changes )
+      draw( it );
+   drawPlayerInterface();
 }

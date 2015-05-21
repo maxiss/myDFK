@@ -1,9 +1,12 @@
 #include "interface.h"
 #include "gameDFK.h"
+#include "gameInstance.h"
 
 using namespace game;
 
 void startGame()
 {
-   CGameDFK().start();
+   auto game = std::make_shared< CGameDFK >();
+   Game::Instance().setGame( game );
+   game->start();
 }
