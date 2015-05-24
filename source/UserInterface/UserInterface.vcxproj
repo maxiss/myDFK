@@ -55,12 +55,14 @@
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImportLibrary>$(SolutionDir)$(Configuration)\$(ProjectName).lib</ImportLibrary>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>game.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,18 +74,21 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;UI_EXPORT;NDEBUG;_WINDOWS;_USRDLL;USERINTERFACE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>game.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="consoleOperations.cpp" />
     <ClCompile Include="ConsoleUI.cpp" />
-    <ClCompile Include="consoleWindow.cpp" />
+    <ClCompile Include="gameWindow.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="mainMenu.cpp" />
   </ItemGroup>
@@ -92,6 +97,7 @@
     <ClInclude Include="ConsoleUI.h" />
     <ClInclude Include="consoleWindow.h" />
     <ClInclude Include="eventHandler.h" />
+    <ClInclude Include="gameWindow.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="IUserInterface.h" />
     <ClInclude Include="mainMenu.h" />

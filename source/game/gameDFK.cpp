@@ -56,10 +56,9 @@ int CGameDFK::eventHandler( int key )
 }
 
 void CGameDFK::step()
-{
-}
+{}
 
-game::CGameDFK::CGameDFK()
+CGameDFK::CGameDFK()
 {
-   playerInterface.reset( new CPlayer );
+   //playerInterface.reset( new CPlayer );
 }

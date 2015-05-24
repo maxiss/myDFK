@@ -1,3 +1,4 @@
+#pragma once
 
 #include "consoleWindow.h"
 
@@ -8,4 +9,6 @@ public:
 
 private:
    virtual int eventHandler( int key ) override final;
+   void redraw();
+
 };

@@ -1,4 +1,5 @@
 #pragma once
 
-void initConsole();
-void gotoXY( const int& xpos, const int& ypos );
+void hideConsoleCursor();
+void gotoXY( int x, int y );
+void clearRectangle( int x1, int y1, int x2, int y2 );

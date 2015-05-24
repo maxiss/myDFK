@@ -9,7 +9,9 @@
    #define DLLEXPORT DllImport
 #endif
 
-extern "C"
+#include "game.h"
+
+extern "C++"
 {
-   DLLEXPORT void startGame();
+   DLLEXPORT game::CGame::Ptr startGame();
 }

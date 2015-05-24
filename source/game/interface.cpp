@@ -4,9 +4,10 @@
 
 using namespace game;
 
-void startGame()
+game::CGame::Ptr startGame()
 {
-   auto game = std::make_shared< CGameDFK >();
-   Game::Instance().setGame( game );
-   game->start();
+   auto gameInstance = std::make_shared< CGameDFK >();
+   //Game::Instance().setGame( game );
+   //game->start();
+   return gameInstance;
 }
