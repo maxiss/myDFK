@@ -2,8 +2,12 @@
 
 #include "IUserInterface.h"
 
-class CConsoleUI : public IUserInterface
+namespace user_interface
 {
-public:
+	class CConsoleUI : public IUserInterface
+	{
+	public:
+      virtual void start() override final;
 
-};
+   };
+}

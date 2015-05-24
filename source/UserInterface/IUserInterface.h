@@ -1,9 +1,14 @@
 #pragma once
 
-//#include "objects\IObject.h"
+#include <memory>
 
-class IUserInterface
+namespace user_interface
 {
-public:
-
-};
+	class IUserInterface
+	{
+	public:
+      std::shared_ptr< IUserInterface > Ptr;
+      virtual void start() = 0;
+	
+	};
+}
