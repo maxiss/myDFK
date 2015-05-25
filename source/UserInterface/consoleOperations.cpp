@@ -21,8 +21,9 @@ void gotoXY( int x, int y )
 
 void clearRectangle( int x1, int y1, int x2, int y2 )
 {
-   char str[ 81 ];
-   memset( str, 32, 80 );
+   const int STR_LEN = 81;
+   char str[ STR_LEN ];
+   memset( str, 32, STR_LEN ); str[STR_LEN - 1] = '\0';
    str[ x2 - x1 + 1 ] = '\0';
    int num = y2 - y1 + 1;
    for ( int i = 0; i < num; i++ )

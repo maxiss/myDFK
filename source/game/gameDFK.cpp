@@ -1,6 +1,6 @@
 #include "gameDFK.h"
 #include "items\weapon.h"
-#include "player.h"
+#include "playerInterface.h"
 
 using namespace game;
 using namespace creatures;
@@ -12,4 +12,9 @@ void CGameDFK::initData()
    addObjectToMap( player, 1, 1 );
    addObjectToMap( std::make_shared< CWeapon >(), 4, 2 );
    addObjectToMap( std::make_shared< CWeapon >(), 5, 7 );
+}
+
+game::IPlayerInterface::Ptr game::CGameDFK::getPlayerInterface()
+{
+   return std::make_shared< CPlayerInterface >( player );
 }

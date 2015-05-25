@@ -26,20 +26,22 @@ private:
    virtual int eventHandler( int key ) override final;
    void redraw();
 
-   void draw( TMapPointList );
-   void draw( TMapPoint );
+   void draw( const TMapPointList& );
+   void draw( const TMapPoint& );
    void redrawChanges();
 
-   void drawChar( TMapPoint mapPoint );
+   void drawChar( const TMapPoint& mapPoint );
 
 
 private: // data
    IGame::Ptr game;
+   IPlayerInterface::Ptr player;
    CMapPointVisuzlizator typeChars;
 };
 
 CGameWindow::CGameWindow( IGame::Ptr game_ )
-   : game( game_ )
+   : game{ game_ }
+   , player{ game->getPlayerInterface() }
 {}
 
 // TODO: bare out key mapping to other class
@@ -47,42 +49,38 @@ int CGameWindow::eventHandler( int key )
 {
    switch ( key )
    {
-      //case K_d :
-      //   player->dropItem();
-      //   redrawChanges();
-      //break;
+      case K_d :
+         player->dropItem();
+         redrawChanges();
+      break;
 
-      //case K_g :
-      //   player->pickUpItem();
-      //   redrawChanges();
-      //break;
+      case K_g :
+         player->pickUpItem();
+         redrawChanges();
+      break;
 
-      //case K_h :
-      //   player->move( -1, +0 );
-      //   redrawChanges();
-      //break;
+      case K_h :
+         player->moveLeft();
+         redrawChanges();
+      break;
 
-      //case K_j :
-      //   player->move( +0, +1 );
-      //   redrawChanges();
-      //break;
+      case K_j :
+         player->moveDown();
+         redrawChanges();
+      break;
 
-      //case K_k :
-      //   player->move( +0, -1 );
-      //   redrawChanges();
-      //break;
+      case K_k :
+         player->moveUp();
+         redrawChanges();
+      break;
 
-      //case K_l :
-      //   player->move( +1, +0 );
-      //   redrawChanges();
-      //break;
+      case K_l :
+         player->moveRight();
+         redrawChanges();
+      break;
 
       case 27:
          key = -key;
-      break;
-
-      case 32:
-         redrawChanges();
       break;
 
       case 999:
@@ -105,13 +103,13 @@ void CGameWindow::redraw()
    draw( map->getMapPositionList() );
 }
 
-void CGameWindow::draw( TMapPointList changes )
+void CGameWindow::draw( const TMapPointList& changes )
 {
    for ( const auto& it : changes )
       draw( it );
 }
 
-void CGameWindow::draw( TMapPoint mapPoint )
+void CGameWindow::draw( const TMapPoint& mapPoint )
 {
    gotoXY( mapPoint.coords.x, mapPoint.coords.y );
    drawChar( mapPoint );
@@ -123,7 +121,7 @@ void CGameWindow::redrawChanges()
    draw( map->getMapChanges() );
 }
 
-void CGameWindow::drawChar( TMapPoint mapPoint )
+void CGameWindow::drawChar( const TMapPoint& mapPoint )
 {
    if ( mapPoint.objectList.empty() )
       printf( "%c", typeChars.getStructureTypeChar( mapPoint.structureType ) );
@@ -137,7 +135,6 @@ void CGameWindow::drawChar( TMapPoint mapPoint )
 void runGameWindow()
 {
    IGame::Ptr gameInstance = startGame();
-   // gameInstance.createPlayerInterface;
 
    auto gameWindow = std::make_shared< CGameWindow >( gameInstance );
    CEventHandler::Instance().pushWindow( gameWindow );

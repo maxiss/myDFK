@@ -7,7 +7,8 @@ namespace game
    class CGameDFK : public CGame
    {
    private:
-      virtual void initData();
+      virtual void initData() override final;
+      virtual game::IPlayerInterface::Ptr getPlayerInterface() override final;
 
    private:
       std::shared_ptr< creatures::CDwarf > player;

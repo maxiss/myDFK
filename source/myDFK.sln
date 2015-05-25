@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "buildings", "buildings\buil
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shell", "shell\shell.vcxproj", "{527EBE89-A07B-4515-87B9-88AC2F2CA16D}"
 	ProjectSection(ProjectDependencies) = postProject
-		{15A54165-E7CA-4912-91C8-4F70A3DAE42B} = {15A54165-E7CA-4912-91C8-4F70A3DAE42B}
+		{B08EB255-979E-46F7-A804-C8BC9F4E9002} = {B08EB255-979E-46F7-A804-C8BC9F4E9002}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj", "{15A54165-E7CA-4912-91C8-4F70A3DAE42B}"
@@ -34,6 +34,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "objects", "objects\objects.vcxproj", "{CFD708D6-CCCC-4844-8851-0417C9DEA64B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserInterface", "UserInterface\UserInterface.vcxproj", "{B08EB255-979E-46F7-A804-C8BC9F4E9002}"
+	ProjectSection(ProjectDependencies) = postProject
+		{15A54165-E7CA-4912-91C8-4F70A3DAE42B} = {15A54165-E7CA-4912-91C8-4F70A3DAE42B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -29,33 +29,6 @@ void ICreature::carryItem( IItem::Ptr item )
       storage->store( item );
 }
 
-void ICreature::pickUpItem()
-{
-   if ( position && position->getPositionType() == TPositionType::map  )
-   {
-      auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
-      const auto& coords = mapPosition->getCoords();
-      auto map = mapPosition->getMap();
-
-      auto objects = map->getObjects( coords, TObjectType::item );
-
-      if ( objects.size() == 1 )
-      {
-         auto item = std::dynamic_pointer_cast<IItem>(*objects.begin());
-         carryItem( item );
-      }
-      else if ( objects.size() > 1 )
-      {
-         //auto obj = getGame()->getPlayerInterface()->selectObject( objects );
-         //if ( obj )
-         //{
-	        // auto item = std::dynamic_pointer_cast<IItem>(obj);
-	        // carryItem( item );
-         //}
-      }
-   }
-}
-
 void ICreature::move( coord dx, coord dy )
 {
    if ( position && position->getPositionType() == TPositionType::map  )
@@ -65,21 +38,5 @@ void ICreature::move( coord dx, coord dy )
       coords.x += dx;
       coords.y += dy;
       mapPosition->setCoords( coords );
-   }
-}
-
-void ICreature::dropItem()
-{
-   if ( position && position->getPositionType() == TPositionType::map  )
-   {
-      auto item = getItem();
-      if ( item )
-      {
-         auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
-         auto map = mapPosition->getMap();
-         const auto& coords = mapPosition->getCoords();
-
-         item->setPosition( std::make_shared<CMapPosition>( item, map, coords ) );
-      }
    }
 }

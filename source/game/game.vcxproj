@@ -83,7 +83,7 @@
     <ClCompile Include="gameDFK.cpp" />
     <ClCompile Include="gameInstance.cpp" />
     <ClCompile Include="interface.cpp" />
-    <ClCompile Include="player.cpp" />
+    <ClCompile Include="playerInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -92,8 +92,8 @@
     <ClInclude Include="game_export.h" />
     <ClInclude Include="IGame.h" />
     <ClInclude Include="interface.h" />
-    <ClInclude Include="IPlayer.h" />
-    <ClInclude Include="player.h" />
+    <ClInclude Include="IPlayerInterface.h" />
+    <ClInclude Include="playerInterface.h" />
     <ClInclude Include="threads.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

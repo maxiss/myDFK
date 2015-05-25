@@ -5,7 +5,7 @@
 #include "map\map.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"
-#include "IPlayer.h"
+#include "IPlayerInterface.h"
 #include "IGame.h"
 
 namespace game
@@ -20,7 +20,6 @@ namespace game
 
       virtual void start() override final;
       virtual gamemap::IMap::ConstPtr getMap() override final;
-      //game::IPlayer::Ptr& getPlayerInterface();
 
    protected:
       void addObjectToMap( objects::IObject::Ptr, gamemap::coord x, gamemap::coord y );
