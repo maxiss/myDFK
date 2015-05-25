@@ -1,7 +1,7 @@
 #pragma once
 
 #include "visualizator.h"
-#include "objectTypeVisualizator.h"
+//#include "objectTypeVisualizator.h"
 
 namespace visualization
 {
@@ -11,7 +11,7 @@ namespace visualization
       CVisualizator_console( gamemap::CMap::ConstPtr );
 
    private:
-      CMapPointVisuzlizator typeChars;
+      //CMapPointVisuzlizator typeChars;
       virtual void draw( const gamemap::TMapPoint& mapPoint ) override final;
       virtual void drawPlayerInterface() override final;
       void initConsole();

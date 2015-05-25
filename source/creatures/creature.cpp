@@ -46,12 +46,12 @@ void ICreature::pickUpItem()
       }
       else if ( objects.size() > 1 )
       {
-         auto obj = getGame()->getPlayerInterface()->selectObject( objects );
-         if ( obj )
-         {
-	         auto item = std::dynamic_pointer_cast<IItem>(obj);
-	         carryItem( item );
-         }
+         //auto obj = getGame()->getPlayerInterface()->selectObject( objects );
+         //if ( obj )
+         //{
+	        // auto item = std::dynamic_pointer_cast<IItem>(obj);
+	        // carryItem( item );
+         //}
       }
    }
 }

@@ -49,5 +49,11 @@
     <ClInclude Include="gameInstance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game_export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

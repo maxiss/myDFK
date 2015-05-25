@@ -11,12 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="objectTypeVisualizator.h" />
     <ClInclude Include="visualizator.h" />
     <ClInclude Include="visualizator_console.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="objectTypeVisualizator.cpp" />
     <ClCompile Include="visualizator.cpp" />
     <ClCompile Include="visualizator_console.cpp" />
   </ItemGroup>

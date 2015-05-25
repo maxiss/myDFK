@@ -19,39 +19,11 @@ const int SLEEP_TIME = 300;
 
 CGame::CGame()
    : map( std::make_shared<CMap>( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } ) )
-   , visual( map )
 {}
 
 void CGame::start()
 {
    initData();
-   loop = true;
-   CThread<CGame> gameLoop( this, &CGame::gameLoop );
-   CThread<CVisualizator> visualLoop( &this->visual, &CVisualizator::gameLoop );
-   _eventHandler();
-   visual.stop();
-   loop = false;
-}
-
-void CGame::_eventHandler()
-{
-   int key = 0;
-   do
-   {
-      key = _getch(); // TODO: process 0-key
-      key = eventHandler( key );
-
-      key = (key == 27) ? -key : key;
-   } while ( key >= 0 );
-}
-
-void CGame::gameLoop()
-{
-   while (loop)
-   {
-      step();
-      Sleep( SLEEP_TIME );
-   }
 }
 
 void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
@@ -59,7 +31,12 @@ void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
    object->setPosition( std::make_shared< CMapPosition >( object, map, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
 }
 
-IPlayer::Ptr& CGame::getPlayerInterface()
+//IPlayer::Ptr& CGame::getPlayerInterface()
+//{
+//   return playerInterface;
+//}
+
+gamemap::IMap::ConstPtr game::CGame::getMap()
 {
-   return playerInterface;
+   return map;
 }

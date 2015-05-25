@@ -89,6 +89,8 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="gameDFK.h" />
     <ClInclude Include="gameInstance.h" />
+    <ClInclude Include="game_export.h" />
+    <ClInclude Include="IGame.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="IPlayer.h" />
     <ClInclude Include="player.h" />

@@ -1,6 +1,5 @@
 #include "objectTypeVisualizator.h"
 
-using namespace visualization;
 using namespace gamemap;
 using namespace objects;
 

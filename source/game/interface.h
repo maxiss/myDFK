@@ -1,17 +1,9 @@
 #pragma once
 
-#define DllExport __declspec(dllexport)
-#define DllImport __declspec(dllimport)
-
-#ifdef EXPORTS
-   #define DLLEXPORT DllExport
-#else
-   #define DLLEXPORT DllImport
-#endif
-
-#include "game.h"
+#include "game_export.h"
+#include "IGame.h"
 
 extern "C++"
 {
-   DLLEXPORT game::CGame::Ptr startGame();
+   GAME_EXPORT game::IGame::Ptr startGame();
 }

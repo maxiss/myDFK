@@ -102,6 +102,8 @@ TMapPointList CMap::getMapChanges() const
       retVal.push_back( TMapPoint{ it, content.getStructure( it ).type,
                                    content.getConstObjectList( it, TObjectType::all ) } );
 
+
+   clearChanges();
    return retVal;
 }
 

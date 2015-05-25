@@ -6,13 +6,8 @@ namespace game
 {
    class CGameDFK : public CGame
    {
-   public:
-      CGameDFK();
-
-   protected:
-      virtual int eventHandler( int key );
+   private:
       virtual void initData();
-      virtual void step();
 
    private:
       std::shared_ptr< creatures::CDwarf > player;

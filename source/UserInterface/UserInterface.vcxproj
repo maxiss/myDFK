@@ -91,6 +91,7 @@
     <ClCompile Include="gameWindow.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="objectTypeVisualizator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consoleOperations.h" />
@@ -101,6 +102,7 @@
     <ClInclude Include="interface.h" />
     <ClInclude Include="IUserInterface.h" />
     <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="objectTypeVisualizator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

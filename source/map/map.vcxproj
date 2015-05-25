@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoordsVector.h" />
+    <ClInclude Include="IMap.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="mapData.h" />
     <ClInclude Include="mapPosition.h" />

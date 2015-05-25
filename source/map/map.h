@@ -2,24 +2,15 @@
 
 #include <list>
 #include <set>
-#include "mapData.h"
+#include "IMap.h"
 
 namespace gamemap
 {
    typedef std::set< TCoords > TCoordsSet;
 
-   struct TMapPoint
-   {
-      TCoords coords;
-      TStructureType structureType;
-      objects::TConstObjectList objectList;
-   };
-
-   typedef std::list< TMapPoint > TMapPointList;
-
    class CMapPosition;
 
-   class CMap
+   class CMap : public IMap
    {
    public:
       typedef std::shared_ptr< CMap > Ptr;
@@ -32,8 +23,8 @@ namespace gamemap
       objects::TObjectList getObjects( const TCoords&, objects::TObjectType );
       bool canMove( objects::IObject::Ptr, const TCoords& );
 
-      TMapPointList getMapPositionList() const;
-      TMapPointList getMapChanges() const;
+      virtual TMapPointList getMapPositionList() const override final;
+      virtual TMapPointList getMapChanges() const override final;
       void clearChanges() const;
 
    private:
