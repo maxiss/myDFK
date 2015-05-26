@@ -53,7 +53,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>buildings.lib;creatures.lib;items.lib;map.lib;tasks.lib;visualization.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>buildings.lib;creatures.lib;items.lib;map.lib;tasks.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
       <ImportLibrary>$(SolutionDir)$(Configuration)\$(ProjectName).lib</ImportLibrary>
     </Link>
@@ -73,7 +73,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>buildings.lib;creatures.lib;items.lib;map.lib;tasks.lib;visualization.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>buildings.lib;creatures.lib;items.lib;map.lib;tasks.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
       <ImportLibrary>$(SolutionDir)$(Configuration)\$(ProjectName).lib</ImportLibrary>
     </Link>
@@ -93,6 +93,7 @@
     <ClInclude Include="IGame.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="IPlayerInterface.h" />
+    <ClInclude Include="IUserInterface.h" />
     <ClInclude Include="playerInterface.h" />
     <ClInclude Include="threads.h" />
   </ItemGroup>

@@ -1,13 +1,18 @@
 #pragma once
 
-#include "IUserInterface.h"
+#include "game\IUserInterface.h"
 
 namespace user_interface
 {
-	class CConsoleUI : public IUserInterface
+	class CConsoleUI final
+      : virtual public game::IUserInterface
 	{
 	public:
-      virtual void start() override final;
+      static CConsoleUI& Instance();
+      void start();
+      virtual objects::IObject::Ptr selectObject( const objects::TObjectList& ) override final;
 
+   private:
+      CConsoleUI();
    };
 }

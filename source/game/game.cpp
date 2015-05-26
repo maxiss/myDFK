@@ -7,7 +7,6 @@
 using namespace game;
 using namespace threads;
 using namespace gamemap;
-using namespace visualization;
 using namespace objects;
 
 // TODO: move to ini-file

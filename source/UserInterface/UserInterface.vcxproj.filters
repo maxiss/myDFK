@@ -29,6 +29,12 @@
     <ClCompile Include="objectTypeVisualizator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="selectWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="consoleWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleUI.h">
@@ -37,13 +43,7 @@
     <ClInclude Include="interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IUserInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="consoleWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="eventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mainMenu.h">
@@ -56,6 +56,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="objectTypeVisualizator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selectWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IConsoleWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,13 +2,10 @@
 
 #include "consoleWindow.h"
 
-class CMainMenuWindow : public CConsoleWindow
+class CMainMenuWindow final
+   : public CConsoleWindow
 {
-public:
-   CMainMenuWindow();
-
 private:
    virtual int eventHandler( int key ) override final;
-   void redraw();
-
+   virtual void redraw() override final;
 };

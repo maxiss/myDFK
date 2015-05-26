@@ -2,9 +2,9 @@
 
 #include "consoleWindow.h"
 #include "consoleOperations.h"
-#include "eventHandler.h"
 #include "game\interface.h"
 #include "objectTypeVisualizator.h"
+#include "ConsoleUI.h"
 
 #define K_SPACE 32
 
@@ -17,6 +17,7 @@
 
 using namespace game;
 using namespace gamemap;
+using namespace user_interface;
 
 class CGameWindow : public CConsoleWindow
 {
@@ -24,7 +25,7 @@ public:
    CGameWindow( IGame::Ptr );
 private:
    virtual int eventHandler( int key ) override final;
-   void redraw();
+   virtual void redraw() override final;
 
    void draw( const TMapPointList& );
    void draw( const TMapPoint& );
@@ -41,7 +42,7 @@ private: // data
 
 CGameWindow::CGameWindow( IGame::Ptr game_ )
    : game{ game_ }
-   , player{ game->getPlayerInterface() }
+   , player{ game->getPlayerInterface( CConsoleUI::Instance() ) }
 {}
 
 // TODO: bare out key mapping to other class
@@ -77,17 +78,6 @@ int CGameWindow::eventHandler( int key )
       case K_l :
          player->moveRight();
          redrawChanges();
-      break;
-
-      case 27:
-         key = -key;
-      break;
-
-      case 999:
-         redraw();
-      break;
-
-      default:
       break;
    }
 
@@ -135,7 +125,5 @@ void CGameWindow::drawChar( const TMapPoint& mapPoint )
 void runGameWindow()
 {
    IGame::Ptr gameInstance = startGame();
-
-   auto gameWindow = std::make_shared< CGameWindow >( gameInstance );
-   CEventHandler::Instance().pushWindow( gameWindow );
+   CGameWindow( gameInstance ).run();
 }

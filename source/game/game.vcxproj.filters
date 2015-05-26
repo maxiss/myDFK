@@ -55,5 +55,8 @@
     <ClInclude Include="playerInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IUserInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,28 +3,14 @@
 #include "consoleOperations.h"
 #include "gameWindow.h"
 
-CMainMenuWindow::CMainMenuWindow()
-{}
-
 int CMainMenuWindow::eventHandler( int key )
 {
    switch ( key )
    {
       case 13:
-      {
          runGameWindow();
-      }
-      break;
-
-      case 27:
-         key = -key;
-      break;
-
-      case 999:
+         key = 0;
          redraw();
-      break;
-
-      default:
       break;
    }
 

@@ -1,14 +1,16 @@
 #pragma once
 
 #include <memory>
-class CEventHandler;
+#include "IConsoleWindow.h"
 
-class CConsoleWindow : private std::enable_shared_from_this< CConsoleWindow >
+class CConsoleWindow
+   : virtual public IConsoleWindow
 {
 public:
-   typedef std::shared_ptr< CConsoleWindow > Ptr;
+   int run();
+   int _eventHandler();
 
 private:
-   friend CEventHandler;
    virtual int eventHandler( int key ) = 0;
+   virtual void redraw() = 0;
 };

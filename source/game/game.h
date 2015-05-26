@@ -1,7 +1,6 @@
 #pragma once
 
 #include "map\TCoords.h"
-#include "visualization\visualizator_console.h"
 #include "map\map.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"

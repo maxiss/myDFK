@@ -88,21 +88,23 @@
   <ItemGroup>
     <ClCompile Include="consoleOperations.cpp" />
     <ClCompile Include="ConsoleUI.cpp" />
+    <ClCompile Include="consoleWindow.cpp" />
     <ClCompile Include="gameWindow.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="objectTypeVisualizator.cpp" />
+    <ClCompile Include="selectWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consoleOperations.h" />
     <ClInclude Include="ConsoleUI.h" />
     <ClInclude Include="consoleWindow.h" />
-    <ClInclude Include="eventHandler.h" />
     <ClInclude Include="gameWindow.h" />
+    <ClInclude Include="IConsoleWindow.h" />
     <ClInclude Include="interface.h" />
-    <ClInclude Include="IUserInterface.h" />
     <ClInclude Include="mainMenu.h" />
     <ClInclude Include="objectTypeVisualizator.h" />
+    <ClInclude Include="selectWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
