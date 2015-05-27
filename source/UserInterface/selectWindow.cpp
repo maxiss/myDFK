@@ -54,15 +54,16 @@ void CSelectWindow::redraw()
    for ( auto it = objectList.begin(); it != objectList.end(); ++it )
    {
       if ( it == current )
-      {
-         gotoXY( X1_, i );
-         printf( "*" );
-      }
-      gotoXY( X1_ + 1, i );
+         SetColor( White, DarkGray );
+      else
+         SetColor( White, Black );
+
+      gotoXY( X1_, i );
       printf( "testing" );
 
       i++;
    }
+   SetColor( White, Black );
 }
 
 objects::IObject::Ptr CSelectWindow::getSelected()

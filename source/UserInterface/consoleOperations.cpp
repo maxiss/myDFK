@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include <stdio.h>
+#include <conio.h>
 
 void hideConsoleCursor()
 {
@@ -31,4 +32,15 @@ void clearRectangle( int x1, int y1, int x2, int y2 )
       gotoXY( x1, y1 + i );
       printf( "%s", str ); // !!!
    }
+}
+
+int getKey()
+{
+   return _getch();
+}
+
+void SetColor( int text, int background )
+{
+   HANDLE hStdOut = GetStdHandle( STD_OUTPUT_HANDLE );
+   SetConsoleTextAttribute( hStdOut, (WORD) ((background << 4) | text) );
 }

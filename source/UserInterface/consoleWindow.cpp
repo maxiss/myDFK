@@ -1,5 +1,5 @@
 #include "consoleWindow.h"
-#include <conio.h>
+#include "consoleOperations.h"
 #include "keys.h"
 
 int CConsoleWindow::run()
@@ -13,7 +13,7 @@ int CConsoleWindow::_eventHandler()
    int key = 0;
    while ( key >= 0 )
    {
-      key = _getch();
+      key = getKey();
       key = eventHandler( key );
 
       if ( key == k_esc )

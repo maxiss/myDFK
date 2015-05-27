@@ -1,7 +1,5 @@
 #include "ConsoleUI.h"
 
-#include <Windows.h>
-#include <conio.h>
 #include "mainMenu.h"
 #include "selectWindow.h"
 #include "keys.h"
