@@ -2,12 +2,13 @@
 
 #include "consoleOperations.h"
 #include "gameWindow.h"
+#include "keys.h"
 
 int CMainMenuWindow::eventHandler( int key )
 {
    switch ( key )
    {
-      case 13:
+      case k_enter:
          runGameWindow();
          key = 0;
          redraw();

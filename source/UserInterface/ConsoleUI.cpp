@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "mainMenu.h"
 #include "selectWindow.h"
+#include "keys.h"
 
 using namespace user_interface;
 using namespace objects;
@@ -28,7 +29,7 @@ IObject::Ptr CConsoleUI::selectObject( const TObjectList& objectList )
 
    CSelectWindow selectWindow( objectList );
    int key = selectWindow.run();
-   if ( key == 13 )
+   if ( key == k_enter )
       retVal = selectWindow.getSelected();
 
    return retVal;

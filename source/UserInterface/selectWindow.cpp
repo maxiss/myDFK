@@ -1,17 +1,11 @@
 #include "selectWindow.h"
 #include "consoleOperations.h"
+#include "keys.h"
 
-#define K_d 100
-#define K_g 103
-#define K_h 104
-#define K_j 106
-#define K_k 107
-#define K_l 108
-
-const int X1 = 50;
-const int X2 = 79;
-const int Y1 = 0;
-const int Y2 = 23;
+const int X1_ = 50;
+const int X2_ = 79;
+const int Y1_ = 0;
+const int Y2_ = 23;
 
 using namespace objects;
 
@@ -22,7 +16,7 @@ CSelectWindow::CSelectWindow( const TObjectList& objectList_ )
 
 CSelectWindow::~CSelectWindow()
 {
-   clearRectangle( X1, Y1, X2, Y2 );
+   clearRectangle( X1_, Y1_, X2_, Y2_ );
 }
 
 int CSelectWindow::eventHandler( int key )
@@ -45,7 +39,7 @@ int CSelectWindow::eventHandler( int key )
          redraw();
       break;
 
-      case 13:
+      case k_enter:
          key = -key;
       break;
    }
@@ -54,17 +48,17 @@ int CSelectWindow::eventHandler( int key )
 
 void CSelectWindow::redraw()
 {
-   clearRectangle( X1, Y1, X2, Y2 );
+   clearRectangle( X1_, Y1_, X2_, Y2_ );
 
    int i = 0;
    for ( auto it = objectList.begin(); it != objectList.end(); ++it )
    {
       if ( it == current )
       {
-         gotoXY( X1, i );
+         gotoXY( X1_, i );
          printf( "*" );
       }
-      gotoXY( X1 + 1, i );
+      gotoXY( X1_ + 1, i );
       printf( "testing" );
 
       i++;

@@ -5,15 +5,7 @@
 #include "game\interface.h"
 #include "objectTypeVisualizator.h"
 #include "ConsoleUI.h"
-
-#define K_SPACE 32
-
-#define K_d 100
-#define K_g 103
-#define K_h 104
-#define K_j 106
-#define K_k 107
-#define K_l 108
+#include "keys.h"
 
 using namespace game;
 using namespace gamemap;
