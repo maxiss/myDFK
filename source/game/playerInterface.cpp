@@ -72,7 +72,7 @@ void CPlayerInterface::dropItem()
          auto map = mapPosition->getMap();
          const auto& coords = mapPosition->getCoords();
 
-         item->setPosition( std::make_shared<CMapPosition>( item, map, coords ) );
+         map->place( item, coords );
       }
    }
 }

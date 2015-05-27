@@ -9,7 +9,9 @@ namespace gamemap
 
    class CMapPosition;
 
-   class CMap : public IMap
+   class CMap
+      : public std::enable_shared_from_this< CMap >
+      , public IMap
    {
    public:
       typedef std::shared_ptr< CMap > Ptr;
@@ -26,7 +28,7 @@ namespace gamemap
       virtual TMapPointList getMapChanges() const override final;
       void clearChanges() const;
 
-      //void place( objects::IObject::Ptr, const TCoods& ); // !!!
+      void place( objects::IObject::Ptr, const TCoords& );
 
    private:
       bool checkBorders( const TCoords& ) const;

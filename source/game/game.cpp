@@ -10,10 +10,9 @@ const int MINX = 0;
 const int MINY = 0;
 const int MAXX = 20;
 const int MAXY = 10;
-const int SLEEP_TIME = 300;
 
 CGame::CGame()
-   : map( std::make_shared<CMap>( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } ) )
+   : map{ std::make_shared<CMap>( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } ) }
 {}
 
 void CGame::start()
@@ -23,7 +22,7 @@ void CGame::start()
 
 void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
 {
-   object->setPosition( std::make_shared< CMapPosition >( object, map, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
+   map->place( object, TCoords{ x, y } );
 }
 
 IMap::ConstPtr CGame::getMap()

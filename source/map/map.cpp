@@ -1,4 +1,5 @@
 #include "map.h"
+#include "mapPosition.h"
 
 using namespace gamemap;
 using namespace objects;
@@ -136,4 +137,9 @@ void CMap::clearChanges() const
 bool CMap::canMove( IObject::Ptr, const TCoords& coords )
 {
    return checkBorders( coords ) && checkPassable( coords );
+}
+
+void CMap::place( IObject::Ptr object, const TCoords& coords )
+{
+   object->setPosition( std::make_shared< CMapPosition >( object, shared_from_this(), coords ) );
 }
