@@ -1,8 +1,8 @@
 #pragma once
 
-#include "creatures/creature.h"
 #include "IPlayerInterface.h"
-#include "game.h"
+#include "IUserInterface.h"
+#include "creatures/creature.h"
 
 namespace game
 {

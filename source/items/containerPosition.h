@@ -3,7 +3,6 @@
 #include "objects\IPositionBehavior.h"
 #include "item.h"
 #include "ItemContainer.h"
-#include "objects\PositionTypes.h"
 
 namespace items
 {

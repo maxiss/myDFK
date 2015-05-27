@@ -14,7 +14,7 @@ void CGameDFK::initData()
    addObjectToMap( std::make_shared< CWeapon >(), 5, 7 );
 }
 
-game::IPlayerInterface::Ptr game::CGameDFK::getPlayerInterface( IUserInterface& ui )  
+IPlayerInterface::Ptr CGameDFK::getPlayerInterface( IUserInterface& ui )  
 {
    return std::make_shared< CPlayerInterface >( player, ui );
 }

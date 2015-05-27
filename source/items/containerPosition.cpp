@@ -12,7 +12,7 @@ CContainerPosition::CContainerPosition( IItem::Ptr item_, CItemContainer::Ptr co
 
 CContainerPosition::~CContainerPosition()
 {
-   CItemContainer::Ptr container_ = getContainer();
+   auto container_ = getContainer();
    if ( !item.expired() )
       container_->remove( getItem() );
 }

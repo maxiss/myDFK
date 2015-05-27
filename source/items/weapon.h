@@ -8,6 +8,5 @@ namespace items
    {
    public:
       virtual TItemType getItemType() const override final;
-
    };
 }

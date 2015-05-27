@@ -1,4 +1,6 @@
 #pragma once
+
+#include <vector>
 #include "TCoords.h"
 
 namespace gamemap
@@ -33,7 +35,7 @@ namespace gamemap
    }
 
    template <class T>
-   const T& gamemap::CCoordsVector<T>::operator[]( const TCoords& coords ) const
+   const T& CCoordsVector<T>::operator[]( const TCoords& coords ) const
    {
       return std::vector<T>::operator[]( convert( coords ) );
    }

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <map>
 #include "objects\IObject.h"
 #include "creatureTypes.h"
 #include "items\item.h"

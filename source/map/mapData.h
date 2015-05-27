@@ -1,7 +1,6 @@
 #pragma once
 
 #include <set>
-#include <vector>
 #include <map>
 #include "TCoords.h"
 #include "structure.h"

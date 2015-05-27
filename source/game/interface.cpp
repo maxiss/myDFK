@@ -1,6 +1,5 @@
 #include "interface.h"
 #include "gameDFK.h"
-#include "gameInstance.h"
 
 using namespace game;
 

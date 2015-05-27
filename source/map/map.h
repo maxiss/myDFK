@@ -1,6 +1,5 @@
 #pragma once
 
-#include <list>
 #include <set>
 #include "IMap.h"
 
@@ -26,6 +25,8 @@ namespace gamemap
       virtual TMapPointList getMapPositionList() const override final;
       virtual TMapPointList getMapChanges() const override final;
       void clearChanges() const;
+
+      //void place( objects::IObject::Ptr, const TCoods& ); // !!!
 
    private:
       bool checkBorders( const TCoords& ) const;

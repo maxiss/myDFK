@@ -1,11 +1,7 @@
 #include "game.h"
-#include <Windows.h>
-#include <conio.h>
-#include "threads.h"
 #include "map\mapPosition.h"
 
 using namespace game;
-using namespace threads;
 using namespace gamemap;
 using namespace objects;
 
@@ -30,7 +26,7 @@ void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
    object->setPosition( std::make_shared< CMapPosition >( object, map, TCoords{ x, y } ) ); // !!! how to remove object in make_shared ???
 }
 
-gamemap::IMap::ConstPtr game::CGame::getMap()
+IMap::ConstPtr CGame::getMap()
 {
    return map;
 }

@@ -1,18 +1,14 @@
 #include "creature.h"
-#include "items\containerPosition.h"
-#include "items\backpack.h"
 #include "map\mapPosition.h"
-#include "game\gameInstance.h"
 
 using namespace creatures;
 using namespace items;
 using namespace objects;
 using namespace gamemap;
-using namespace game;
 
-objects::TObjectType ICreature::getObjectType() const
+TObjectType ICreature::getObjectType() const
 {
-   return objects::TObjectType::creature;
+   return TObjectType::creature;
 }
 
 IItem::Ptr ICreature::getItem()

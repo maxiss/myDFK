@@ -14,6 +14,6 @@ namespace game
       typedef std::shared_ptr< IGame > Ptr;
       virtual void start() = 0;
       virtual gamemap::IMap::ConstPtr getMap() = 0;
-      virtual game::IPlayerInterface::Ptr getPlayerInterface( IUserInterface& ) = 0;
+      virtual IPlayerInterface::Ptr getPlayerInterface( IUserInterface& ) = 0;
    };
 }

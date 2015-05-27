@@ -1,6 +1,5 @@
 #pragma once
 
-//#include "map\object.h"
 #include "objects\IObject.h"
 
 namespace buildings

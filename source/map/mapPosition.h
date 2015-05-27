@@ -12,11 +12,11 @@ namespace gamemap
 	public:
 	   virtual objects::TPositionType getPositionType() const override final;
 
-      CMapPosition( objects::IObject::Ptr, gamemap::CMap::Ptr, const TCoords& );
+      CMapPosition( objects::IObject::Ptr, CMap::Ptr, const TCoords& );
       ~CMapPosition();
 
       const TCoords& getCoords() const;
-      gamemap::CMap::Ptr getMap();
+      CMap::Ptr getMap();
       void setCoords( const TCoords& );
 
    private:
@@ -24,7 +24,7 @@ namespace gamemap
 
    private: // data
       const objects::IObject::WeakPtr object;
-      const gamemap::CMap::WeakPtr map;
+      const CMap::WeakPtr map;
       TCoords coords;
 	};
 }

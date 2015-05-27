@@ -16,7 +16,6 @@ namespace game
       typedef std::weak_ptr< CGame > WeakPtr;
 
       CGame();
-
       virtual void start() override final;
       virtual gamemap::IMap::ConstPtr getMap() override final;
 

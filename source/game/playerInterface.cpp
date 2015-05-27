@@ -1,15 +1,6 @@
 #include "playerInterface.h"
-#include <conio.h>
 #include "map\mapPosition.h"
 #include "items\item.h"
-
-#define K_d 100
-#define K_g 103
-#define K_h 104
-#define K_j 106
-#define K_k 107
-#define K_l 108
-#define K_Enter 13
 
 using namespace game;
 using namespace objects;

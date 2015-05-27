@@ -118,7 +118,7 @@ IObject::Ptr CMap::getObject( const TCoords& coords, TObjectType objectType )
    return retVal;
 }
 
-objects::TObjectList gamemap::CMap::getObjects( const TCoords& coords, objects::TObjectType objectType )
+TObjectList CMap::getObjects( const TCoords& coords, TObjectType objectType )
 {
    return content.getObjectList( coords, objectType );
 }
