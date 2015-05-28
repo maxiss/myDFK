@@ -13,3 +13,8 @@ TCreatureType CDwarf::getCreatureType() const
 {
    return TCreatureType::dwarf;
 }
+
+std::string creatures::CDwarf::getName() const
+{
+   return "Dwarf";
+}

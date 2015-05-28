@@ -18,6 +18,7 @@ namespace objects
       typedef const IObject* RawPtr;
 
       virtual TObjectType getObjectType() const = 0;
+      virtual std::string getName() const = 0;
 
       IPositionBehavior::Ptr getPosition() const { return position; }
       void setPosition( IPositionBehavior::Ptr position_ ) { position = position_; }

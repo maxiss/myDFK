@@ -11,5 +11,6 @@ namespace items
    {
    public:
       virtual TItemType getItemType() const override final;
+      virtual std::string getName() const override;
    };
 }

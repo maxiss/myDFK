@@ -6,3 +6,8 @@ TItemType CWeapon::getItemType() const
 {
    return TItemType::weapon;
 }
+
+std::string items::CWeapon::getName() const
+{
+   return "Weapon";
+}

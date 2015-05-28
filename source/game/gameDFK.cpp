@@ -1,6 +1,7 @@
 #include "gameDFK.h"
-#include "items\weapon.h"
 #include "playerInterface.h"
+#include "items\weapon.h"
+#include "items\backpack.h"
 
 using namespace game;
 using namespace creatures;
@@ -12,6 +13,7 @@ void CGameDFK::initData()
    addObjectToMap( player, 1, 1 );
    addObjectToMap( std::make_shared< CWeapon >(), 4, 2 );
    addObjectToMap( std::make_shared< CWeapon >(), 5, 7 );
+   addObjectToMap( std::make_shared< CBackPack >(), 8, 4 );
 }
 
 IPlayerInterface::Ptr CGameDFK::getPlayerInterface( IUserInterface& ui )  
