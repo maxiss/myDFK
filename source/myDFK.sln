@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tasks", "tasks\tasks.vcxproj", "{0F91FB90-FAB7-44BD-BBFA-0E5F173181C7}"
 EndProject
@@ -16,6 +16,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shell", "shell\shell.vcxproj", "{527EBE89-A07B-4515-87B9-88AC2F2CA16D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B08EB255-979E-46F7-A804-C8BC9F4E9002} = {B08EB255-979E-46F7-A804-C8BC9F4E9002}
+		{15A54165-E7CA-4912-91C8-4F70A3DAE42B} = {15A54165-E7CA-4912-91C8-4F70A3DAE42B}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj", "{15A54165-E7CA-4912-91C8-4F70A3DAE42B}"

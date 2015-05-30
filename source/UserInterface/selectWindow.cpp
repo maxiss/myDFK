@@ -59,7 +59,7 @@ void CSelectWindow::redraw()
          SetColor( White, Black );
 
       gotoXY( X1_, i );
-      printf( (*it)->getName().c_str() );
+      printf( "%s", (*it)->getName().c_str() );
 
       i++;
    }
