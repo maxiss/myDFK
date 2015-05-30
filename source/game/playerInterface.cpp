@@ -76,3 +76,21 @@ void CPlayerInterface::dropItem()
       }
    }
 }
+
+void game::CPlayerInterface::equipItem()
+{
+   auto position = creature->getPosition();
+   if ( position && position->getPositionType() == TPositionType::map )
+   {
+      auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
+      const auto& coords = mapPosition->getCoords();
+      auto map = mapPosition->getMap();
+
+      auto object = map->getObject( coords, TObjectType::item );
+      if ( object )
+      {
+         auto item = std::dynamic_pointer_cast<IItem>( object );
+         creature->equip( item );
+      }
+   }
+}

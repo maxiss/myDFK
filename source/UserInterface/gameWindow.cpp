@@ -47,6 +47,11 @@ int CGameWindow::eventHandler( int key )
          redrawChanges();
       break;
 
+      case K_e :
+         player->equipItem();
+         redrawChanges();
+      break;
+
       case K_g :
          player->pickUpItem();
          redrawChanges();

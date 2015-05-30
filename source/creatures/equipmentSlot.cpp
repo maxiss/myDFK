@@ -1,31 +1,32 @@
 #include "equipmentSlot.h"
 #include "equipmentPosition.h"
 
+using namespace creatures;
 using namespace items;
 
 bool CEquipmentSlot::isEmpty() const
 {
-   return bool( content );
+   return !content;
 }
 
 void CEquipmentSlot::equip( IItem::Ptr item )
 {
-   if ( canEquip( item ) && !isEmpty() )
+   if ( canEquip( item ) && isEmpty() )
       item->setPosition( std::make_shared< CEquipmentPosition >( item, shared_from_this() ) );
 }
 
-IItem::Ptr CEquipmentSlot::getObject()
+IItem::Ptr CEquipmentSlot::getItem()
 {
    return content;
 }
 
-void CEquipmentSlot::_equip( IItem::Ptr item )
+void CEquipmentSlot::add( IItem::Ptr item )
 {
-   // ASSERT( !content ); !!!
+   //if ( canEquip( item ) && isEmpty() ) // !!!
    content = item;
 }
 
-void items::CEquipmentSlot::takeOff( IItem::Ptr item )
+void CEquipmentSlot::remove( IItem::Ptr item )
 {
    if ( content == item )
       content.reset();

@@ -4,6 +4,7 @@
 #include "creatureTypes.h"
 #include "items\item.h"
 #include "items\ItemContainer.h"
+#include "equipmentSlot.h"
 
 namespace creatures
 {
@@ -15,13 +16,20 @@ namespace creatures
       virtual objects::TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
-      items::IItem::Ptr getItem();
-      void carryItem( items::IItem::Ptr );
       void move( gamemap::coord dx, gamemap::coord dy );
+      void equip( items::IItem::Ptr );
+      void carryItem( items::IItem::Ptr );
+      items::IItem::Ptr getItem();
 
    protected:
-      items::CItemContainer::Ptr storage;
+      void addSlot( CEquipmentSlot::Ptr );
+      void setPackageSlot( CEquipmentSlot::Ptr );
 
+   private:
+      items::CItemContainer::Ptr getPackage();
+
+   private:
+      TEquipmentSlots slots;
+      CEquipmentSlot::WeakPtr packageSlot;
    };
-
 }

@@ -1,9 +1,10 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 #include "items/item.h"
 
-namespace items
+namespace creatures
 {
 	class CEquipmentPosition;
 	
@@ -14,19 +15,19 @@ namespace items
       typedef std::shared_ptr< CEquipmentSlot > Ptr;
       typedef std::weak_ptr< CEquipmentSlot > WeakPtr;
 	
-      virtual bool canEquip( IItem::Ptr ) = 0;
+      virtual bool canEquip( items::IItem::Ptr ) const = 0;
 	   bool isEmpty() const;
-	   void equip( IItem::Ptr );
-      void takeOff( IItem::Ptr );
-	
-	   IItem::Ptr getObject();
+	   void equip( items::IItem::Ptr );
+	   items::IItem::Ptr getItem();
 
 	private:
 	   friend CEquipmentPosition;
-	   void _equip( IItem::Ptr );
+	   void add( items::IItem::Ptr );
+      void remove( items::IItem::Ptr );
 	
 	private:
-	   IItem::Ptr content;
-	
+	   items::IItem::Ptr content;
 	};
+
+   typedef std::vector< CEquipmentSlot::Ptr > TEquipmentSlots;
 }

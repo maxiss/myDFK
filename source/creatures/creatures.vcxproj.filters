@@ -7,6 +7,12 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{e2f632e3-b2ea-4214-8050-e83cc8b0a751}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Equipment Slots">
+      <UniqueIdentifier>{e003698a-799a-4f84-afb9-2e6a0e811ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Equipment Slots">
+      <UniqueIdentifier>{505e3207-0ab2-4a36-9758-25c1ebaa21d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="creature.h">
@@ -22,10 +28,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="equipmentSlot.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Equipment Slots</Filter>
     </ClInclude>
     <ClInclude Include="equipmentPosition.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Equipment Slots</Filter>
+    </ClInclude>
+    <ClInclude Include="simpleSlot.h">
+      <Filter>Header Files\Equipment Slots</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -35,7 +44,14 @@
     <ClCompile Include="creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="equipmentSlot.cpp" />
-    <ClCompile Include="equipmentPosition.cpp" />
+    <ClCompile Include="equipmentSlot.cpp">
+      <Filter>Source Files\Equipment Slots</Filter>
+    </ClCompile>
+    <ClCompile Include="equipmentPosition.cpp">
+      <Filter>Source Files\Equipment Slots</Filter>
+    </ClCompile>
+    <ClCompile Include="simpleSlot.cpp">
+      <Filter>Source Files\Equipment Slots</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

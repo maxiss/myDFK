@@ -1,12 +1,15 @@
 #include "dwarf.h"
 #include "items\backpack.h"
+#include "simpleSlot.h"
 
 using namespace creatures;
 using namespace items;
 
 CDwarf::CDwarf()
 {
-   storage.reset( new CBackPack );
+   auto slot = std::make_shared<CSimpleSlot>( TItemType::backpack );
+   addSlot( slot );
+   setPackageSlot( slot );
 }
 
 TCreatureType CDwarf::getCreatureType() const

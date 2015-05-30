@@ -17,5 +17,6 @@ namespace game
 
       virtual void pickUpItem() = 0;
       virtual void dropItem() = 0;
+      virtual void equipItem() = 0;
    };
 }
