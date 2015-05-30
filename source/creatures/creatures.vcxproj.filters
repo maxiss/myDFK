@@ -21,6 +21,12 @@
     <ClInclude Include="creatures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="equipmentSlot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="equipmentPosition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dwarf.cpp">
@@ -29,5 +35,7 @@
     <ClCompile Include="creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="equipmentSlot.cpp" />
+    <ClCompile Include="equipmentPosition.cpp" />
   </ItemGroup>
 </Project>

@@ -15,10 +15,14 @@
     <ClInclude Include="creatures.h" />
     <ClInclude Include="creatureTypes.h" />
     <ClInclude Include="dwarf.h" />
+    <ClInclude Include="equipmentPosition.h" />
+    <ClInclude Include="equipmentSlot.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="creature.cpp" />
     <ClCompile Include="dwarf.cpp" />
+    <ClCompile Include="equipmentPosition.cpp" />
+    <ClCompile Include="equipmentSlot.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC5BE5DA-66E0-4CD7-A6B9-282A9F5C79EE}</ProjectGuid>

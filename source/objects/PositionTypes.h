@@ -6,6 +6,7 @@ namespace objects
    {
       map,
       container,
+      equipmentSlot
       //jail,
    };
 }
