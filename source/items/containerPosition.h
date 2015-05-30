@@ -1,12 +1,12 @@
 #pragma once
 
-#include "objects\IPositionBehavior.h"
+#include "objects\IPosition.h"
 #include "item.h"
 #include "ItemContainer.h"
 
 namespace items
 {
-   class CContainerPosition : public objects::IPositionBehavior
+   class CContainerPosition : public objects::IPosition
    {
    public: 
       CContainerPosition( IItem::Ptr, CItemContainer::Ptr );

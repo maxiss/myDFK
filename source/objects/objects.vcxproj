@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IObject.h" />
-    <ClInclude Include="IPositionBehavior.h" />
+    <ClInclude Include="IPosition.h" />
     <ClInclude Include="ObjectTypes.h" />
     <ClInclude Include="PositionTypes.h" />
   </ItemGroup>

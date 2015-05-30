@@ -4,7 +4,7 @@
 #include <list>
 #include "ObjectTypes.h"
 #include "map\TCoords.h"
-#include "IPositionBehavior.h"
+#include "IPosition.h"
 
 namespace objects
 {
@@ -20,11 +20,11 @@ namespace objects
       virtual TObjectType getObjectType() const = 0;
       virtual std::string getName() const = 0;
 
-      IPositionBehavior::Ptr getPosition() const { return position; }
-      void setPosition( IPositionBehavior::Ptr position_ ) { position = position_; }
+      IPosition::Ptr getPosition() const { return position; }
+      void setPosition( IPosition::Ptr position_ ) { position = position_; }
 
    protected:
-      IPositionBehavior::Ptr position;
+      IPosition::Ptr position;
    };
 
    typedef std::list< IObject::Ptr > TObjectList;

@@ -1,13 +1,13 @@
 #pragma once
 
-#include "objects\IPositionBehavior.h"
+#include "objects\IPosition.h"
 #include "TCoords.h"
 #include "objects\IObject.h"
 #include "map.h"
 
 namespace gamemap
 {
-	class CMapPosition : public objects::IPositionBehavior
+	class CMapPosition : public objects::IPosition
 	{
 	public:
 	   virtual objects::TPositionType getPositionType() const override final;

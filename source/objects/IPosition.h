@@ -5,10 +5,10 @@
 
 namespace objects
 {
-	class IPositionBehavior
+	class IPosition
 	{
 	public:
-      typedef std::shared_ptr< IPositionBehavior > Ptr;
+      typedef std::shared_ptr< IPosition > Ptr;
       virtual TPositionType getPositionType() const = 0;
 	};
 }

@@ -17,7 +17,7 @@
     <ClInclude Include="ObjectTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IPositionBehavior.h">
+    <ClInclude Include="IPosition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PositionTypes.h">
