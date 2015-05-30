@@ -63,7 +63,7 @@ void CSelectWindow::redraw()
 
       i++;
    }
-   SetColor( White, Black );
+   SetColor( LightGray, Black );
 }
 
 objects::IObject::Ptr CSelectWindow::getSelected()
