@@ -15,6 +15,7 @@ namespace items
       typedef std::weak_ptr< CItemContainer > WeakPtr;
 
       IItem::Ptr get();
+      TItemList getItems();
       void store( IItem::Ptr );
       bool isEmpty() const;
 

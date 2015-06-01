@@ -17,19 +17,22 @@ namespace creatures
       virtual TCreatureType getCreatureType() const = 0;
 
       void move( gamemap::coord dx, gamemap::coord dy );
+
       void equip( items::IItem::Ptr );
+      items::TItemList getEquipedItems();
+
       void carryItem( items::IItem::Ptr );
-      items::IItem::Ptr getItem();
+      items::TItemList getStorageItems();
 
    protected:
       void addSlot( CEquipmentSlot::Ptr );
-      void setPackageSlot( CEquipmentSlot::Ptr );
+      void setStorageSlot( CEquipmentSlot::Ptr );
 
    private:
-      items::CItemContainer::Ptr getPackage();
+      items::CItemContainer::Ptr getStorage();
 
    private:
       TEquipmentSlots slots;
-      CEquipmentSlot::WeakPtr packageSlot;
+      CEquipmentSlot::WeakPtr storageSlot;
    };
 }

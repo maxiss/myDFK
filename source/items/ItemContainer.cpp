@@ -26,6 +26,14 @@ IItem::Ptr CItemContainer::get()
       return nullptr;
 }
 
+TItemList CItemContainer::getItems()
+{
+   TItemList items;
+   for ( const auto& it : content )
+      items.push_back( it.second );
+   return items;
+}
+
 void CItemContainer::store( IItem::Ptr item )
 {
    item->setPosition( std::make_shared<CContainerPosition>( item, shared_from_this() ) );

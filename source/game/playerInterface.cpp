@@ -65,15 +65,25 @@ void CPlayerInterface::dropItem()
    auto position = creature->getPosition();
    if ( position && position->getPositionType() == TPositionType::map  )
    {
-      auto item = creature->getItem();
-      if ( item )
+      auto items = creature->getStorageItems();
+
+      if ( items.size() != 1 )
       {
          auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
          auto map = mapPosition->getMap();
          const auto& coords = mapPosition->getCoords();
 
-         map->place( item, coords );
+         map->place( *items.begin(), coords );
       }
+      //else if ( items.size() > 1 ) // !!!
+      //{
+      //   auto obj = ui.selectObject( items );
+      //   if ( obj )
+      //   {
+	     //    auto item = std::dynamic_pointer_cast<IItem>(obj);
+	     //    creature->carryItem( item );
+      //   }
+      //}
    }
 }
 

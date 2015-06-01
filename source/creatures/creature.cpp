@@ -11,20 +11,23 @@ TObjectType ICreature::getObjectType() const
    return TObjectType::creature;
 }
 
-IItem::Ptr ICreature::getItem()
-{
-   auto package = getPackage();
-   if ( package )
-      return package->get();
-   else
-      return nullptr;
-}
-
 void ICreature::carryItem( IItem::Ptr item )
 {
-   auto package = getPackage();
-   if ( package )
-      package->store( item );
+   auto storage = getStorage();
+   if ( storage )
+      storage->store( item );
+}
+
+TItemList ICreature::getStorageItems()
+{
+   TItemList items;
+   for ( auto it : slots )
+   {
+      auto item = it->getItem();
+      if ( item )
+         items.push_back( item );
+   }
+   return items;
 }
 
 void ICreature::move( coord dx, coord dy )
@@ -39,7 +42,7 @@ void ICreature::move( coord dx, coord dy )
    }
 }
 
-void creatures::ICreature::equip( items::IItem::Ptr item )
+void ICreature::equip( IItem::Ptr item )
 {
    for ( auto it : slots )
    {
@@ -49,22 +52,30 @@ void creatures::ICreature::equip( items::IItem::Ptr item )
          break;
       }
    }
-
 }
 
-void creatures::ICreature::addSlot( CEquipmentSlot::Ptr slot )
+TItemList ICreature::getEquipedItems()
+{
+   auto storage = getStorage();
+   if ( storage )
+      return storage->getItems();
+   else
+      return TItemList();
+}
+
+void ICreature::addSlot( CEquipmentSlot::Ptr slot )
 {
    slots.push_back( slot );
 }
 
-void creatures::ICreature::setPackageSlot( CEquipmentSlot::Ptr slot )
+void ICreature::setStorageSlot( CEquipmentSlot::Ptr slot )
 {
-   packageSlot = slot;
+   storageSlot = slot;
 }
 
-CItemContainer::Ptr creatures::ICreature::getPackage()
+CItemContainer::Ptr ICreature::getStorage()
 {
-   auto slot = packageSlot.lock();
+   auto slot = storageSlot.lock();
    if ( !slot )
       return nullptr;
 

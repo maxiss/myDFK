@@ -9,7 +9,9 @@ CDwarf::CDwarf()
 {
    auto slot = std::make_shared<CSimpleSlot>( TItemType::backpack );
    addSlot( slot );
-   setPackageSlot( slot );
+   setStorageSlot( slot );
+
+   addSlot( std::make_shared<CSimpleSlot>( TItemType::weapon ) );
 }
 
 TCreatureType CDwarf::getCreatureType() const

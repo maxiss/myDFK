@@ -2,6 +2,7 @@
 
 #include "objects\IObject.h"
 #include "ItemTypes.h"
+#include <list>
 
 namespace items
 {
@@ -15,4 +16,6 @@ namespace items
       virtual objects::TObjectType getObjectType() const override final;
       virtual TItemType getItemType() const = 0;
    };
+
+   typedef std::list< IItem::Ptr > TItemList;
 }
