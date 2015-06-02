@@ -87,11 +87,15 @@ void game::CPlayerInterface::equipItem()
       const auto& coords = mapPosition->getCoords();
       auto map = mapPosition->getMap();
 
-      auto object = map->getObject( coords, TObjectType::item );
-      if ( object )
+      auto objects = map->getObjects( coords, TObjectType::item );
+      if ( !objects.empty() )
       {
-         auto item = std::dynamic_pointer_cast<IItem>( object );
-         creature->equip( item );
+         auto object = ui.select( makeNameableVector( objects ) );
+         if ( object )
+         {
+            auto item = std::dynamic_pointer_cast<IItem>(object);
+            creature->equip( item );
+         }
       }
    }
 }
