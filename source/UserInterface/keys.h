@@ -10,3 +10,4 @@ const int K_h = 104;
 const int K_j = 106;
 const int K_k = 107;
 const int K_l = 108;
+const int K_t = 116;

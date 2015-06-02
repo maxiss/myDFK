@@ -99,3 +99,26 @@ void game::CPlayerInterface::equipItem()
       }
    }
 }
+
+void game::CPlayerInterface::takeOffItem()
+{
+   auto position = creature->getPosition();
+   if ( position && position->getPositionType() == TPositionType::map  )
+   {
+      auto items = creature->getEquipedItems();
+
+      if ( !items.empty() )
+      {
+         auto obj = ui.select( makeNameableVector( items ) );
+         if ( obj )
+         {
+            auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
+            auto map = mapPosition->getMap();
+            const auto& coords = mapPosition->getCoords();
+
+	         auto item = std::dynamic_pointer_cast<IItem>(obj);
+            map->place( item, coords );
+         }
+      }
+   }
+}

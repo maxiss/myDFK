@@ -76,6 +76,11 @@ int CGameWindow::eventHandler( int key )
          player->moveRight();
          redrawChanges();
       break;
+
+      case K_t :
+         player->takeOffItem();
+         redrawChanges();
+      break;
    }
 
    return key;

@@ -19,6 +19,7 @@ namespace game
       virtual void pickUpItem() override final;
       virtual void dropItem() override final;
       virtual void equipItem() override final;
+      virtual void takeOffItem() override;
 
    private:
       creatures::ICreature::Ptr creature;
