@@ -10,7 +10,7 @@ namespace user_interface
 	public:
       static CConsoleUI& Instance();
       void start();
-      virtual objects::IObject::Ptr selectObject( const objects::TObjectList& ) override final;
+      virtual objects::INameable::Ptr select( const objects::TNameableVector& ) override final;
 
    private:
       CConsoleUI();

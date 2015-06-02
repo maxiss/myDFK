@@ -21,11 +21,11 @@ void CConsoleUI::start()
    CMainMenuWindow().run();
 }
 
-IObject::Ptr CConsoleUI::selectObject( const TObjectList& objectList )
+INameable::Ptr CConsoleUI::select( const TNameableVector& nameableVector )
 {
-   IObject::Ptr retVal = nullptr;
+   INameable::Ptr retVal = nullptr;
 
-   CSelectWindow selectWindow( objectList );
+   CSelectWindow selectWindow( nameableVector );
    int key = selectWindow.run();
    if ( key == k_enter )
       retVal = selectWindow.getSelected();

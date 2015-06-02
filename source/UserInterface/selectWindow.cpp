@@ -9,9 +9,9 @@ const int Y2_ = 23;
 
 using namespace objects;
 
-CSelectWindow::CSelectWindow( const TObjectList& objectList_ )
-   : objectList( objectList_ )
-   , current{ objectList.begin() }
+CSelectWindow::CSelectWindow( const TNameableVector& nameableVector_ )
+   : nameableVector( nameableVector_ )
+   , current{ nameableVector.begin() }
 {}
 
 CSelectWindow::~CSelectWindow()
@@ -25,15 +25,15 @@ int CSelectWindow::eventHandler( int key )
    {
       case K_j:
          ++current;
-         if ( current == objectList.end() )
-            current = objectList.begin();
+         if ( current == nameableVector.end() )
+            current = nameableVector.begin();
 
          redraw();
       break;
 
       case K_k:
-         if ( current == objectList.begin() )
-            current = objectList.end();
+         if ( current == nameableVector.begin() )
+            current = nameableVector.end();
          --current;
 
          redraw();
@@ -51,7 +51,7 @@ void CSelectWindow::redraw()
    clearRectangle( X1_, Y1_, X2_, Y2_ );
 
    int i = 0;
-   for ( auto it = objectList.begin(); it != objectList.end(); ++it )
+   for ( auto it = nameableVector.begin(); it != nameableVector.end(); ++it )
    {
       if ( it == current )
          SetColor( White, DarkGray );
@@ -66,7 +66,7 @@ void CSelectWindow::redraw()
    SetColor( LightGray, Black );
 }
 
-objects::IObject::Ptr CSelectWindow::getSelected()
+INameable::Ptr CSelectWindow::getSelected()
 {
    return *current;
 }

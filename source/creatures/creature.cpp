@@ -18,7 +18,7 @@ void ICreature::carryItem( IItem::Ptr item )
       storage->store( item );
 }
 
-TItemList ICreature::getStorageItems()
+TItemList ICreature::getEquipedItems()
 {
    TItemList items;
    for ( auto it : slots )
@@ -54,7 +54,7 @@ void ICreature::equip( IItem::Ptr item )
    }
 }
 
-TItemList ICreature::getEquipedItems()
+TItemList ICreature::getStorageItems()
 {
    auto storage = getStorage();
    if ( storage )

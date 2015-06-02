@@ -43,14 +43,9 @@ void CPlayerInterface::pickUpItem()
 
       auto objects = map->getObjects( coords, TObjectType::item );
 
-      if ( objects.size() == 1 )
+      if ( !objects.empty() )
       {
-         auto item = std::dynamic_pointer_cast<IItem>(*objects.begin());
-         creature->carryItem( item );
-      }
-      else if ( objects.size() > 1 )
-      {
-         auto obj = ui.selectObject( objects );
+         auto obj = ui.select( makeNameableVector( objects ) );
          if ( obj )
          {
 	         auto item = std::dynamic_pointer_cast<IItem>(obj);
@@ -67,23 +62,19 @@ void CPlayerInterface::dropItem()
    {
       auto items = creature->getStorageItems();
 
-      if ( items.size() != 1 )
+      if ( !items.empty() )
       {
-         auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
-         auto map = mapPosition->getMap();
-         const auto& coords = mapPosition->getCoords();
+         auto obj = ui.select( makeNameableVector( items ) );
+         if ( obj )
+         {
+            auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
+            auto map = mapPosition->getMap();
+            const auto& coords = mapPosition->getCoords();
 
-         map->place( *items.begin(), coords );
+	         auto item = std::dynamic_pointer_cast<IItem>(obj);
+            map->place( item, coords );
+         }
       }
-      //else if ( items.size() > 1 ) // !!!
-      //{
-      //   auto obj = ui.selectObject( items );
-      //   if ( obj )
-      //   {
-	     //    auto item = std::dynamic_pointer_cast<IItem>(obj);
-	     //    creature->carryItem( item );
-      //   }
-      //}
    }
 }
 

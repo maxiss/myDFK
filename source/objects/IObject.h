@@ -5,10 +5,12 @@
 #include "ObjectTypes.h"
 #include "map\TCoords.h"
 #include "IPosition.h"
+#include "INameable.h"
 
 namespace objects
 {
    class IObject
+      : virtual public INameable
    {
    public:
       typedef std::shared_ptr< IObject > Ptr;
@@ -18,7 +20,6 @@ namespace objects
       typedef const IObject* RawPtr;
 
       virtual TObjectType getObjectType() const = 0;
-      virtual std::string getName() const = 0;
 
       IPosition::Ptr getPosition() const { return position; }
       void setPosition( IPosition::Ptr position_ ) { position = position_; }

@@ -23,5 +23,8 @@
     <ClInclude Include="PositionTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INameable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

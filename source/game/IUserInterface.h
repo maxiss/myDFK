@@ -1,14 +1,14 @@
 #pragma once
 
 #include <memory>
-#include "objects\IObject.h"
+#include "objects\INameable.h"
 
 namespace game
 {
 	class IUserInterface
 	{
 	public:
-      std::shared_ptr< IUserInterface > Ptr;
-      virtual objects::IObject::Ptr selectObject( const objects::TObjectList& ) = 0;
+      typedef std::shared_ptr< IUserInterface > Ptr;
+      virtual objects::INameable::Ptr select( const objects::TNameableVector& ) = 0;
 	};
 }

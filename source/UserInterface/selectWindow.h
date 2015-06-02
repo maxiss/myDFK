@@ -1,21 +1,21 @@
 #pragma once
 
 #include "consoleWindow.h"
-#include "objects\IObject.h"
+#include "objects/INameable.h"
 
 class CSelectWindow
    : public CConsoleWindow
 {
 public:
-   CSelectWindow( const objects::TObjectList& );
+   CSelectWindow( const objects::TNameableVector& );
    ~CSelectWindow();
-   objects::IObject::Ptr getSelected();
+   objects::INameable::Ptr getSelected();
 
 private:
    virtual int eventHandler( int key ) override final;
    virtual void redraw() override final;
 
 private: // data
-   objects::TObjectList objectList;
-   objects::TObjectList::iterator current;
+   objects::TNameableVector nameableVector;
+   objects::TNameableVector::iterator current;
 };
