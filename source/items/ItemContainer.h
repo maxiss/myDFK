@@ -3,7 +3,7 @@
 #include <map>
 #include "item.h"
 
-namespace items
+namespace game_engine
 {
    class CContainerPosition;
 

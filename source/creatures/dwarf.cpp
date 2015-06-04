@@ -2,8 +2,7 @@
 #include "items\backpack.h"
 #include "simpleSlot.h"
 
-using namespace creatures;
-using namespace items;
+using namespace game_engine;
 
 CDwarf::CDwarf()
 {
@@ -19,7 +18,7 @@ TCreatureType CDwarf::getCreatureType() const
    return TCreatureType::dwarf;
 }
 
-std::string creatures::CDwarf::getName() const
+std::string CDwarf::getName() const
 {
    return "Dwarf";
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace items
+namespace game_engine
 {
    enum class TItemType
    {

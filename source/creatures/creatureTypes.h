@@ -1,6 +1,6 @@
 #pragma once
 
-namespace creatures
+namespace game_engine
 {
    enum class TCreatureType
    {

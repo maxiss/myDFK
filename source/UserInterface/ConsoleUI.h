@@ -5,12 +5,12 @@
 namespace user_interface
 {
 	class CConsoleUI final
-      : virtual public game::IUserInterface
+      : virtual public game_engine::IUserInterface
 	{
 	public:
       static CConsoleUI& Instance();
       void start();
-      virtual objects::INameable::Ptr select( const objects::TNameableVector& ) override final;
+      virtual game_engine::INameable::Ptr select( const game_engine::TNameableVector& ) override final;
 
    private:
       CConsoleUI();

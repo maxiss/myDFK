@@ -1,6 +1,6 @@
 #pragma once
 
-namespace objects
+namespace game_engine
 {
    enum class TObjectType
    {

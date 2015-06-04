@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace objects
+namespace game_engine
 {
    class INameable
    {

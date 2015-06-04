@@ -5,13 +5,13 @@
 #include "game/game_export.h"
 #include "mapData.h"
 
-namespace gamemap
+namespace game_engine
 {
 	struct TMapPoint
 	{
 	   TCoords coords;
 	   TStructureType structureType;
-	   objects::TConstObjectList objectList;
+	   TConstObjectList objectList;
 	};
 	
 	typedef std::list< TMapPoint > TMapPointList;

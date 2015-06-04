@@ -7,7 +7,7 @@
 #include "IPlayerInterface.h"
 #include "IGame.h"
 
-namespace game
+namespace game_engine
 {
    class CGame : public IGame
    {
@@ -17,15 +17,15 @@ namespace game
 
       CGame();
       virtual void start() override final;
-      virtual gamemap::IMap::ConstPtr getMap() override final;
+      virtual IMap::ConstPtr getMap() override final;
 
    protected:
-      void addObjectToMap( objects::IObject::Ptr, gamemap::coord x, gamemap::coord y );
+      void addObjectToMap( IObject::Ptr, coord x, coord y );
 
    private:
       virtual void initData() = 0;
 
    private: // data
-      gamemap::CMap::Ptr map;
+      CMap::Ptr map;
    };
 }

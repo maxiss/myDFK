@@ -3,7 +3,7 @@
 #include "item.h"
 #include "ItemContainer.h"
 
-namespace items
+namespace game_engine
 {
    class CBackPack final
       : public IItem

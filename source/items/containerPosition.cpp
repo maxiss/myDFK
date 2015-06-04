@@ -1,7 +1,6 @@
 #include "containerPosition.h"
 
-using namespace items;
-using namespace objects;
+using namespace game_engine;
 
 CContainerPosition::CContainerPosition( IItem::Ptr item_, CItemContainer::Ptr container_ )
    : item{ item_ }

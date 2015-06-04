@@ -2,7 +2,7 @@
 
 #include "creature.h"
 
-namespace creatures
+namespace game_engine
 {
    class CDwarf final
       : public ICreature

@@ -3,23 +3,23 @@
 #include "objects/IPosition.h"
 #include "equipmentSlot.h"
 
-namespace creatures
+namespace game_engine
 {
    class CEquipmentPosition
-      : public objects::IPosition
+      : public IPosition
    {
    public:
-      CEquipmentPosition( items::IItem::Ptr, CEquipmentSlot::Ptr );
+      CEquipmentPosition( IItem::Ptr, CEquipmentSlot::Ptr );
       ~CEquipmentPosition();
 
-      virtual objects::TPositionType getPositionType() const override final;
+      virtual TPositionType getPositionType() const override final;
       CEquipmentSlot::Ptr getEquipmentSlot();
 
    private:
-      items::IItem::Ptr getItem();
+      IItem::Ptr getItem();
 
    private:
-      items::IItem::WeakPtr item;
+      IItem::WeakPtr item;
       CEquipmentSlot::WeakPtr slot;
    };
 }

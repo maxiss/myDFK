@@ -1,8 +1,7 @@
 #include "map.h"
 #include "mapPosition.h"
 
-using namespace gamemap;
-using namespace objects;
+using namespace game_engine;
 
 CMap::CMap( const TCoords& min_, const TCoords& max_ )
    : min( min_ ), max( max_ )

@@ -1,8 +1,6 @@
 #include "equipmentPosition.h"
 
-using namespace creatures;
-using namespace items;
-using namespace objects;
+using namespace game_engine;
 
 TPositionType CEquipmentPosition::getPositionType() const
 {

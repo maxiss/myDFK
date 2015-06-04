@@ -3,7 +3,7 @@
 #include <memory>
 #include "game_export.h"
 
-namespace game
+namespace game_engine
 {
    class GAME_EXPORT IPlayerInterface
    {

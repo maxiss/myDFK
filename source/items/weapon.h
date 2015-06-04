@@ -2,7 +2,7 @@
 
 #include "item.h"
 
-namespace items
+namespace game_engine
 {
    class CWeapon : public IItem
    {

@@ -1,7 +1,6 @@
 #include "building.h"
 
-using namespace buildings;
-using namespace objects;
+using namespace game_engine;
 
 TObjectType IBuilding::getObjectType() const
 {

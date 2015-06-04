@@ -4,15 +4,15 @@
 #include "item.h"
 #include "ItemContainer.h"
 
-namespace items
+namespace game_engine
 {
-   class CContainerPosition : public objects::IPosition
+   class CContainerPosition : public IPosition
    {
    public: 
       CContainerPosition( IItem::Ptr, CItemContainer::Ptr );
       ~CContainerPosition();
 
-      virtual objects::TPositionType getPositionType() const override final;
+      virtual TPositionType getPositionType() const override final;
       CItemContainer::Ptr getContainer();
 
    private:

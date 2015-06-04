@@ -3,7 +3,7 @@
 #include <vector>
 #include "TCoords.h"
 
-namespace gamemap
+namespace game_engine
 {
    template <class T>
    class CCoordsVector : public std::vector< T >

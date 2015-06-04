@@ -1,10 +1,7 @@
 #include "creature.h"
 #include "map\mapPosition.h"
 
-using namespace creatures;
-using namespace items;
-using namespace objects;
-using namespace gamemap;
+using namespace game_engine;
 
 TObjectType ICreature::getObjectType() const
 {

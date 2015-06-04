@@ -6,30 +6,30 @@
 #include "items\ItemContainer.h"
 #include "equipmentSlot.h"
 
-namespace creatures
+namespace game_engine
 {
-   class ICreature : public objects::IObject
+   class ICreature : public IObject
    {
    public:
       typedef std::shared_ptr< ICreature > Ptr;
 
-      virtual objects::TObjectType getObjectType() const override final;
+      virtual TObjectType getObjectType() const override final;
       virtual TCreatureType getCreatureType() const = 0;
 
-      void move( gamemap::coord dx, gamemap::coord dy );
+      void move( coord dx, coord dy );
 
-      void equip( items::IItem::Ptr );
-      items::TItemList getEquipedItems();
+      void equip( IItem::Ptr );
+      TItemList getEquipedItems();
 
-      void carryItem( items::IItem::Ptr );
-      items::TItemList getStorageItems();
+      void carryItem( IItem::Ptr );
+      TItemList getStorageItems();
 
    protected:
       void addSlot( CEquipmentSlot::Ptr );
       void setStorageSlot( CEquipmentSlot::Ptr );
 
    private:
-      items::CItemContainer::Ptr getStorage();
+      CItemContainer::Ptr getStorage();
 
    private:
       TEquipmentSlots slots;

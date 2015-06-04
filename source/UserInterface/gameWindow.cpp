@@ -7,8 +7,7 @@
 #include "ConsoleUI.h"
 #include "keys.h"
 
-using namespace game;
-using namespace gamemap;
+using namespace game_engine;
 using namespace user_interface;
 
 class CGameWindow : public CConsoleWindow
@@ -119,7 +118,7 @@ void CGameWindow::drawChar( const TMapPoint& mapPoint )
       printf( "%c", typeChars.getStructureTypeChar( mapPoint.structureType ) );
    else
    {
-      objects::IObject::ConstPtr object = *mapPoint.objectList.begin();
+      IObject::ConstPtr object = *mapPoint.objectList.begin();
       printf( "%c", typeChars.getObjectTypeChar( object->getObjectType() ) );
    }
 }

@@ -3,7 +3,7 @@
 #include <set>
 #include "IMap.h"
 
-namespace gamemap
+namespace game_engine
 {
    typedef std::set< TCoords > TCoordsSet;
 
@@ -20,15 +20,15 @@ namespace gamemap
 
       CMap( const TCoords& min, const TCoords& max );
 
-      objects::IObject::Ptr getObject( const TCoords&, objects::TObjectType );
-      objects::TObjectList getObjects( const TCoords&, objects::TObjectType );
-      bool canMove( objects::IObject::Ptr, const TCoords& );
+      IObject::Ptr getObject( const TCoords&, TObjectType );
+      TObjectList getObjects( const TCoords&, TObjectType );
+      bool canMove( IObject::Ptr, const TCoords& );
 
       virtual TMapPointList getMapPositionList() const override final;
       virtual TMapPointList getMapChanges() const override final;
       void clearChanges() const;
 
-      void place( objects::IObject::Ptr, const TCoords& );
+      void place( IObject::Ptr, const TCoords& );
 
    private:
       bool checkBorders( const TCoords& ) const;
@@ -37,9 +37,9 @@ namespace gamemap
       void tmp_initSturctures();
 
       friend CMapPosition;
-      void addObject( objects::IObject::Ptr, const TCoords& );
-      void moveObject( objects::IObject::Ptr obj, const TCoords& );
-      void removeObject( objects::IObject::Ptr obj );
+      void addObject( IObject::Ptr, const TCoords& );
+      void moveObject( IObject::Ptr obj, const TCoords& );
+      void removeObject( IObject::Ptr obj );
 
    private: // data
       const TCoords min, max;

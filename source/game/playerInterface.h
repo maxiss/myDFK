@@ -4,12 +4,12 @@
 #include "IUserInterface.h"
 #include "creatures/creature.h"
 
-namespace game
+namespace game_engine
 {
    class CPlayerInterface : public IPlayerInterface
    {
    public:
-      CPlayerInterface( creatures::ICreature::Ptr, IUserInterface& );
+      CPlayerInterface( ICreature::Ptr, IUserInterface& );
 
       virtual void moveUp() override final;
       virtual void moveDown() override final;
@@ -22,7 +22,7 @@ namespace game
       virtual void takeOffItem() override;
 
    private:
-      creatures::ICreature::Ptr creature;
+      ICreature::Ptr creature;
       IUserInterface& ui;
    };
 } 

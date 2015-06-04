@@ -4,7 +4,7 @@
 #include <vector>
 #include "items/item.h"
 
-namespace creatures
+namespace game_engine
 {
 	class CEquipmentPosition;
 	
@@ -15,18 +15,18 @@ namespace creatures
       typedef std::shared_ptr< CEquipmentSlot > Ptr;
       typedef std::weak_ptr< CEquipmentSlot > WeakPtr;
 	
-      virtual bool canEquip( items::IItem::Ptr ) const = 0;
+      virtual bool canEquip( IItem::Ptr ) const = 0;
 	   bool isEmpty() const;
-	   void equip( items::IItem::Ptr );
-	   items::IItem::Ptr getItem();
+	   void equip( IItem::Ptr );
+	   IItem::Ptr getItem();
 
 	private:
 	   friend CEquipmentPosition;
-	   void add( items::IItem::Ptr );
-      void remove( items::IItem::Ptr );
+	   void add( IItem::Ptr );
+      void remove( IItem::Ptr );
 	
 	private:
-	   items::IItem::Ptr content;
+	   IItem::Ptr content;
 	};
 
    typedef std::vector< CEquipmentSlot::Ptr > TEquipmentSlots;

@@ -3,9 +3,7 @@
 #include "items\weapon.h"
 #include "items\backpack.h"
 
-using namespace game;
-using namespace creatures;
-using namespace items;
+using namespace game_engine;
 
 void CGameDFK::initData()
 {

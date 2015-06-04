@@ -1,13 +1,13 @@
 #include "weapon.h"
 
-using namespace items;
+using namespace game_engine;
 
 TItemType CWeapon::getItemType() const 
 {
    return TItemType::weapon;
 }
 
-std::string items::CWeapon::getName() const
+std::string CWeapon::getName() const
 {
    return "Weapon";
 }

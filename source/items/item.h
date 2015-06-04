@@ -4,16 +4,16 @@
 #include "ItemTypes.h"
 #include <list>
 
-namespace items
+namespace game_engine
 {
-   class IItem : public objects::IObject
+   class IItem : public IObject
    {
    public:
       typedef std::shared_ptr< IItem > Ptr;
       typedef std::weak_ptr< IItem > WeakPtr;
       typedef const IItem* RawPtr;
 
-      virtual objects::TObjectType getObjectType() const override final;
+      virtual TObjectType getObjectType() const override final;
       virtual TItemType getItemType() const = 0;
    };
 

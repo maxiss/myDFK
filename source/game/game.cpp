@@ -1,9 +1,7 @@
 #include "game.h"
 #include "map\mapPosition.h"
 
-using namespace game;
-using namespace gamemap;
-using namespace objects;
+using namespace game_engine;
 
 // TODO: move to ini-file
 const int MINX = 0;

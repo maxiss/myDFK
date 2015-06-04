@@ -3,7 +3,7 @@
 #include <memory>
 #include "PositionTypes.h"
 
-namespace objects
+namespace game_engine
 {
 	class IPosition
 	{

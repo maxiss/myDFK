@@ -1,7 +1,6 @@
 #include "simpleSlot.h"
 
-using namespace creatures;
-using namespace items;
+using namespace game_engine;
 
 CSimpleSlot::CSimpleSlot( TItemType itemType_ )
    : itemType( itemType_ )

@@ -3,7 +3,7 @@
 #include "game.h"
 #include "creatures\dwarf.h"
 
-namespace game
+namespace game_engine
 {
    class CGameDFK : public CGame
    {
@@ -12,6 +12,6 @@ namespace game
       virtual IPlayerInterface::Ptr getPlayerInterface( IUserInterface& ) override final;
 
    private:
-      std::shared_ptr< creatures::CDwarf > player;
+      std::shared_ptr< CDwarf > player;
    };
 }

@@ -5,14 +5,14 @@
 #include "objects\IObject.h"
 #include "map.h"
 
-namespace gamemap
+namespace game_engine
 {
-	class CMapPosition : public objects::IPosition
+	class CMapPosition : public IPosition
 	{
 	public:
-	   virtual objects::TPositionType getPositionType() const override final;
+	   virtual TPositionType getPositionType() const override final;
 
-      CMapPosition( objects::IObject::Ptr, CMap::Ptr, const TCoords& );
+      CMapPosition( IObject::Ptr, CMap::Ptr, const TCoords& );
       ~CMapPosition();
 
       const TCoords& getCoords() const;
@@ -20,10 +20,10 @@ namespace gamemap
       void setCoords( const TCoords& );
 
    private:
-      objects::IObject::Ptr getObject();
+      IObject::Ptr getObject();
 
    private: // data
-      const objects::IObject::WeakPtr object;
+      const IObject::WeakPtr object;
       const CMap::WeakPtr map;
       TCoords coords;
 	};

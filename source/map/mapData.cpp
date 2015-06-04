@@ -1,7 +1,6 @@
 #include "mapData.h"
 
-using namespace gamemap;
-using namespace objects;
+using namespace game_engine;
 
 CMapData::CMapData( const TCoords& min_, const TCoords& max_ )
    : min(min_), max(max_)

@@ -1,7 +1,7 @@
 #include "itemContainer.h"
 #include "containerPosition.h"
 
-using namespace items;
+using namespace game_engine;
 
 void CItemContainer::add( IItem::Ptr item )
 {

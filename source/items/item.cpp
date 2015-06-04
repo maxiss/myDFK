@@ -1,7 +1,6 @@
 #include "item.h"
 
-using namespace items;
-using namespace objects;
+using namespace game_engine;
 
 TObjectType IItem::getObjectType() const
 {

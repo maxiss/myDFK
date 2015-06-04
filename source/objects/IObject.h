@@ -7,7 +7,7 @@
 #include "IPosition.h"
 #include "INameable.h"
 
-namespace objects
+namespace game_engine
 {
    class IObject
       : virtual public INameable

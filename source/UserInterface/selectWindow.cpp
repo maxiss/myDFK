@@ -7,7 +7,7 @@ const int X2_ = 79;
 const int Y1_ = 0;
 const int Y2_ = 23;
 
-using namespace objects;
+using namespace game_engine;
 
 CSelectWindow::CSelectWindow( const TNameableVector& nameableVector_ )
    : nameableVector( nameableVector_ )

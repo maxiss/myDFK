@@ -1,7 +1,6 @@
 #include "mapPosition.h"
 
-using namespace gamemap;
-using namespace objects;
+using namespace game_engine;
 
 TPositionType CMapPosition::getPositionType() const
 {

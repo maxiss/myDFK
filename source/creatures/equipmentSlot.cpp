@@ -1,8 +1,7 @@
 #include "equipmentSlot.h"
 #include "equipmentPosition.h"
 
-using namespace creatures;
-using namespace items;
+using namespace game_engine;
 
 bool CEquipmentSlot::isEmpty() const
 {

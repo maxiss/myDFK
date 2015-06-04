@@ -2,11 +2,11 @@
 
 #include "objects\IObject.h"
 
-namespace buildings
+namespace game_engine
 {
-   class IBuilding : public objects::IObject
+   class IBuilding : public IObject
    {
-      virtual objects::TObjectType getObjectType() const override final;
+      virtual TObjectType getObjectType() const override final;
    };
 
 }

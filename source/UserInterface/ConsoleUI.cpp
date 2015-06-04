@@ -5,7 +5,7 @@
 #include "keys.h"
 
 using namespace user_interface;
-using namespace objects;
+using namespace game_engine;
 
 CConsoleUI::CConsoleUI()
 {}

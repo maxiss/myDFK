@@ -1,7 +1,6 @@
 #include "objectTypeVisualizator.h"
 
-using namespace gamemap;
-using namespace objects;
+using namespace game_engine;
 
 CMapPointVisuzlizator::CMapPointVisuzlizator()
 {

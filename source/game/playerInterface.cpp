@@ -2,12 +2,9 @@
 #include "map\mapPosition.h"
 #include "items\item.h"
 
-using namespace game;
-using namespace objects;
-using namespace gamemap;
-using namespace items;
+using namespace game_engine;
 
-CPlayerInterface::CPlayerInterface( creatures::ICreature::Ptr creature_, IUserInterface& ui_ )
+CPlayerInterface::CPlayerInterface( ICreature::Ptr creature_, IUserInterface& ui_ )
    : creature{ creature_ }
    , ui{ ui_ }
 {}
@@ -78,7 +75,7 @@ void CPlayerInterface::dropItem()
    }
 }
 
-void game::CPlayerInterface::equipItem()
+void CPlayerInterface::equipItem()
 {
    auto position = creature->getPosition();
    if ( position && position->getPositionType() == TPositionType::map )
@@ -100,7 +97,7 @@ void game::CPlayerInterface::equipItem()
    }
 }
 
-void game::CPlayerInterface::takeOffItem()
+void CPlayerInterface::takeOffItem()
 {
    auto position = creature->getPosition();
    if ( position && position->getPositionType() == TPositionType::map  )

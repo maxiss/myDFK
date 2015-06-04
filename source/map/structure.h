@@ -1,6 +1,6 @@
 #pragma once
 
-namespace gamemap
+namespace game_engine
 {
    enum class TStructureType
    {

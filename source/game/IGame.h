@@ -6,14 +6,14 @@
 #include "IPlayerInterface.h"
 #include "IUserInterface.h"
 
-namespace game
+namespace game_engine
 {
    class GAME_EXPORT IGame
    {
    public:
       typedef std::shared_ptr< IGame > Ptr;
       virtual void start() = 0;
-      virtual gamemap::IMap::ConstPtr getMap() = 0;
+      virtual IMap::ConstPtr getMap() = 0;
       virtual IPlayerInterface::Ptr getPlayerInterface( IUserInterface& ) = 0;
    };
 }

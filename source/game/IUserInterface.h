@@ -3,12 +3,12 @@
 #include <memory>
 #include "objects\INameable.h"
 
-namespace game
+namespace game_engine
 {
 	class IUserInterface
 	{
 	public:
       typedef std::shared_ptr< IUserInterface > Ptr;
-      virtual objects::INameable::Ptr select( const objects::TNameableVector& ) = 0;
+      virtual INameable::Ptr select( const TNameableVector& ) = 0;
 	};
 }
