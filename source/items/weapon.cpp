@@ -2,9 +2,9 @@
 
 using namespace game_engine;
 
-TItemType CWeapon::getItemType() const 
+ItemType CWeapon::getItemType() const 
 {
-   return TItemType::weapon;
+   return ItemType::Weapon;
 }
 
 std::string CWeapon::getName() const

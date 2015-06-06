@@ -11,20 +11,20 @@ CMapPointVisuzlizator::CMapPointVisuzlizator()
 void CMapPointVisuzlizator::fillTypeObjectList()
 {
    // TODO bear out to ini-file
-   objectTypeList.insert( std::make_pair( TObjectType::item,     'i' ) );
-   objectTypeList.insert( std::make_pair( TObjectType::building, 'b' ) );
-   objectTypeList.insert( std::make_pair( TObjectType::creature, '@' ) );
+   objectTypeList.insert( std::make_pair( ObjectType::Item,     'i' ) );
+   objectTypeList.insert( std::make_pair( ObjectType::Building, 'b' ) );
+   objectTypeList.insert( std::make_pair( ObjectType::Creature, '@' ) );
 }
 
 void CMapPointVisuzlizator::fillStructureTypeList()
 {
    // TODO bear out to ini-file
-   structureTypeList.insert( std::make_pair( TStructureType::none,  ' ' ) );
-   structureTypeList.insert( std::make_pair( TStructureType::floor, '.' ) );
-   structureTypeList.insert( std::make_pair( TStructureType::wall,  '#' ) );
+   structureTypeList.insert( std::make_pair( StructureType::None,  ' ' ) );
+   structureTypeList.insert( std::make_pair( StructureType::Floor, '.' ) );
+   structureTypeList.insert( std::make_pair( StructureType::Wall,  '#' ) );
 }
 
-char CMapPointVisuzlizator::getObjectTypeChar( TObjectType objType ) const
+char CMapPointVisuzlizator::getObjectTypeChar( ObjectType objType ) const
 {
    char retVal = '\0';
    auto it = objectTypeList.find( objType );
@@ -33,7 +33,7 @@ char CMapPointVisuzlizator::getObjectTypeChar( TObjectType objType ) const
    return retVal;
 }
 
-char CMapPointVisuzlizator::getStructureTypeChar( TStructureType structureType ) const
+char CMapPointVisuzlizator::getStructureTypeChar( StructureType structureType ) const
 {
    char retVal = '\0';
    auto it = structureTypeList.find( structureType );

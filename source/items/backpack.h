@@ -10,7 +10,7 @@ namespace game_engine
       , public CItemContainer
    {
    public:
-      virtual TItemType getItemType() const override final;
+      virtual ItemType getItemType() const override final;
       virtual std::string getName() const override;
    };
 }

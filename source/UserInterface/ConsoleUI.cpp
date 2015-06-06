@@ -21,7 +21,7 @@ void CConsoleUI::start()
    CMainMenuWindow().run();
 }
 
-INameable::Ptr CConsoleUI::select( const TNameableVector& nameableVector )
+INameable::Ptr CConsoleUI::select( const NameableVector& nameableVector )
 {
    INameable::Ptr retVal = nullptr;
 

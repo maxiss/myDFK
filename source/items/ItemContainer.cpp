@@ -26,9 +26,9 @@ IItem::Ptr CItemContainer::get()
       return nullptr;
 }
 
-TItemList CItemContainer::getItems()
+ItemList CItemContainer::getItems()
 {
-   TItemList items;
+   ItemList items;
    for ( const auto& it : content )
       items.push_back( it.second );
    return items;

@@ -12,9 +12,6 @@
     <ClInclude Include="map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TCoords.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,6 +30,9 @@
     <ClInclude Include="IMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="coords.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="map.cpp">
@@ -44,7 +44,7 @@
     <ClCompile Include="mapPosition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TCoords.cpp">
+    <ClCompile Include="coords.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

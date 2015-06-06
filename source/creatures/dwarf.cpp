@@ -6,16 +6,16 @@ using namespace game_engine;
 
 CDwarf::CDwarf()
 {
-   auto slot = std::make_shared<CSimpleSlot>( TItemType::backpack );
+   auto slot = std::make_shared<CSimpleSlot>( ItemType::Backpack );
    addSlot( slot );
    setStorageSlot( slot );
 
-   addSlot( std::make_shared<CSimpleSlot>( TItemType::weapon ) );
+   addSlot( std::make_shared<CSimpleSlot>( ItemType::Weapon ) );
 }
 
-TCreatureType CDwarf::getCreatureType() const
+CreatureType CDwarf::getCreatureType() const
 {
-   return TCreatureType::dwarf;
+   return CreatureType::Dwarf;
 }
 
 std::string CDwarf::getName() const

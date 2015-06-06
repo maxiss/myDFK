@@ -32,13 +32,13 @@ void CPlayerInterface::moveRight()
 void CPlayerInterface::pickUpItem()
 {
    auto position = creature->getPosition();
-   if ( position && position->getPositionType() == TPositionType::map  )
+   if ( position && position->getPositionType() == PositionType::Map  )
    {
       auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
       const auto& coords = mapPosition->getCoords();
       auto map = mapPosition->getMap();
 
-      auto objects = map->getObjects( coords, TObjectType::item );
+      auto objects = map->getObjects( coords, ObjectType::Item );
 
       if ( !objects.empty() )
       {
@@ -55,7 +55,7 @@ void CPlayerInterface::pickUpItem()
 void CPlayerInterface::dropItem()
 {
    auto position = creature->getPosition();
-   if ( position && position->getPositionType() == TPositionType::map  )
+   if ( position && position->getPositionType() == PositionType::Map  )
    {
       auto items = creature->getStorageItems();
 
@@ -78,13 +78,13 @@ void CPlayerInterface::dropItem()
 void CPlayerInterface::equipItem()
 {
    auto position = creature->getPosition();
-   if ( position && position->getPositionType() == TPositionType::map )
+   if ( position && position->getPositionType() == PositionType::Map )
    {
       auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
       const auto& coords = mapPosition->getCoords();
       auto map = mapPosition->getMap();
 
-      auto objects = map->getObjects( coords, TObjectType::item );
+      auto objects = map->getObjects( coords, ObjectType::Item );
       if ( !objects.empty() )
       {
          auto object = ui.select( makeNameableVector( objects ) );
@@ -100,7 +100,7 @@ void CPlayerInterface::equipItem()
 void CPlayerInterface::takeOffItem()
 {
    auto position = creature->getPosition();
-   if ( position && position->getPositionType() == TPositionType::map  )
+   if ( position && position->getPositionType() == PositionType::Map  )
    {
       auto items = creature->getEquipedItems();
 

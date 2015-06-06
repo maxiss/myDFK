@@ -2,7 +2,7 @@
 
 using namespace game_engine;
 
-TObjectType IBuilding::getObjectType() const
+ObjectType IBuilding::getObjectType() const
 {
-   return TObjectType::building;
+   return ObjectType::Building;
 }

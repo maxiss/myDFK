@@ -3,7 +3,7 @@
 
 using namespace game_engine;
 
-CMap::CMap( const TCoords& min_, const TCoords& max_ )
+CMap::CMap( const Coords& min_, const Coords& max_ )
    : min( min_ ), max( max_ )
    , content( min, max )
 {
@@ -12,31 +12,31 @@ CMap::CMap( const TCoords& min_, const TCoords& max_ )
 
 void CMap::tmp_initSturctures()
 {
-   for (coord y = min.y; y <= max.y; y++)
+   for (Coord y = min.y; y <= max.y; y++)
    {
-      for (coord x = min.x; x <= max.x; x++)
+      for (Coord x = min.x; x <= max.x; x++)
       {
-         content.getStructure( TCoords{ x, y } ).type = TStructureType::floor;
+         content.getStructure( Coords{ x, y } ).type = StructureType::Floor;
 
          if ( ( x == max.x - 2 ) && ( y > min.y + 1 ) && ( y < max.y - 1 ) )
-            content.getStructure( TCoords{ x, y } ).type = TStructureType::wall;
+            content.getStructure( Coords{ x, y } ).type = StructureType::Wall;
       }
    }
 }
 
-bool CMap::checkBorders( const TCoords& coords ) const
+bool CMap::checkBorders( const Coords& coords ) const
 {
    return ( (min.x <= coords.x) && (coords.x <= max.x) && (min.y <= coords.y) && (coords.y <= max.y) );
 }
 
-bool CMap::checkPassable( const TCoords& coords ) const
+bool CMap::checkPassable( const Coords& coords ) const
 {
    const TStructure& structure = content.getStructure( coords );
 
    switch ( structure.type )
    {
-      case TStructureType::wall :
-      case TStructureType::none :
+      case StructureType::Wall :
+      case StructureType::None :
          return false;
       break;
 
@@ -46,7 +46,7 @@ bool CMap::checkPassable( const TCoords& coords ) const
    }
 }
 
-void CMap::addObject( IObject::Ptr obj, const TCoords& coords )
+void CMap::addObject( IObject::Ptr obj, const Coords& coords )
 {
    if ( !canMove( obj, coords ) )
       throw std::exception( "can't move object there" );
@@ -56,12 +56,12 @@ void CMap::addObject( IObject::Ptr obj, const TCoords& coords )
    addChange( coords );
 }
 
-void CMap::moveObject( IObject::Ptr obj, const TCoords& coords )
+void CMap::moveObject( IObject::Ptr obj, const Coords& coords )
 {
    if ( !canMove( obj, coords ) )
       throw std::exception( "can't move object there" );
 
-   const TCoords& oldCoords = content.getObjectCoords( obj );
+   const Coords& oldCoords = content.getObjectCoords( obj );
    addChange( oldCoords );
 
    content.updateObject( obj, coords );
@@ -71,59 +71,59 @@ void CMap::moveObject( IObject::Ptr obj, const TCoords& coords )
 
 void CMap::removeObject( IObject::Ptr obj )
 {
-   const TCoords& oldCoords = content.getObjectCoords( obj );
+   const Coords& oldCoords = content.getObjectCoords( obj );
    addChange( oldCoords );
 
    content.removeObject( obj );
 }
 
-TMapPointList CMap::getMapPositionList() const
+MapPointList CMap::getMapPositionList() const
 {
-   TMapPointList retVal;
+   MapPointList retVal;
 
-   for (coord y = min.y; y <= max.y; y++)
+   for (Coord y = min.y; y <= max.y; y++)
    {
-      for (coord x = min.x; x <= max.x; x++)
+      for (Coord x = min.x; x <= max.x; x++)
       {
-         TCoords coords{ x, y };
+         Coords coords{ x, y };
          retVal.push_back( TMapPoint{ coords, content.getStructure( coords ).type,
-                                      content.getConstObjectList( coords, TObjectType::all ) } );
+                                      content.getConstObjectList( coords, ObjectType::All ) } );
       }
    }
 
    return retVal;
 }
 
-TMapPointList CMap::getMapChanges() const
+MapPointList CMap::getMapChanges() const
 {
-   TMapPointList retVal;
+   MapPointList retVal;
 
    for ( auto it : changes )
       retVal.push_back( TMapPoint{ it, content.getStructure( it ).type,
-                                   content.getConstObjectList( it, TObjectType::all ) } );
+                                   content.getConstObjectList( it, ObjectType::All ) } );
 
 
    clearChanges();
    return retVal;
 }
 
-IObject::Ptr CMap::getObject( const TCoords& coords, TObjectType objectType )
+IObject::Ptr CMap::getObject( const Coords& coords, ObjectType objectType )
 {
    IObject::Ptr retVal;
 
-   TObjectList objectList = content.getObjectList( coords, objectType, 1 );
+   ObjectList objectList = content.getObjectList( coords, objectType, 1 );
    if ( !objectList.empty() )
       retVal = *objectList.begin();
 
    return retVal;
 }
 
-TObjectList CMap::getObjects( const TCoords& coords, TObjectType objectType )
+ObjectList CMap::getObjects( const Coords& coords, ObjectType objectType )
 {
    return content.getObjectList( coords, objectType );
 }
 
-void CMap::addChange( const TCoords& point ) const
+void CMap::addChange( const Coords& point ) const
 {
    changes.insert( point );
 }
@@ -133,12 +133,12 @@ void CMap::clearChanges() const
    changes.clear();
 }
 
-bool CMap::canMove( IObject::Ptr, const TCoords& coords )
+bool CMap::canMove( IObject::Ptr, const Coords& coords )
 {
    return checkBorders( coords ) && checkPassable( coords );
 }
 
-void CMap::place( IObject::Ptr object, const TCoords& coords )
+void CMap::place( IObject::Ptr object, const Coords& coords )
 {
    object->setPosition( std::make_shared< CMapPosition >( object, shared_from_this(), coords ) );
 }

@@ -3,9 +3,9 @@
 
 using namespace game_engine;
 
-TItemType CBackPack::getItemType() const
+ItemType CBackPack::getItemType() const
 {
-   return TItemType::backpack;
+   return ItemType::Backpack;
 }
 
 std::string CBackPack::getName() const

@@ -2,18 +2,18 @@
 
 namespace game_engine
 {
-   enum class TObjectType
+   enum class ObjectType
    {
-      all,
-      item,
-      creature,
-      building,
+      All,
+      Item,
+      Creature,
+      Building,
    };
 
-   inline bool matchObjectType( TObjectType left, TObjectType right )
+   inline bool matchObjectType( ObjectType left, ObjectType right )
    {
-      return ( left == TObjectType::all ||
-               right == TObjectType::all ||
+      return ( left == ObjectType::All ||
+               right == ObjectType::All ||
                left == right );
    }
 }

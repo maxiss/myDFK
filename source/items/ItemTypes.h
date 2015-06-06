@@ -2,10 +2,10 @@
 
 namespace game_engine
 {
-   enum class TItemType
+   enum class ItemType
    {
-      weapon,
-      //armour,
-      backpack,
+      Weapon,
+      //Armour,
+      Backpack,
    };
 }

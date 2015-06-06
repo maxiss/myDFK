@@ -2,12 +2,12 @@
 
 using namespace game_engine;
 
-TPositionType CMapPosition::getPositionType() const
+PositionType CMapPosition::getPositionType() const
 {
-   return TPositionType::map;
+   return PositionType::Map;
 }
 
-CMapPosition::CMapPosition( IObject::Ptr object_, CMap::Ptr map_, const TCoords& coords_ )
+CMapPosition::CMapPosition( IObject::Ptr object_, CMap::Ptr map_, const Coords& coords_ )
    : object{ object_ }
    , map( map_ )
 {
@@ -30,12 +30,12 @@ CMap::Ptr CMapPosition::getMap()
    return map.lock();
 }
 
-const TCoords& CMapPosition::getCoords() const
+const Coords& CMapPosition::getCoords() const
 {
    return coords;
 }
 
-void CMapPosition::setCoords( const TCoords& coords_ )
+void CMapPosition::setCoords( const Coords& coords_ )
 {
    CMap::Ptr map_ = getMap();
    IObject::Ptr object_ = getObject();

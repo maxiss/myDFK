@@ -6,7 +6,7 @@ namespace game_engine
 {
    class IBuilding : public IObject
    {
-      virtual TObjectType getObjectType() const override final;
+      virtual ObjectType getObjectType() const override final;
    };
 
 }

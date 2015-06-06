@@ -7,7 +7,7 @@ class CSelectWindow
    : public CConsoleWindow
 {
 public:
-   CSelectWindow( const game_engine::TNameableVector& );
+   CSelectWindow( const game_engine::NameableVector& );
    ~CSelectWindow();
    game_engine::INameable::Ptr getSelected();
 
@@ -16,6 +16,6 @@ private:
    virtual void redraw() override final;
 
 private: // data
-   game_engine::TNameableVector nameableVector;
-   game_engine::TNameableVector::iterator current;
+   game_engine::NameableVector nameableVector;
+   game_engine::NameableVector::iterator current;
 };

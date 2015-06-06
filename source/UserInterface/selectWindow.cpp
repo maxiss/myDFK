@@ -9,7 +9,7 @@ const int Y2_ = 23;
 
 using namespace game_engine;
 
-CSelectWindow::CSelectWindow( const TNameableVector& nameableVector_ )
+CSelectWindow::CSelectWindow( const NameableVector& nameableVector_ )
    : nameableVector( nameableVector_ )
    , current{ nameableVector.begin() }
 {}

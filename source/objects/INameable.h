@@ -13,12 +13,12 @@ namespace game_engine
       virtual std::string getName() const = 0;
    };
 
-   typedef std::vector< INameable::Ptr > TNameableVector;
+   typedef std::vector< INameable::Ptr > NameableVector;
 
    template <class T>
-   TNameableVector makeNameableVector( const T& input )
+   NameableVector makeNameableVector( const T& input )
    {
-      TNameableVector retVal;
+      NameableVector retVal;
       for ( const auto& it : input )
       {
          auto& item = std::dynamic_pointer_cast<INameable>( it );

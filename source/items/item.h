@@ -13,9 +13,9 @@ namespace game_engine
       typedef std::weak_ptr< IItem > WeakPtr;
       typedef const IItem* RawPtr;
 
-      virtual TObjectType getObjectType() const override final;
-      virtual TItemType getItemType() const = 0;
+      virtual ObjectType getObjectType() const override final;
+      virtual ItemType getItemType() const = 0;
    };
 
-   typedef std::list< IItem::Ptr > TItemList;
+   typedef std::list< IItem::Ptr > ItemList;
 }

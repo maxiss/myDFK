@@ -9,6 +9,6 @@ namespace game_engine
 	{
 	public:
       typedef std::shared_ptr< IUserInterface > Ptr;
-      virtual INameable::Ptr select( const TNameableVector& ) = 0;
+      virtual INameable::Ptr select( const NameableVector& ) = 0;
 	};
 }

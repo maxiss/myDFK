@@ -12,7 +12,7 @@ namespace game_engine
       CEquipmentPosition( IItem::Ptr, CEquipmentSlot::Ptr );
       ~CEquipmentPosition();
 
-      virtual TPositionType getPositionType() const override final;
+      virtual PositionType getPositionType() const override final;
       CEquipmentSlot::Ptr getEquipmentSlot();
 
    private:

@@ -18,7 +18,7 @@ private:
    virtual int eventHandler( int key ) override final;
    virtual void redraw() override final;
 
-   void draw( const TMapPointList& );
+   void draw( const MapPointList& );
    void draw( const TMapPoint& );
    void redrawChanges();
 
@@ -94,7 +94,7 @@ void CGameWindow::redraw()
    draw( map->getMapPositionList() );
 }
 
-void CGameWindow::draw( const TMapPointList& changes )
+void CGameWindow::draw( const MapPointList& changes )
 {
    for ( const auto& it : changes )
       draw( it );

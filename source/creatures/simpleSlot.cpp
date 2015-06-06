@@ -2,7 +2,7 @@
 
 using namespace game_engine;
 
-CSimpleSlot::CSimpleSlot( TItemType itemType_ )
+CSimpleSlot::CSimpleSlot( ItemType itemType_ )
    : itemType( itemType_ )
 {}
 

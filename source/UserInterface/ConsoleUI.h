@@ -10,7 +10,7 @@ namespace user_interface
 	public:
       static CConsoleUI& Instance();
       void start();
-      virtual game_engine::INameable::Ptr select( const game_engine::TNameableVector& ) override final;
+      virtual game_engine::INameable::Ptr select( const game_engine::NameableVector& ) override final;
 
    private:
       CConsoleUI();

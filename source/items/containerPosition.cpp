@@ -16,9 +16,9 @@ CContainerPosition::~CContainerPosition()
       container_->remove( getItem() );
 }
 
-TPositionType CContainerPosition::getPositionType() const
+PositionType CContainerPosition::getPositionType() const
 {
-   return TPositionType::container;
+   return PositionType::Container;
 }
 
 CItemContainer::Ptr CContainerPosition::getContainer()

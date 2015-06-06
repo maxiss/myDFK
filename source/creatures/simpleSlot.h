@@ -9,11 +9,11 @@ namespace game_engine
       : public CEquipmentSlot
    {
    public:
-      CSimpleSlot( TItemType );
+      CSimpleSlot( ItemType );
       virtual bool canEquip( IItem::Ptr ) const override final;
 
    private:
-      TItemType itemType;
+      ItemType itemType;
    };
 
 }

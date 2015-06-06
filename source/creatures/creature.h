@@ -13,16 +13,16 @@ namespace game_engine
    public:
       typedef std::shared_ptr< ICreature > Ptr;
 
-      virtual TObjectType getObjectType() const override final;
-      virtual TCreatureType getCreatureType() const = 0;
+      virtual ObjectType getObjectType() const override final;
+      virtual CreatureType getCreatureType() const = 0;
 
-      void move( coord dx, coord dy );
+      void move( Coord dx, Coord dy );
 
       void equip( IItem::Ptr );
-      TItemList getEquipedItems();
+      ItemList getEquipedItems();
 
       void carryItem( IItem::Ptr );
-      TItemList getStorageItems();
+      ItemList getStorageItems();
 
    protected:
       void addSlot( CEquipmentSlot::Ptr );
@@ -32,7 +32,7 @@ namespace game_engine
       CItemContainer::Ptr getStorage();
 
    private:
-      TEquipmentSlots slots;
+      EquipmentSlots slots;
       CEquipmentSlot::WeakPtr storageSlot;
    };
 }

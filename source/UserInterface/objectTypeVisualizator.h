@@ -8,12 +8,12 @@ class CMapPointVisuzlizator
 {
 public:
    CMapPointVisuzlizator();
-   char getObjectTypeChar( game_engine::TObjectType objType ) const;
-   char getStructureTypeChar( game_engine::TStructureType structureType ) const;
+   char getObjectTypeChar( game_engine::ObjectType objType ) const;
+   char getStructureTypeChar( game_engine::StructureType structureType ) const;
 
 private:
-   std::map< game_engine::TObjectType, char > objectTypeList;
-   std::map< game_engine::TStructureType, char > structureTypeList;
+   std::map< game_engine::ObjectType, char > objectTypeList;
+   std::map< game_engine::StructureType, char > structureTypeList;
 
    void fillTypeObjectList();
    void fillStructureTypeList();

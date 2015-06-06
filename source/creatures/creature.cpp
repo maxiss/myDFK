@@ -3,9 +3,9 @@
 
 using namespace game_engine;
 
-TObjectType ICreature::getObjectType() const
+ObjectType ICreature::getObjectType() const
 {
-   return TObjectType::creature;
+   return ObjectType::Creature;
 }
 
 void ICreature::carryItem( IItem::Ptr item )
@@ -15,9 +15,9 @@ void ICreature::carryItem( IItem::Ptr item )
       storage->store( item );
 }
 
-TItemList ICreature::getEquipedItems()
+ItemList ICreature::getEquipedItems()
 {
-   TItemList items;
+   ItemList items;
    for ( auto it : slots )
    {
       auto item = it->getItem();
@@ -27,9 +27,9 @@ TItemList ICreature::getEquipedItems()
    return items;
 }
 
-void ICreature::move( coord dx, coord dy )
+void ICreature::move( Coord dx, Coord dy )
 {
-   if ( position && position->getPositionType() == TPositionType::map  )
+   if ( position && position->getPositionType() == PositionType::Map  )
    {
       auto mapPosition = std::dynamic_pointer_cast<CMapPosition>( position );
       auto coords = mapPosition->getCoords();
@@ -51,13 +51,13 @@ void ICreature::equip( IItem::Ptr item )
    }
 }
 
-TItemList ICreature::getStorageItems()
+ItemList ICreature::getStorageItems()
 {
    auto storage = getStorage();
    if ( storage )
       return storage->getItems();
    else
-      return TItemList();
+      return ItemList();
 }
 
 void ICreature::addSlot( CEquipmentSlot::Ptr slot )

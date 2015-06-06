@@ -2,9 +2,9 @@
 
 using namespace game_engine;
 
-TPositionType CEquipmentPosition::getPositionType() const
+PositionType CEquipmentPosition::getPositionType() const
 {
-   return TPositionType::equipmentSlot;
+   return PositionType::EquipmentSlot;
 }
 
 CEquipmentPosition::CEquipmentPosition( IItem::Ptr item_, CEquipmentSlot::Ptr slot_ )

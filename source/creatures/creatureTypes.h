@@ -2,13 +2,13 @@
 
 namespace game_engine
 {
-   enum class TCreatureType
+   enum class CreatureType
    {
-      dwarf,
-      //orc,
-      //human,
-      //critter,
-      //animal,
+      Dwarf,
+      //Orc,
+      //Human,
+      //Critter,
+      //Animal,
    };
 
 }

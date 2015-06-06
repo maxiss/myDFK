@@ -2,11 +2,11 @@
 
 namespace game_engine
 {
-   enum class TPositionType
+   enum class PositionType
    {
-      map,
-      container,
-      equipmentSlot
-      //jail,
+      Map,
+      Container,
+      EquipmentSlot
+      //Jail,
    };
 }

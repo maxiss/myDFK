@@ -9,6 +9,6 @@ namespace game_engine
 	{
 	public:
       typedef std::shared_ptr< IPosition > Ptr;
-      virtual TPositionType getPositionType() const = 0;
+      virtual PositionType getPositionType() const = 0;
 	};
 }

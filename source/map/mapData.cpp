@@ -2,14 +2,14 @@
 
 using namespace game_engine;
 
-CMapData::CMapData( const TCoords& min_, const TCoords& max_ )
+CMapData::CMapData( const Coords& min_, const Coords& max_ )
    : min(min_), max(max_)
    , structures( min, max )
    , coordIndex( min, max )
 {
 }
 
-void CMapData::addObject( IObject::Ptr object, const TCoords& coords )
+void CMapData::addObject( IObject::Ptr object, const Coords& coords )
 {
    const IObject* objId = object.get();
    content.insert( make_pair( objId, object ) );
@@ -21,24 +21,24 @@ void CMapData::addObject( IObject::Ptr object, const TCoords& coords )
 void CMapData::removeObject( IObject::Ptr obj )
 {
    const IObject* objId = obj.get();
-   const TCoords coords = objectCoordIndex[ objId ];
+   const Coords coords = objectCoordIndex[ objId ];
 
    coordIndex[ coords ].erase( objId );
    objectCoordIndex.erase( objId );
    content.erase( objId );
 }
 
-void CMapData::updateObject( IObject::Ptr object, const TCoords& coords )
+void CMapData::updateObject( IObject::Ptr object, const Coords& coords )
 {
    const IObject* objId = object.get();
-   const TCoords oldCoords = objectCoordIndex[ objId ];
+   const Coords oldCoords = objectCoordIndex[ objId ];
    coordIndex[ oldCoords ].erase( objId );
 
    objectCoordIndex[ objId ] = coords;
    coordIndex[ coords ].insert( objId );
 }
 
-const TCoords& CMapData::getObjectCoords( IObject::Ptr object ) const
+const Coords& CMapData::getObjectCoords( IObject::Ptr object ) const
 {
    const IObject* objId = object.get();
    auto it = objectCoordIndex.find( objId );
@@ -48,9 +48,9 @@ const TCoords& CMapData::getObjectCoords( IObject::Ptr object ) const
       throw std::exception( "objectCoordIndex no index" );
 }
 
-TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectType_, size_t count )
+ObjectList CMapData::getObjectList( const Coords& coords, ObjectType objectType_, size_t count )
 {
-   TObjectList retVal;
+   ObjectList retVal;
 
    const auto& objectIdSet = coordIndex[ coords ];
    for ( const auto it : objectIdSet )
@@ -58,7 +58,7 @@ TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectTy
       auto object = content.find( it );
       if ( object != content.end() )
       {
-         TObjectType objectType = object->second->getObjectType();
+         ObjectType objectType = object->second->getObjectType();
          if ( matchObjectType( objectType, objectType_ ) )
          {
             retVal.push_back( object->second );
@@ -71,9 +71,9 @@ TObjectList CMapData::getObjectList( const TCoords& coords, TObjectType objectTy
    return retVal;
 }
 
-TConstObjectList CMapData::getConstObjectList( const TCoords& coords, TObjectType objectType_, size_t count ) const
+ConstObjectList CMapData::getConstObjectList( const Coords& coords, ObjectType objectType_, size_t count ) const
 {
-   TConstObjectList retVal;
+   ConstObjectList retVal;
 
    const auto& objectIdSet = coordIndex[ coords ];
    for ( const auto it: objectIdSet )
@@ -81,7 +81,7 @@ TConstObjectList CMapData::getConstObjectList( const TCoords& coords, TObjectTyp
       auto object = content.find( it );
       if ( object != content.end() )
       {
-         TObjectType objectType = object->second->getObjectType();
+         ObjectType objectType = object->second->getObjectType();
          if ( matchObjectType( objectType, objectType_ ) )
          {
             retVal.push_back( object->second );
@@ -94,12 +94,12 @@ TConstObjectList CMapData::getConstObjectList( const TCoords& coords, TObjectTyp
    return retVal;
 }
 
-TStructure& CMapData::getStructure( const TCoords& coords )
+TStructure& CMapData::getStructure( const Coords& coords )
 {
    return structures[ coords ];
 }
 
-const TStructure& CMapData::getStructure( const TCoords& coords ) const
+const TStructure& CMapData::getStructure( const Coords& coords ) const
 {
    return structures[ coords ];
 }

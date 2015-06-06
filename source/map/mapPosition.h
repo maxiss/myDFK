@@ -1,7 +1,7 @@
 #pragma once
 
 #include "objects\IPosition.h"
-#include "TCoords.h"
+#include "Coords.h"
 #include "objects\IObject.h"
 #include "map.h"
 
@@ -10,14 +10,14 @@ namespace game_engine
 	class CMapPosition : public IPosition
 	{
 	public:
-	   virtual TPositionType getPositionType() const override final;
+	   virtual PositionType getPositionType() const override final;
 
-      CMapPosition( IObject::Ptr, CMap::Ptr, const TCoords& );
+      CMapPosition( IObject::Ptr, CMap::Ptr, const Coords& );
       ~CMapPosition();
 
-      const TCoords& getCoords() const;
+      const Coords& getCoords() const;
       CMap::Ptr getMap();
-      void setCoords( const TCoords& );
+      void setCoords( const Coords& );
 
    private:
       IObject::Ptr getObject();
@@ -25,6 +25,6 @@ namespace game_engine
    private: // data
       const IObject::WeakPtr object;
       const CMap::WeakPtr map;
-      TCoords coords;
+      Coords coords;
 	};
 }

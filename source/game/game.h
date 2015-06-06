@@ -1,6 +1,6 @@
 #pragma once
 
-#include "map\TCoords.h"
+#include "map\Coords.h"
 #include "map\map.h"
 #include "creatures\creature.h"
 #include "tasks\tasks.h"
@@ -20,7 +20,7 @@ namespace game_engine
       virtual IMap::ConstPtr getMap() override final;
 
    protected:
-      void addObjectToMap( IObject::Ptr, coord x, coord y );
+      void addObjectToMap( IObject::Ptr, Coord x, Coord y );
 
    private:
       virtual void initData() = 0;

@@ -29,5 +29,5 @@ namespace game_engine
 	   IItem::Ptr content;
 	};
 
-   typedef std::vector< CEquipmentSlot::Ptr > TEquipmentSlots;
+   typedef std::vector< CEquipmentSlot::Ptr > EquipmentSlots;
 }

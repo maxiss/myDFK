@@ -5,7 +5,7 @@
 
 namespace game_engine
 {
-   typedef std::set< TCoords > TCoordsSet;
+   typedef std::set< Coords > TCoordsSet;
 
    class CMapPosition;
 
@@ -18,31 +18,31 @@ namespace game_engine
       typedef std::shared_ptr< const CMap > ConstPtr;
       typedef std::weak_ptr< CMap > WeakPtr;
 
-      CMap( const TCoords& min, const TCoords& max );
+      CMap( const Coords& min, const Coords& max );
 
-      IObject::Ptr getObject( const TCoords&, TObjectType );
-      TObjectList getObjects( const TCoords&, TObjectType );
-      bool canMove( IObject::Ptr, const TCoords& );
+      IObject::Ptr getObject( const Coords&, ObjectType );
+      ObjectList getObjects( const Coords&, ObjectType );
+      bool canMove( IObject::Ptr, const Coords& );
 
-      virtual TMapPointList getMapPositionList() const override final;
-      virtual TMapPointList getMapChanges() const override final;
+      virtual MapPointList getMapPositionList() const override final;
+      virtual MapPointList getMapChanges() const override final;
       void clearChanges() const;
 
-      void place( IObject::Ptr, const TCoords& );
+      void place( IObject::Ptr, const Coords& );
 
    private:
-      bool checkBorders( const TCoords& ) const;
-      bool checkPassable( const TCoords& ) const;
-      void addChange( const TCoords& ) const;
+      bool checkBorders( const Coords& ) const;
+      bool checkPassable( const Coords& ) const;
+      void addChange( const Coords& ) const;
       void tmp_initSturctures();
 
       friend CMapPosition;
-      void addObject( IObject::Ptr, const TCoords& );
-      void moveObject( IObject::Ptr obj, const TCoords& );
+      void addObject( IObject::Ptr, const Coords& );
+      void moveObject( IObject::Ptr obj, const Coords& );
       void removeObject( IObject::Ptr obj );
 
    private: // data
-      const TCoords min, max;
+      const Coords min, max;
       CMapData content;
       mutable TCoordsSet changes;
 

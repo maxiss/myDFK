@@ -2,19 +2,19 @@
 
 namespace game_engine
 {
-   enum class TStructureType
+   enum class StructureType
    {
-      none,
-      floor,
-      wall,
+      None,
+      Floor,
+      Wall,
    };
 
    class TStructure
    {
    public:
-      TStructure() : type( TStructureType::none ) {};
+      TStructure() : type( StructureType::None ) {};
 
-      TStructureType type;
+      StructureType type;
    };
 
 }

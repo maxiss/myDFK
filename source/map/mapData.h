@@ -2,7 +2,7 @@
 
 #include <set>
 #include <map>
-#include "TCoords.h"
+#include "Coords.h"
 #include "structure.h"
 #include "objects\IObject.h"
 #include "CoordsVector.h"
@@ -12,24 +12,24 @@ namespace game_engine
    class CMapData
    {
    public:
-      CMapData( const TCoords& min, const TCoords& max );
+      CMapData( const Coords& min, const Coords& max );
 
-      void addObject( IObject::Ptr, const TCoords& );
+      void addObject( IObject::Ptr, const Coords& );
       void removeObject( IObject::Ptr );
-      void updateObject( IObject::Ptr object, const TCoords& coords );
-      const TCoords& getObjectCoords( IObject::Ptr ) const;
+      void updateObject( IObject::Ptr object, const Coords& coords );
+      const Coords& getObjectCoords( IObject::Ptr ) const;
 
-      TObjectList getObjectList( const TCoords&, TObjectType, size_t = 0 );
-      TConstObjectList getConstObjectList( const TCoords&, TObjectType, size_t = 0 ) const;
+      ObjectList getObjectList( const Coords&, ObjectType, size_t = 0 );
+      ConstObjectList getConstObjectList( const Coords&, ObjectType, size_t = 0 ) const;
 
-      TStructure& getStructure( const TCoords& );
-      const TStructure& getStructure( const TCoords& ) const;
+      TStructure& getStructure( const Coords& );
+      const TStructure& getStructure( const Coords& ) const;
 
    private: // data
-      const TCoords min, max;
+      const Coords min, max;
 
       std::map< IObject::RawPtr, IObject::Ptr > content;
-      std::map< IObject::RawPtr, TCoords > objectCoordIndex;
+      std::map< IObject::RawPtr, Coords > objectCoordIndex;
       CCoordsVector< TStructure > structures;
       CCoordsVector< std::set< IObject::RawPtr > > coordIndex;
    };

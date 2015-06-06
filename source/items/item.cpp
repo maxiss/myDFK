@@ -2,7 +2,7 @@
 
 using namespace game_engine;
 
-TObjectType IItem::getObjectType() const
+ObjectType IItem::getObjectType() const
 {
-   return TObjectType::item;
+   return ObjectType::Item;
 }

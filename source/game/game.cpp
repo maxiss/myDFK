@@ -10,7 +10,7 @@ const int MAXX = 20;
 const int MAXY = 10;
 
 CGame::CGame()
-   : map{ std::make_shared<CMap>( TCoords{ MINX, MINY }, TCoords{ MAXX, MAXY } ) }
+   : map{ std::make_shared<CMap>( Coords{ MINX, MINY }, Coords{ MAXX, MAXY } ) }
 {}
 
 void CGame::start()
@@ -18,9 +18,9 @@ void CGame::start()
    initData();
 }
 
-void CGame::addObjectToMap( IObject::Ptr object, coord x, coord y )
+void CGame::addObjectToMap( IObject::Ptr object, Coord x, Coord y )
 {
-   map->place( object, TCoords{ x, y } );
+   map->place( object, Coords{ x, y } );
 }
 
 IMap::ConstPtr CGame::getMap()

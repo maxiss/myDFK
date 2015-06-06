@@ -9,7 +9,7 @@ namespace game_engine
    {
    public:
       CDwarf();
-      virtual TCreatureType getCreatureType() const override final;
+      virtual CreatureType getCreatureType() const override final;
       virtual std::string getName() const override;
    };
 

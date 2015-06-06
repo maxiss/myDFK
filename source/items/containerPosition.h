@@ -12,7 +12,7 @@ namespace game_engine
       CContainerPosition( IItem::Ptr, CItemContainer::Ptr );
       ~CContainerPosition();
 
-      virtual TPositionType getPositionType() const override final;
+      virtual PositionType getPositionType() const override final;
       CItemContainer::Ptr getContainer();
 
    private:
