@@ -2,42 +2,37 @@
 
 using namespace game_engine;
 
-CMapPointVisuzlizator::CMapPointVisuzlizator()
+typedef std::map< game_engine::ObjectType, char > ObjectTypeMap;
+typedef std::map< game_engine::StructureType, char > StructureTypeMap;
+
+static ObjectTypeMap getObjectTypeList()
 {
-   fillTypeObjectList();
-   fillStructureTypeList();
+   // TODO move out to ini-file
+   return {
+            { ObjectType::Item,     'i' },
+            { ObjectType::Building, 'b' },
+            { ObjectType::Creature, '@' },
+          };
 }
 
-void CMapPointVisuzlizator::fillTypeObjectList()
+static StructureTypeMap getStructureTypeList()
 {
-   // TODO bear out to ini-file
-   objectTypeList.insert( std::make_pair( ObjectType::Item,     'i' ) );
-   objectTypeList.insert( std::make_pair( ObjectType::Building, 'b' ) );
-   objectTypeList.insert( std::make_pair( ObjectType::Creature, '@' ) );
+   // TODO move out to ini-file
+   return {
+            { StructureType::None,  ' ' },
+            { StructureType::Floor, '.' },
+            { StructureType::Wall,  '#' },
+          };
 }
 
-void CMapPointVisuzlizator::fillStructureTypeList()
+char CMapPointVisuazlizator::getObjectTypeChar( ObjectType objType )
 {
-   // TODO bear out to ini-file
-   structureTypeList.insert( std::make_pair( StructureType::None,  ' ' ) );
-   structureTypeList.insert( std::make_pair( StructureType::Floor, '.' ) );
-   structureTypeList.insert( std::make_pair( StructureType::Wall,  '#' ) );
+   static const ObjectTypeMap objectTypeList = getObjectTypeList();
+   return objectTypeList.at( objType );
 }
 
-char CMapPointVisuzlizator::getObjectTypeChar( ObjectType objType ) const
+char CMapPointVisuazlizator::getStructureTypeChar( StructureType structureType )
 {
-   char retVal = '\0';
-   auto it = objectTypeList.find( objType );
-   if ( it != objectTypeList.end() )
-      retVal = it->second;
-   return retVal;
-}
-
-char CMapPointVisuzlizator::getStructureTypeChar( StructureType structureType ) const
-{
-   char retVal = '\0';
-   auto it = structureTypeList.find( structureType );
-   if ( it != structureTypeList.end() )
-      retVal = it->second;
-   return retVal;
+   static const StructureTypeMap structureTypeList = getStructureTypeList();
+   return structureTypeList.at( structureType );
 }

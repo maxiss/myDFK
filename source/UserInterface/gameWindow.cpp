@@ -28,7 +28,7 @@ private:
 private: // data
    IGame::Ptr game;
    IPlayerInterface::Ptr player;
-   CMapPointVisuzlizator typeChars;
+   CMapPointVisuazlizator typeChars;
 };
 
 CGameWindow::CGameWindow( IGame::Ptr game_ )
