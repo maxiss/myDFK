@@ -24,6 +24,7 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mapData.cpp" />
     <ClCompile Include="mapPosition.cpp" />
+    <ClCompile Include="TCoords.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7D5519E-4193-4286-8DB6-E7A17B9A6355}</ProjectGuid>

@@ -1,28 +1,17 @@
 #pragma once
 
+#include <cstdint>
+
 namespace game_engine
 {
-   typedef unsigned int coord;
+   typedef uint16_t coord;
 
    struct TCoords
    {
       coord x;
       coord y;
+
+      bool operator < (const TCoords&) const;
+      bool operator == (const TCoords&) const;
    };
-
-   inline bool operator < (const TCoords& left, const TCoords& right )
-   {
-      bool retVal;
-      if (left.y == right.y)
-         retVal = (left.x < right.x);
-      else
-         retVal = (left.y < right.y);
-      return retVal;
-   }
-
-   inline bool operator == ( const TCoords& pos1, const TCoords& pos2 )
-   {
-      return ( (pos1.x == pos2.x) && (pos1.y == pos2.y) );
-   }
-
 }
