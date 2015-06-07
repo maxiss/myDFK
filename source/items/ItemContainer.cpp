@@ -18,14 +18,6 @@ bool CItemContainer::isEmpty() const
    return content.empty();
 }
 
-IItem::Ptr CItemContainer::get()
-{
-   if ( !content.empty() )
-      return content.begin()->second;
-   else
-      return nullptr;
-}
-
 ItemList CItemContainer::getItems()
 {
    ItemList items;

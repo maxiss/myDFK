@@ -14,7 +14,6 @@ namespace game_engine
       typedef std::shared_ptr< CItemContainer > Ptr;
       typedef std::weak_ptr< CItemContainer > WeakPtr;
 
-      IItem::Ptr get();
       ItemList getItems();
       void store( IItem::Ptr );
       bool isEmpty() const;

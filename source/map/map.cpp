@@ -85,9 +85,9 @@ MapPointList CMap::getMapPositionList() const
    {
       for (Coord x = min.x; x <= max.x; x++)
       {
-         Coords coords{ x, y };
-         retVal.push_back( TMapPoint{ coords, content.getStructure( coords ).type,
-                                      content.getConstObjectList( coords, ObjectType::All ) } );
+         Coords coords = { x, y };
+         retVal.push_back( { coords, content.getStructure( coords ).type,
+                             content.getConstObjectList( coords, ObjectType::All ) } );
       }
    }
 
@@ -98,23 +98,11 @@ MapPointList CMap::getMapChanges() const
 {
    MapPointList retVal;
 
-   for ( auto it : changes )
-      retVal.push_back( TMapPoint{ it, content.getStructure( it ).type,
-                                   content.getConstObjectList( it, ObjectType::All ) } );
-
+   for ( auto coords : changedCoords )
+      retVal.push_back( { coords, content.getStructure( coords ).type,
+                          content.getConstObjectList( coords, ObjectType::All ) } );
 
    clearChanges();
-   return retVal;
-}
-
-IObject::Ptr CMap::getObject( const Coords& coords, ObjectType objectType )
-{
-   IObject::Ptr retVal;
-
-   ObjectList objectList = content.getObjectList( coords, objectType, 1 );
-   if ( !objectList.empty() )
-      retVal = *objectList.begin();
-
    return retVal;
 }
 
@@ -125,12 +113,12 @@ ObjectList CMap::getObjects( const Coords& coords, ObjectType objectType )
 
 void CMap::addChange( const Coords& point ) const
 {
-   changes.insert( point );
+   changedCoords.insert( point );
 }
 
 void CMap::clearChanges() const
 {
-   changes.clear();
+   changedCoords.clear();
 }
 
 bool CMap::canMove( IObject::Ptr, const Coords& coords )

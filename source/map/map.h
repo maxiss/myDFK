@@ -20,15 +20,15 @@ namespace game_engine
 
       CMap( const Coords& min, const Coords& max );
 
-      IObject::Ptr getObject( const Coords&, ObjectType );
       ObjectList getObjects( const Coords&, ObjectType );
+      void place( IObject::Ptr, const Coords& );
+
       bool canMove( IObject::Ptr, const Coords& );
 
       virtual MapPointList getMapPositionList() const override final;
       virtual MapPointList getMapChanges() const override final;
       void clearChanges() const;
 
-      void place( IObject::Ptr, const Coords& );
 
    private:
       bool checkBorders( const Coords& ) const;
@@ -44,7 +44,7 @@ namespace game_engine
    private: // data
       const Coords min, max;
       CMapData content;
-      mutable TCoordsSet changes;
+      mutable TCoordsSet changedCoords;
 
    };
 
